@@ -1,0 +1,72 @@
+button {
+    font-family: Calibri;
+    border: 0px;
+}
+
+table {
+    border-width: 20px;
+}
+
+.red-btn {
+    background-color: #eb0f46;
+    height: 150px;
+    width: 150px
+}
+
+.blue-btn {
+    background-color: #006eff;
+    height: 150px;
+    width: 150px
+}
+
+p {
+    font-size: 24px;
+    font-family: Calibri;
+}
+
+#overlay {
+   position: fixed;
+   width: 100%;
+   height: 100%;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background-color: rgba(0, 0, 0, 0.5);
+   z-index: 2;
+   cursor: pointer;
+}
+
+#instructions {
+   position: absolute;
+   font-family: Calibri;
+   text-align: center;
+   letter-spacing: 0.5px;
+   top: 50%;
+   left: 50%;
+   font-size: 20px;
+   color: white;
+   transform: translate(-50%,-50%);
+   -ms-transform: translate(-50%,-50%);
+}
+
+#showInstructions {
+    width: 125px;
+    margin-left: 1760px;
+}
+
+.start {
+    font-family: Calibri;
+    font-size: 20px;
+    height: 30px;
+    width: 60px;
+    transition: width 0.2s;
+}
+
+.start:hover {
+  width: 80px;
+}
+
+#countdown {
+    font-family: Calibri;
+}

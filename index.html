@@ -1,28 +1,79 @@
+<!DOCTYPE html>
 <html>
+<title>Roseak Lin</title>
 
 <head>
-
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <div id="overlay" style="display: block" onclick="turnOffOverlay()">
-        <div id="instructions">A 4x4 grid will appear with exactly 4 red tiles and 12 blue tiles. Your task is to click all red tiles as quickly as possible. To start, click the 
-            start button at the top of the screen and a 3 second countdown will begin before the grid appears.<br><br>Your best, average and previous score is shown on the bottom of
-             the screen.
-            <br><br><br>Click anywhere to close</div>
-    </div>
-    <div align="center">
-        <button class="start" onclick="countdown()"><b>Start</b></button>
-        <button id="showInstructions" onclick="turnOnOverlay()">Show Instructions</button>
-    </div>
-    <p align="center" id="countdown"></p>
+    <button id="to-top" onclick="scrollToTop()"><img class="scroll-image"
+            src="https://icons-for-free.com/iconfiles/png/512/arrow+top+arrow+up+arrow+upward+top+up+upward+icon-1320185743440304413.png"></button>
 
-    <div align="center" id="grid"></div>
-    <br>
+    <nav class="nav-bar">
+        <a class="home-btn">Home</a>
+        <button class="nav-btn"><a id="nav-link" onclick="expClick()">Coding Experience</a></button>
+        <button class="nav-btn"><a id="nav-link" onclick="projClick()">Projects</a></button>
+    </nav>
+    <div id="particles-js"></div>
+    <div id="home">
+        <h1 style="font-size: 56px;">Roseak Lin</h1>
+        <div id="description">
+            I am a 17 year old student at London Central Secondary School graduating this year. I am currently
+            looking for a summer internship for the summer of 2021.
+            <br>
+        </div>
+        <div id="links">
+            My profiles:<br>
+            <button onclick="window.location.href='https://dmoj.ca/user/chopstick';" class="rounded-btn"><img
+                    src="images\dmoj.png" title="Dmoj"></button>
+            <button onclick="window.location.href='https://github.com/Roseak-lin';" class="rounded-btn"><img
+                    src="images\github.jpg" title="Github"></button>
+        </div>
+    </div>
 
-    <p align="center" id="HighScore"></p>
-    <script src="activity.js"></script>
+    
+
+    <div id="experience">
+        <div class="section-title">
+            Programming Experience
+            <table id="exp-table">
+                <tr>
+                    <td>3 years of Java experience; 1 year of C++ experience</td>
+                    <td>1 year of experience with HTML, CSS, and Javascript</td>
+                </tr>
+                <tr>
+                    <td>Award of Distinction, Junior CCC 2020 (63/75)</td>
+                    <td>Over 250 contest questions solved on dmoj.ca (ranked top 1% by points)</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div id="projects">
+        <div class="section-title">
+            Coding Projects
+        </div>
+        <table>
+            <tr>
+                <td>
+                    <img src="images/Quickness_Test_screenshot.jpg" width="32%" height="30%">
+                    <br>
+                    <b>Quickness/reactions test</b><br> A small activity created using basic html, css and javascript
+                    which tests a user's reactions and speed, displaying results at the bottom of the screen.
+                </td>
+                <td>
+                    <img src="images//Phonebook_screenshot.jpg" width="45%" height="30%">
+                    <br>
+                    <b>Javafx phonebook</b><br> A GUI made in java using the javafx library, which can read existing
+                    entires in a .txt file, and can write into a .txt file to update it.
+                </td>
+            </tr>
+        </table>
+    </div>
 </body>
+
+<script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script src="functions.js"></script>
 
 </html>
