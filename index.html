@@ -8,8 +8,7 @@
 </head>
 
 <body>
-    <button id="to-top" onclick="scrollToTop()"><img class="scroll-image"
-            src="https://icons-for-free.com/iconfiles/png/512/arrow+top+arrow+up+arrow+upward+top+up+upward+icon-1320185743440304413.png"></button>
+    <button id="to-top" onclick="scrollToTop()"><img class="scroll-image" src="images/up-arrow.png"></button>
 
     <nav class="nav-bar">
         <a class="home-btn">Home</a>
@@ -22,15 +21,14 @@
         <h1 style="font-size: 56px;">Roseak Lin</h1>
         <div id="description">
             I am a 17 year old student at London Central Secondary School graduating this year. I am currently
-            looking for a summer internship for the summer of 2021.
+            looking for an internship for the summer of 2021.
             <br>
         </div>
         <div id="links">
             My profiles:<br>
-            <button onclick="window.location.href='https://dmoj.ca/user/chopstick';" class="rounded-btn"><img
-                    src="images\dmoj.png" title="Dmoj"></button>
-            <button onclick="window.location.href='https://github.com/Roseak-lin';" class="rounded-btn"><img
-                    src="images\github.jpg" title="Github"></button>
+            <a href="https://dmoj.ca/user/chopstick" target="_blank"><img src="images\dmoj.png" target="_blank"
+                    title="Dmoj"></a>
+            <a href="https://github.com/Roseak-lin" target="_blank"><img src="images\github.jpg" title="Github"></a>
         </div>
     </div>
 
@@ -41,8 +39,7 @@
             Programming Experience
             <table id="exp-table">
                 <tr>
-                    <td>3 years of Java experience; 1 year of C++ experience</td>
-                    <td>1 year of experience with HTML, CSS, and Javascript</td>
+                    <td colspan="2">Languages: Java, C++, HTML, Bootstrap 4, CSS, JavaScript, ReactJS</td>
                 </tr>
                 <tr>
                     <td>Award of Distinction, Junior CCC 2020 (63/75)</td>
@@ -59,26 +56,35 @@
         <table>
             <tr>
                 <td>
-                    <img src="images/Quickness_Test_screenshot.jpg" width="30%" height="45%">
+                    <img id="qt" src="images/Quickness_Test_screenshot.jpg" width="30%" height="45%">
                     <br>
-                    <b>Quickness/reactions test</b><br> A small activity created using basic html, css and javascript
+                    <b>Quickness/reactions test</b><br> A small activity created using basic html, css and
+                    javascript
                     which tests a user's reactions and speed, displaying results at the bottom of the screen.
                     <br>
-                    <a href="https://github.com/Roseak-lin/Quickness-Activity" class="btn btn-outline-dark" target="_blank">Source Code</a>
-                    <a href="https://quickness-test.glitch.me" class="btn btn-outline-dark" target="_blank">Live demo</a>
+                    <a href="https://github.com/Roseak-lin/Quickness-Activity" class="btn btn-outline-dark"
+                        target="_blank">Source Code</a>
+                    <a href="https://quickness-test.glitch.me" class="btn btn-outline-dark" target="_blank">Live
+                        demo</a>
                 </td>
                 <td>
-                    <img src="images/Phonebook_screenshot.jpg" width="35%" height="30%">
+                    <img id="pb" src="images/Phonebook_screenshot.jpg" width="35%" height="30%">
                     <br>
                     <b>Javafx phonebook</b>
                     <br>
                     A GUI made in java using the javafx library, which can read existing
                     entires in a .txt file, and can write into a .txt file to update it.
                     <br>
-                    <a href="https://github.com/Roseak-lin/Javafx-Phonebook" class="btn btn-outline-dark" target="_blank">Source Code</a>
+                    <a href="https://github.com/Roseak-lin/Javafx-Phonebook" class="btn btn-outline-dark"
+                        target="_blank">Source Code</a>
                 </td>
             </tr>
         </table>
+    </div>
+
+    <div id="image" class="enlargedImage">
+        <span class="close">&times</span>
+        <img class="enlarged" id="img">
     </div>
 </body>
 

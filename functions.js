@@ -1,20 +1,33 @@
 window.onscroll = function () {
-    checkPosition();
+    if (document.documentElement.scrollTop > 40) {
+        document.getElementById("to-top").style.display = "block";
+    } else {
+        document.getElementById("to-top").style.display = "none";
+    }
 };
+
+var modal = document.getElementById("image");
+var img = document.getElementById("qt");
+var img1 = document.getElementById("pb");
+var modalImg = document.getElementById("img");
+img.onclick = function () {
+    modal.style.display = "block";
+    modalImg.src = "images/Quickness_Test_screenshot.jpg";
+}
+img1.onclick = function () {
+    modal.style.display = "block";
+    modalImg.src = "images/Phonebook_screenshot.jpg";
+}
+document.getElementsByClassName("close")[0].onclick = function () {
+    modal.style.display = "none";
+}
+
 function expClick() {
     document.getElementById("experience").scrollIntoView();
 }
 
 function projClick() {
     document.getElementById("projects").scrollIntoView();
-}
-
-function checkPosition() {
-    if (document.documentElement.scrollTop > 40) {
-        document.getElementById("to-top").style.display = "block";
-    } else {
-        document.getElementById("to-top").style.display = "none";
-    }
 }
 
 function scrollToTop() {
@@ -92,7 +105,8 @@ update = function () {
         } catch (err) {
             console.error();
         }
-  }
+    }
     requestAnimationFrame(update);
 };
 requestAnimationFrame(update);
+
