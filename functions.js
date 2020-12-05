@@ -1,26 +1,11 @@
+var scrollBtn = document.getElementById("to-top");
 window.onscroll = function () {
     if (document.documentElement.scrollTop > 40) {
-        document.getElementById("to-top").style.display = "block";
+        scrollBtn.style.display = "block";
     } else {
-        document.getElementById("to-top").style.display = "none";
+        scrollBtn.style.display = "none";
     }
 };
-
-var modal = document.getElementById("image");
-var img = document.getElementById("qt");
-var img1 = document.getElementById("pb");
-var modalImg = document.getElementById("img");
-img.onclick = function () {
-    modal.style.display = "block";
-    modalImg.src = "images/Quickness_Test_screenshot.jpg";
-}
-img1.onclick = function () {
-    modal.style.display = "block";
-    modalImg.src = "images/Phonebook_screenshot.jpg";
-}
-document.getElementsByClassName("close")[0].onclick = function () {
-    modal.style.display = "none";
-}
 
 function expClick() {
     document.getElementById("experience").scrollIntoView();
@@ -34,7 +19,60 @@ function scrollToTop() {
     document.documentElement.scrollTop = 0;
 }
 
-// particle background ////////////////////////////////////////
+////////////// name animation ///////////////////////////
+var text = document.getElementById("text");
+var newDom = "";
+var animationDelay = 10;
+
+for (let i = 0; i < text.innerText.length; i++) {
+    newDom +=
+        '<span class="char">' +
+        (text.innerText[i] == " " ? "&nbsp;" : text.innerText[i]) +
+        "</span>";
+}
+
+text.innerHTML = newDom;
+var length = text.children.length;
+
+for (let i = 0; i < length; i++) {
+    text.children[i].style["animation-delay"] = animationDelay * i + "ms";
+}
+
+//////////// image models /////////////////////////////////
+var navbar = document.getElementById("nav-bar");
+var modal = document.getElementById("image");
+var img = document.getElementById("qt");
+var img1 = document.getElementById("pb");
+var modalImg = document.getElementById("img");
+
+img.onclick = function () {
+    navbar.style.display = "none";
+    modal.style.display = "block";
+    modalImg.src = "images/Quickness_Test_screenshot.jpg";
+    scrollBtn = scrollBtn.style.display = "none";
+}
+
+img1.onclick = function () {
+    navbar.style.display = "none";
+    modal.style.display = "block";
+    modalImg.src = "images/Phonebook_screenshot.jpg";
+    scrollBtn.style.display = "none";
+}
+
+
+document.getElementsByClassName("close")[0].onclick = function () {
+    modal.style.display = "none";
+}
+
+window.onclick = function (event) {
+    if (event.target == modal) {
+        navbar.style.display = "block";
+        modal.style.display = "none";
+        scrollBtn.style.display = "block";
+    }
+}
+
+//////////// particle background ////////////////////////////////////////
 particlesJS("particles-js", {
     particles: {
         number: { value: 60, density: { enable: true, value_area: 800 } },

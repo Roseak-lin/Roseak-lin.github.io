@@ -10,12 +10,10 @@ html, body, div, span, object, iframe, h1, a, h2, h3, h4, h5, h6, p, blockquote,
     background: transparent
 }
 
-a, img:hover {
-    cursor: pointer;
-}
-
 .section-title {
+    padding-top: 2vh;
     font-size: 48px;
+    text-align: center;
 }
 
 .scroll-image {
@@ -58,21 +56,26 @@ canvas {
     background-position: 50% 50%;
 }
 
+.char {
+    font-size: 64px;
+    height: 40px;
+    animation: an 1.5s ease-out 1 both;
+    display: inline-block;
+}
+
+@keyframes an {
+    from {
+        opacity: 0;
+        transform: perspective(500px) translate3d(-35px, -40px, -150px) rotate3d(1, -1, 0, 35deg);
+    }
+    to {
+        opacity: 1;
+        transform: perspective(500px) translate3d(0, 0, 0);
+    }
+}
+
 /******************************************************************/
-
-#nav-link {
-    color: #949494;
-    font-size: 16px;
-    text-decoration: none;
-}
-
-#nav-link:hover {
-    color: white;
-    transition: 0.3s;
-}
-
-.nav-bar {
-    font-family: Helvetica, sans-serif;
+#nav-bar {
     background-color: black;
 }
 
@@ -84,13 +87,15 @@ canvas {
 }
 
 .nav-btn {
+    color: grey;
     padding: 8px;
     border: none;
     background-color: transparent;
 }
 
-.nav-btn :hover {
+.nav-btn:hover {
     color: white;
+    transition: 0.3s;
 }
 
 /****************************Home*********************************/
@@ -100,8 +105,11 @@ canvas {
     min-height: 100vh;
 }
 
-#description {
-    min-height: 60vh;
+#text {
+    text-align: center;
+    padding: 35vh 0;
+    font-size: 64px;
+    height: 75vh;
 }
 
 #links {
@@ -131,41 +139,42 @@ canvas {
 
 #experience {
     background-color: black;
-    color: white;
-    text-align: center;
+    height: 75vh;
+}
+
+#exp-left {
     min-height: 75vh;
+    background-image: url("images/experience_background.jpg");
+    background-size: cover;
 }
 
-#exp-table {
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 24px;
+#exp-right {
+    padding-top: 2vh;
 }
 
-#exp-table td {
-    padding-top: 10vh;
-    padding-right: 10vh;
-    padding-left: 10vh;
+.card {
+    margin: auto;
+    box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.6);
+    padding: 6px 0px 0px 6px; 
+    width: 40vw;
 }
 
 /*************************Projects****************************/
 
 #projects {
     text-align: center;
-    max-height: 100vh;
-}
-
-#projects table {
-    width: 100%;
-}
-
-#projects td {
-    font-style: normal;
-    text-decoration: none;
-    padding: 100px;
     height: 100vh;
-    width: 50vh;
 }
+
+.table-img {
+    max-height: 50vh;
+}
+
+#qt, #pb:hover {
+    cursor: pointer;
+}
+
+/* popup images */
 
 .enlargedImage {
     display: none;
@@ -185,13 +194,14 @@ canvas {
     display: block;
     width: 80%;
     max-width: 700px;
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.4s;
+    animation-name: zoom;
+    animation-duration: 0.4s;
 }
 
-.enlarged {
-    -webkit-animation-name: zoom;
-    -webkit-animation-duration: 0.6s;
-    animation-name: zoom;
-    animation-duration: 0.6s;
+.enlarged :hover {
+    cursor: none;
 }
 
 @-webkit-keyframes zoom {
@@ -216,7 +226,6 @@ canvas {
     position: absolute;
     top: 15px;
     right: 35px;
-    color: #ffffff;
     font-size: 40px;
     font-weight: bold;
     transition: 0.3s;

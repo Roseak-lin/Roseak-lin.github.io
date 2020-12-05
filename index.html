@@ -9,83 +9,95 @@
 
 <body>
     <button id="to-top" onclick="scrollToTop()"><img class="scroll-image" src="images/up-arrow.png"></button>
-
-    <nav class="nav-bar">
-        <a class="home-btn">Home</a>
-        <button class="nav-btn"><a id="nav-link" onclick="expClick()">Coding Experience</a></button>
-        <button class="nav-btn"><a id="nav-link" onclick="projClick()">Projects</a></button>
+    <nav class="nav-bar fixed-top" id="nav-bar">
+        <button class="nav-btn" style="font-size: 25px;" onclick="scrollToTop()">Roseak Lin</button>
+        <button class="nav-btn" onclick="expClick()">Coding Experience</button>
+        <button class="nav-btn" onclick="projClick()">Projects</button>
     </nav>
     <div id="particles-js"></div>
     <div id="home">
         <br>
-        <h1 style="font-size: 56px;">Roseak Lin</h1>
-        <div id="description">
-            I am a 17 year old student at London Central Secondary School graduating this year. I am currently
-            looking for an internship for the summer of 2021.
-            <br>
+        <div id="text">
+            Roseak Lin
         </div>
         <div id="links">
             My profiles:<br>
-            <a href="https://dmoj.ca/user/chopstick" target="_blank"><img src="images\dmoj.png" target="_blank"
-                    title="Dmoj"></a>
-            <a href="https://github.com/Roseak-lin" target="_blank"><img src="images\github.jpg" title="Github"></a>
+            <button onclick="window.open('https://dmoj.ca/user/chopstick');" class="rounded-btn"><img
+                    src="images\dmoj.png" title="Dmoj"></button>
+            <button onclick="window.open('https://github.com/Roseak-lin');" class="rounded-btn"><img
+                    src="images\github.jpg" title="Github"></button>
         </div>
     </div>
-
-
-
+    
     <div id="experience">
-        <div class="section-title">
-            Programming Experience
-            <table id="exp-table">
-                <tr>
-                    <td colspan="2">Languages: Java, C++, HTML, Bootstrap 4, CSS, JavaScript, ReactJS</td>
-                </tr>
-                <tr>
-                    <td>Award of Distinction, Junior CCC 2020 (63/75)</td>
-                    <td>Over 250 contest questions solved on dmoj.ca (ranked top 1% by points)</td>
-                </tr>
-            </table>
+        <div class="row">
+            <div class="col-sm-6" id="exp-left"></div>
+            <div class="col-sm-6" id="exp-right">
+                <h1 class="section-title" style="color: white;">Coding Experience</h1>
+                <br><br>
+                <div class="card">
+                    <p>2020 CCC Award of Distinction (63/75)</p>
+                </div>
+                <br>
+                <div class="card">
+                    <p>Java coding tutor</p>
+                </div>
+                <br>
+                <div class="card">
+                    <p>3 years of Java experience, 1 year of C++ experience</p>
+                </div>
+                <br>
+                <div class="card">
+                    <p>Over 250 contest questions solved on dmoj.ca (ranked top 1% by points)</p>
+                </div>
+            </div>
         </div>
-    </div>
 
-    <div id="projects">
-        <div class="section-title">
-            Coding Projects
+        <div id="projects">
+            <h1 class="section-title">
+                Coding Projects
+            </h1>
+
+            <div class="table-responsive-sm">
+                <table class="table table-borderless">
+                    <tr>
+                        <td style="vertical-align:middle;">
+                            <img id="qt" class="img-fluid table-img" src="images/Quickness_Test_screenshot.jpg"></td>
+                        <td style="vertical-align:middle;">
+                            <img id="pb" class="img-fluid table-img" src="images/Phonebook_screenshot.jpg">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>Quickness/reactions test</b><br> A small activity created using basic html, css and
+                            javascript
+                            which tests a user's reactions and speed, displaying results at the bottom of the screen.
+                            <br>
+                            <a href="https://github.com/Roseak-lin/Quickness-Activity" class="btn btn-outline-dark"
+                                target="_blank">Source Code</a>
+                            <a href="https://quickness-test.glitch.me" class="btn btn-outline-dark" target="_blank">Live
+                                demo</a>
+                        </td>
+                        <td>
+                            <b>Javafx phonebook</b>
+                            <br>
+                            A GUI made in java using the javafx library, which can read existing
+                            entires in a .txt file, and can write into a .txt file to update it.
+                            <br>
+                            <a href="https://github.com/Roseak-lin/Javafx-Phonebook" class="btn btn-outline-dark"
+                                target="_blank">Source Code</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
         </div>
-        <table>
-            <tr>
-                <td>
-                    <img id="qt" src="images/Quickness_Test_screenshot.jpg" width="30%" height="45%">
-                    <br>
-                    <b>Quickness/reactions test</b><br> A small activity created using basic html, css and
-                    javascript
-                    which tests a user's reactions and speed, displaying results at the bottom of the screen.
-                    <br>
-                    <a href="https://github.com/Roseak-lin/Quickness-Activity" class="btn btn-outline-dark"
-                        target="_blank">Source Code</a>
-                    <a href="https://quickness-test.glitch.me" class="btn btn-outline-dark" target="_blank">Live
-                        demo</a>
-                </td>
-                <td>
-                    <img id="pb" src="images/Phonebook_screenshot.jpg" width="35%" height="30%">
-                    <br>
-                    <b>Javafx phonebook</b>
-                    <br>
-                    A GUI made in java using the javafx library, which can read existing
-                    entires in a .txt file, and can write into a .txt file to update it.
-                    <br>
-                    <a href="https://github.com/Roseak-lin/Javafx-Phonebook" class="btn btn-outline-dark"
-                        target="_blank">Source Code</a>
-                </td>
-            </tr>
-        </table>
-    </div>
 
-    <div id="image" class="enlargedImage">
-        <span class="close">&times</span>
-        <img class="enlarged" id="img">
-    </div>
+
+
+        <div id="image" class="enlargedImage">
+            <span class="close">&times</span>
+            <img class="enlarged" id="img">
+        </div>
 </body>
 
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
