@@ -101,7 +101,7 @@ canvas {
 /****************************Home*********************************/
 
 #home {
-    padding: 0px 0px 0px 30px;
+    padding: 30px 0px 0px 30px;
     min-height: 100vh;
 }
 
@@ -138,14 +138,15 @@ canvas {
 /************************Experience******************************/
 
 #experience {
+    padding-top: 30px;
     background-color: black;
     height: 75vh;
 }
 
 #exp-left {
-    min-height: 75vh;
     background-image: url("images/experience_background.jpg");
-    background-size: cover;
+    background-size: auto;
+    background-repeat: no-repeat;
 }
 
 #exp-right {
@@ -162,6 +163,7 @@ canvas {
 /*************************Projects****************************/
 
 #projects {
+    padding-top: 30px;
     text-align: center;
     height: 100vh;
 }
