@@ -59,7 +59,6 @@ img1.onclick = function () {
     scrollBtn.style.display = "none";
 }
 
-
 document.getElementsByClassName("close")[0].onclick = function () {
     modal.style.display = "none";
 }
@@ -79,13 +78,13 @@ particlesJS("particles-js", {
         color: { value: "#000000" },
         shape: {
             type: "circle",
-            stroke: { width: 0, color: "#000001" },
-            polygon: { nb_sides: 4 },
+            stroke: { width: 0, color: "#000000" },
+            polygon: { nb_sides: 3 },
             image: { src: "img/github.svg", width: 100, height: 100 },
         },
         opacity: {
-            value: 0.5,
-            random: false,
+            value: 0.75,
+            random: true,
             anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false },
         },
         size: {
@@ -102,7 +101,7 @@ particlesJS("particles-js", {
         },
         move: {
             enable: true,
-            speed: 8.00,
+            speed: 7.50,
             direction: "none",
             random: true,
             straight: false,

@@ -138,19 +138,18 @@ canvas {
 /************************Experience******************************/
 
 #experience {
-    padding-top: 30px;
     background-color: black;
     height: 75vh;
 }
 
 #exp-left {
     background-image: url("images/experience_background.jpg");
-    background-size: auto;
+    background-size: cover;
     background-repeat: no-repeat;
 }
 
 #exp-right {
-    padding-top: 2vh;
+    padding-top: 10vh;
 }
 
 .card {
@@ -163,7 +162,7 @@ canvas {
 /*************************Projects****************************/
 
 #projects {
-    padding-top: 30px;
+    padding-top: 53px;
     text-align: center;
     height: 100vh;
 }
