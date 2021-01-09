@@ -49,7 +49,7 @@ img.onclick = function () {
     navbar.style.display = "none";
     modal.style.display = "block";
     modalImg.src = "images/Quickness_Test_screenshot.jpg";
-    scrollBtn = scrollBtn.style.display = "none";
+    scrollBtn.style.display = "none";
 }
 
 img1.onclick = function () {
