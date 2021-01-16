@@ -20,7 +20,7 @@ function scrollToTop() {
 }
 
 ////////////// name animation ///////////////////////////
-var text = document.getElementById("text");
+var text = document.getElementById("name");
 var newDom = "";
 var animationDelay = 10;
 
