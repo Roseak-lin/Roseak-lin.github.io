@@ -168,11 +168,17 @@ canvas {
     height: 100vh;
 }
 
+#projects td {
+    padding: 0 24px 24px 24px;
+    width: 50%;
+    vertical-align: middle;
+}
+
 .table-img {
     max-height: 50vh;
 }
 
-#qt, #pb:hover {
+#qt, #pb, #shopify_img:hover {
     cursor: pointer;
 }
 
@@ -191,18 +197,24 @@ canvas {
 }
 
 .enlarged {
-    margin: auto;
     display: block;
-    width: 80%;
-    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
     -webkit-animation-name: zoom;
-    -webkit-animation-duration: 0.4s;
+    -webkit-animation-duration: 0.3s;
     animation-name: zoom;
     animation-duration: 0.3s;
 }
 
 .enlarged :hover {
     cursor: none;
+}
+
+.enlarged img {
+    max-width: 90%;
+    max-height: 90%;
+    margin-top: 50%;
+
 }
 
 @-webkit-keyframes zoom {
@@ -223,16 +235,16 @@ canvas {
     }
 }
 
-.close {
+.close-override {
     position: absolute;
     color: #ffffff;
     top: 15px;
     right: 35px;
-    font-size: 40px;
+    font-size: 24px;
     transition: 0.3s;
 }
 
-.close:hover, .close:focus {
+.close-override:hover, .close-override:focus {
     color: #bbb;
     cursor: pointer;
 }

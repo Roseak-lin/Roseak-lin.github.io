@@ -43,6 +43,7 @@ var navbar = document.getElementById("nav-bar");
 var modal = document.getElementById("image");
 var img = document.getElementById("qt");
 var img1 = document.getElementById("pb");
+var img2 = document.getElementById("shopify_img");
 var modalImg = document.getElementById("img");
 
 img.onclick = function () {
@@ -59,7 +60,14 @@ img1.onclick = function () {
     scrollBtn.style.display = "none";
 }
 
-document.getElementsByClassName("close")[0].onclick = function () {
+img2.onclick = function () {
+    navbar.style.display = "none";
+    modal.style.display = "block";
+    modalImg.src = "images/Shopify_screenshot.jpg";
+    scrollBtn.style.display = "none";
+}
+
+document.getElementsByClassName("close-override")[0].onclick = function () {
     modal.style.display = "none";
 }
 

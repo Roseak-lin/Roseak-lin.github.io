@@ -60,23 +60,26 @@
         <div class="table-responsive-sm">
             <table class="table table-borderless">
                 <tr>
-                    <td style="vertical-align:middle;">
+                    <td>
                         <img id="qt" class="img-fluid table-img" src="images/Quickness_Test_screenshot.jpg">
                     </td>
-                    <td style="vertical-align:middle;">
+                    <td>
                         <img id="pb" class="img-fluid table-img" src="images/Phonebook_screenshot.jpg">
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <b>Quickness/reactions test</b><br> A small activity created using basic html, css and
+                        <b>Quickness/reactions test</b>
+                        <br>
+                        A small activity created using basic html, css and
                         javascript
                         which tests a user's reactions and speed, displaying results at the bottom of the screen.
                         <br>
-                        <a href="https://github.com/Roseak-lin/Quickness-Activity" class="btn btn-outline-dark"
-                            target="_blank">Source Code</a>
-                        <a href="https://quickness-test.glitch.me" class="btn btn-outline-dark" target="_blank">Live
-                            demo</a>
+                        <button class="btn btn-outline-dark"
+                            onclick="window.open('https://github.com/Roseak-lin/Quickness-Activity')">Source
+                            Code</button>
+                        <button class="btn btn-outline-dark"
+                            onclick="window.open('https://quickness-test.glitch.me')">Live demo</button>
                     </td>
                     <td>
                         <b>Javafx phonebook</b>
@@ -84,8 +87,30 @@
                         A GUI made in java using the javafx library, which can read existing
                         entires in a .txt file, and can write into a .txt file to update it.
                         <br>
-                        <a href="https://github.com/Roseak-lin/Javafx-Phonebook" class="btn btn-outline-dark"
-                            target="_blank">Source Code</a>
+                        <button class="btn btn-outline-dark" onclick="window.open('https://github.com/Roseak-lin/Javafx-Phonebook')">Source
+                            Code</button>
+                        </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img id="shopify_img" class="img-fluid table-img" src="images/Shopify_Screenshot.jpg">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <b>Shopify Front-End Challenge Application</b>
+                        <br>
+                        A web application built with ReactJS which allows a user to nominate 5 movies for an award show
+                        called "The Shoppies".
+                        Nominations are stored in the browser's local storage which saves the users nominations after
+                        they close the tab.
+                        <br>
+                        <button class="btn btn-outline-dark"
+                            onclick="window.open('https://github.com/Roseak-lin/Shopify-Front-End-Challenge')">Source
+                            Code</button>
+                        <button class="btn btn-outline-dark"
+                            onclick="window.open('https://roseak-lin.github.io/Shopify-Front-End-Challenge')">Live
+                            demo</button>
                     </td>
                 </tr>
             </table>
@@ -93,7 +118,7 @@
     </div>
 
     <div id="image" class="enlargedImage">
-        <span class="close">&times</span>
+        <span class="close-override">&times</span>
         <img class="enlarged" id="img">
     </div>
 
