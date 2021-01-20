@@ -1,23 +1,11 @@
 var scrollBtn = document.getElementById("to-top");
 window.onscroll = function () {
-    if (document.documentElement.scrollTop > 40) {
+    if (document.documentElement.scrollTop > 40 && document.getElementById("image").style.display == "none") {
         scrollBtn.style.display = "block";
     } else {
         scrollBtn.style.display = "none";
     }
 };
-
-function expClick() {
-    document.getElementById("experience").scrollIntoView();
-}
-
-function projClick() {
-    document.getElementById("projects").scrollIntoView();
-}
-
-function scrollToTop() {
-    document.documentElement.scrollTop = 0;
-}
 
 ////////////// name animation ///////////////////////////
 var text = document.getElementById("name");
@@ -71,6 +59,7 @@ document.getElementsByClassName("close-override")[0].onclick = function () {
     modal.style.display = "none";
 }
 
+// close enlarged image
 window.onclick = function (event) {
     if (event.target == modal) {
         navbar.style.display = "block";

@@ -10,10 +10,19 @@
 
 <body>
     <button id="to-top" onclick="scrollToTop()"><img class="scroll-image" src="images/up-arrow.png"></button>
-    <nav class="nav-bar fixed-top" id="nav-bar">
-        <button class="nav-btn" style="font-size: 25px;" onclick="scrollToTop()">Roseak Lin</button>
-        <button class="nav-btn" onclick="expClick()">Coding Experience</button>
-        <button class="nav-btn" onclick="projClick()">Projects</button>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="navbar-brand" href="#" onclick="scrollToTop()">Roseak Lin</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#experience">Coding Experience</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#projects">Projects</a>
+            </li>
+        </ul>
+        
     </nav>
     <div id="particles-js"></div>
     <div id="home">
@@ -124,6 +133,7 @@
     <div id="image" class="enlargedImage">
         <span class="close-override">&times</span>
         <img class="enlarged" id="img">
+
     </div>
 
 </body>
