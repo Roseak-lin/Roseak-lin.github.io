@@ -72,17 +72,6 @@ canvas {
 }
 
 /******************************************************************/
-#nav-bar {
-    background-color: black;
-}
-
-.home-btn {
-    padding: 10px;
-    color: white;
-    font-size: 30px;
-    cursor: pointer;
-}
-
 .nav-btn {
     color: grey;
     padding: 8px;

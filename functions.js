@@ -7,6 +7,20 @@ window.onscroll = function () {
     }
 };
 
+function scrollToTop() {
+    document.documentElement.scrollTop = 0;
+}
+
+function scrollToExperience() {
+    document.getElementById("experience").scrollIntoView();
+}
+
+function scrollToProjects() {
+    document.getElementById("projects").scrollIntoView();
+}
+
+
+
 ////////////// name animation ///////////////////////////
 var text = document.getElementById("name");
 var newDom = "";
