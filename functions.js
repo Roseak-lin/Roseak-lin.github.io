@@ -19,8 +19,6 @@ function scrollToProjects() {
     document.getElementById("projects").scrollIntoView();
 }
 
-
-
 ////////////// name animation ///////////////////////////
 var text = document.getElementById("name");
 var newDom = "";
