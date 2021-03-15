@@ -47,6 +47,7 @@ var shopImg = document.getElementById("shopify_img");
 var dsaImg = document.getElementById("DSA_img");
 var modalImg = document.getElementById("img");
 
+// enlarge images when they are clicked
 qtImg.onclick = function () {
     navbar.style.display = "none";
     modal.style.display = "flex";
@@ -78,6 +79,7 @@ dsaImg.onclick = function () {
 document.getElementsByClassName("close-override")[0].onclick = function () {
     modal.style.display = "none";
 }
+
 
 // close enlarged image
 window.onclick = function (event) {
