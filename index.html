@@ -9,7 +9,10 @@
 </head>
 
 <body>
+    <!-- Button to scroll to top of the page -->
     <button id="to-top" onclick="scrollToTop()"><img class="scroll-image" src="images/up-arrow.png"></button>
+    
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top" id="nav-bar">
         <ul class="navbar-nav">
             <li class="nav-item">
@@ -23,7 +26,11 @@
             </li>
         </ul>
     </nav>
+
+    <!-- Particle background -->
     <div id="particles-js"></div>
+
+    <!-- Intro section -->
     <div id="home">
         <br>
         <div id="name">
@@ -38,6 +45,8 @@
         </div>
     </div>
 
+    <!------------------------------------ Experience section --------------------------------->
+
     <div id="experience">
         <div class="row" style="max-width: 100%;">
             <div class="col" id="exp-left"></div>
@@ -46,7 +55,11 @@
                 <br><br>
                 <div class="list-group">
                     <card>
-                        <p>2020 CCC Award of Distinction (63/75)</p>
+                        <p>2020 CCC Junior Certificate of Distinction (63/75)</p>
+                    </card>
+                    <br>
+                    <card>
+                        <p>2021 CCC Senior Award of Distinction (38/75)</p>
                     </card>
                     <br>
                     <card>
@@ -64,6 +77,8 @@
             </div>
         </div>
     </div>
+
+    <!------------------------------------ Projects section --------------------------------->
 
     <div id="projects">
         <h1 class="section-title">Coding Projects</h1>
@@ -107,6 +122,9 @@
                     <td>
                         <img id="shopify_img" class="img-fluid table-img" src="images/Shopify_screenshot.jpg">
                     </td>
+                    <td>
+                        <img id="DSA_img" class="img-fluid table-img" src="images/DSA_screenshot.jpg">
+                    </td>
                 </tr>
                 <tr>
                     <td>
@@ -122,6 +140,18 @@
                             Code</button>
                         <button class="btn btn-outline-dark"
                             onclick="window.open('https://roseak-lin.github.io/Shopify-Front-End-Challenge')">Live
+                            demo</button>
+                    </td>
+                    <td>
+                        <b>Data Structure and Algorithm Visualizer</b>
+                        <br>
+                        A front-end application built using ReactJS that gives visualizations for basic data structures and algorithms such as BFS and DFS
+                        <br>
+                        <button class="btn btn-outline-dark"
+                            onclick="window.open('https://github.com/Roseak-lin/DS-and-Algorithm-Visualizer')">Source
+                            Code</button>
+                        <button class="btn btn-outline-dark"
+                            onclick="window.open('https://roseak-lin.github.io/DS-and-Algorithm-Visualizer/')">Live
                             demo</button>
                     </td>
                 </tr>
