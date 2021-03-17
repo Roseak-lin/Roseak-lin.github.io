@@ -1,4 +1,4 @@
-html, body, div, span, object, iframe, h1, a, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, caption, tbody, tfoot, thead, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+html, body, div, span, object, iframe, h1, a, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, rem, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, caption, tbody, tfoot, thead, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
     margin: 0;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     padding: 0;
@@ -56,10 +56,10 @@ canvas {
 }
 
 .char {
-    font-size: 64px;
+    font-size: 5vw;
     height: 40px;
     animation: an 1.5s ease-out 1 both;
-    display: inline-block;
+    display: inline;
 }
 
 @keyframes an {
@@ -95,13 +95,12 @@ canvas {
 #name {
     margin: auto;
     text-align: center;
-    padding: 33vh;
-    font-size: 64px;
+    padding: 32vh;
 }
 
 #links {
     padding: 30px;
-    font-size: 48px;
+    font-size: 3em;
 }
 
 #links img {
@@ -140,7 +139,7 @@ canvas {
 }
 
 card {
-    border-radius: 0.25rem;
+    border-radius: 0.25em;
     background-color: #fff;
     margin: auto;
     box-shadow: 0 4px 10px 0 rgba(255, 255, 255, 0.6);
@@ -224,7 +223,7 @@ card:hover {
     color: #ffffff;
     top: 15px;
     right: 35px;
-    font-size: 24px;
+    font-size: 1.5vw;
     transition: 0.3s;
 }
 
