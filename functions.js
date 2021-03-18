@@ -1,9 +1,20 @@
 var scrollBtn = document.getElementById("to-top");
 window.onscroll = function () {
-    if (document.documentElement.scrollTop > 40 && (document.getElementById("image").style.display == "none" || document.getElementById("image").style.display == "")) {
+    // determine if scroll to top button should show
+    const scrollDistance = window.pageYOffset;
+    if (scrollDistance> 40) {
         scrollBtn.style.display = "block";
     } else {
         scrollBtn.style.display = "none";
+    }
+
+    // determine colors of scroll to top button
+    if (scrollDistance > document.getElementById("experience").scrollHeight + 40) {
+        scrollBtn.classList.remove("light");
+        scrollBtn.classList.add("dark");
+    } else if (scrollDistance <= document.getElementById("experience").scrollHeight + 40 && scrollBtn.classList.contains("dark")) {
+        scrollBtn.classList.remove("dark");
+        scrollBtn.classList.add("light");
     }
 };
 
@@ -22,7 +33,7 @@ function scrollToProjects() {
 ////////////// name animation ///////////////////////////
 var text = document.getElementById("name");
 var newDom = "";
-var animationDelay = 10;
+var animationDelay = 25;
 
 for (let i = 0; i < text.innerText.length; i++) {
     newDom +=
@@ -40,7 +51,7 @@ for (let i = 0; i < length; i++) {
 
 //////////// image models /////////////////////////////////
 var navbar = document.getElementById("nav-bar");
-var modal = document.getElementById("image");
+var modal = document.getElementById("enlargedImageContainer");
 var qtImg = document.getElementById("qt");
 var pbImg = document.getElementById("pb");
 var shopImg = document.getElementById("shopify_img");

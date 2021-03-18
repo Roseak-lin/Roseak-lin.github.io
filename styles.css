@@ -15,30 +15,47 @@ html, body, div, span, object, iframe, h1, a, h2, h3, h4, h5, h6, p, blockquote,
     text-align: center;
 }
 
-.scroll-image {
-    width: 20px;
-    height: 20px;
-}
-
-#to-top {
+.to-top.light {
     display: none;
     position: fixed;
     bottom: 20px;
     right: 30px;
-    z-index: 99;
+    z-index: 1;
     border: none;
     outline: none;
-    color: white;
-    cursor: pointer;
-    padding: 15px;
+    padding: 1em;
     border-radius: 4px;
+    opacity: 40%;
+    transition: 0.25s;
+}
+
+.to-top.dark {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 1;
+    border: none;
+    outline: none;
+    padding: 1em;
+    border-radius: 4px;
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    opacity: 40%;
+    transition: 0.25s;
+}
+
+#to-top {
+    font-size: 2em;
+    padding: 0.1em 0.5em 0.1em 0.5em;
 }
 
 #to-top:hover {
-    background-color: grey;
+    transition: 0.25s;
+    opacity: 100%;
 }
 
-/* particle background */
+/* Particle background */
 
 canvas {
     display: block;
@@ -55,11 +72,13 @@ canvas {
     background-position: 50% 50%;
 }
 
+/* Name animation*/
+
 .char {
-    font-size: 5vw;
+    font-size: 4em;
     height: 40px;
     animation: an 1.5s ease-out 1 both;
-    display: inline;
+    display: inline-block;
 }
 
 @keyframes an {
@@ -74,6 +93,7 @@ canvas {
 }
 
 /*****************************Nav********************************/
+
 .nav-btn {
     color: grey;
     padding: 8px;
@@ -93,9 +113,8 @@ canvas {
 /****************************Home*********************************/
 
 #name {
-    margin: auto;
     text-align: center;
-    padding: 32vh;
+    padding: 34vh 0 34vh 0;
 }
 
 #links {
@@ -125,6 +144,11 @@ canvas {
 
 #experience {
     background-color: black;
+    height: 100%;
+}
+
+.row.no-margin {
+    margin: 0;
 }
 
 #exp-left {
@@ -142,8 +166,9 @@ card {
     border-radius: 0.25em;
     background-color: #fff;
     margin: auto;
+    margin-bottom: 1.5em;
     box-shadow: 0 4px 10px 0 rgba(255, 255, 255, 0.6);
-    padding: 6px 0px 0px 6px; 
+    padding: 8px 0px 0px 8px;
     width: 40vw;
     transition: 0.2s;
 }
@@ -176,7 +201,7 @@ card:hover {
 
 /* popup images */
 
-.enlargedImage {
+#enlargedImageContainer {
     display: none;
     position: fixed;
     z-index: 1;
