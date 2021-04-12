@@ -95,7 +95,7 @@ canvas {
 /*****************************Nav********************************/
 
 .nav-btn {
-    color: grey;
+    color: rgb(172, 172, 172);
     padding: 8px;
     border: none;
     background-color: transparent;
@@ -209,7 +209,7 @@ card:hover {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.7);
     align-items: center;
 }
 

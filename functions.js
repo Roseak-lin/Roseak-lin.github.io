@@ -2,7 +2,7 @@ var scrollBtn = document.getElementById("to-top");
 window.onscroll = function () {
     // determine if scroll to top button should show
     const scrollDistance = window.pageYOffset;
-    if (scrollDistance> 40) {
+    if (scrollDistance > 40) {
         scrollBtn.style.display = "block";
     } else {
         scrollBtn.style.display = "none";
@@ -30,24 +30,6 @@ function scrollToProjects() {
     document.getElementById("projects").scrollIntoView();
 }
 
-////////////// name animation ///////////////////////////
-var text = document.getElementById("name");
-var newDom = "";
-var animationDelay = 25;
-
-for (let i = 0; i < text.innerText.length; i++) {
-    newDom +=
-        '<span class="char">' +
-        (text.innerText[i] == " " ? "&nbsp;" : text.innerText[i]) +
-        "</span>";
-}
-
-text.innerHTML = newDom;
-var length = text.children.length;
-
-for (let i = 0; i < length; i++) {
-    text.children[i].style["animation-delay"] = animationDelay * i + "ms";
-}
 
 //////////// image models /////////////////////////////////
 var navbar = document.getElementById("nav-bar");
@@ -99,6 +81,25 @@ window.onclick = function (event) {
         modal.style.display = "none";
         scrollBtn.style.display = "block";
     }
+}
+
+////////////// name animation ///////////////////////////
+var text = document.getElementById("name");
+var newDom = "";
+var animationDelay = 25;
+
+for (let i = 0; i < text.innerText.length; i++) {
+    newDom +=
+        '<span class="char">' +
+        (text.innerText[i] == " " ? "&nbsp;" : text.innerText[i]) +
+        "</span>";
+}
+
+text.innerHTML = newDom;
+var length = text.children.length;
+
+for (let i = 0; i < length; i++) {
+    text.children[i].style["animation-delay"] = animationDelay * i + "ms";
 }
 
 //////////// particle background ////////////////////////////////////////
