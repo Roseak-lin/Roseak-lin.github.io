@@ -34,39 +34,15 @@ function scrollToProjects() {
 //////////// image models /////////////////////////////////
 var navbar = document.getElementById("nav-bar");
 var modal = document.getElementById("enlargedImageContainer");
-var qtImg = document.getElementById("qt");
-var pbImg = document.getElementById("pb");
-var shopImg = document.getElementById("shopify_img");
-var dsaImg = document.getElementById("DSA_img");
 var modalImg = document.getElementById("img");
 
-// enlarge images when they are clicked
-qtImg.onclick = function () {
-    navbar.style.display = "none";
-    modal.style.display = "flex";
-    modalImg.src = "images/Quickness_Test_screenshot.jpg";
-    scrollBtn.style.display = "none";
-}
-
-pbImg.onclick = function () {
-    navbar.style.display = "none";
-    modal.style.display = "flex";
-    modalImg.src = "images/Phonebook_screenshot.jpg";
-    scrollBtn.style.display = "none";
-}
-
-shopImg.onclick = function () {
-    navbar.style.display = "none";
-    modal.style.display = "flex";
-    modalImg.src = "images/Shopify_screenshot.jpg";
-    scrollBtn.style.display = "none";
-}
-
-dsaImg.onclick = function () {
-    navbar.style.display = "none";
-    modal.style.display = "flex";
-    modalImg.src = "images/DSA_screenshot.jpg";
-    scrollBtn.style.display = "none";
+for (let i = 0; i < document.getElementsByClassName("table-img").length; i++) {
+    document.getElementsByClassName("table-img")[i].onclick = function () {
+        navbar.style.display = "none";
+        modal.style.display = "flex";
+        modalImg.src = document.getElementsByClassName("table-img")[i].src;
+        scrollBtn.style.display = "none";
+    }
 }
 
 document.getElementsByClassName("close-override")[0].onclick = function () {

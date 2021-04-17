@@ -66,21 +66,21 @@
             <div class="col-md-6 col-sm-12" id="exp-right">
                 <h1 class="section-title" style="color: #fff; margin-bottom: 1em;">Coding Experience</h1>
                 <div class="list-group">
-                    <card>
+                    <exp-card>
                         <p>2020 CCC Junior Certificate of Distinction (63/75). Competed using Java</p>
-                    </card>
-                    <card>
+                    </exp-card>
+                    <exp-card>
                         <p>2021 CCC Senior Certificate of Distinction (38/75). Competed using C++ and Java</p>
-                    </card>
-                    <card>
+                    </exp-card>
+                    <exp-card>
                         <p>Java coding tutor (2019 - present)</p>
-                    </card>
-                    <card>
+                    </exp-card>
+                    <exp-card>
                         <p>3 years of Java experience, 1 year of C++ experience</p>
-                    </card>
-                    <card>
+                    </exp-card>
+                    <exp-card>
                         <p>Over 250 contest questions solved on dmoj.ca (ranked top 1% by points)</p>
-                    </card>
+                    </exp-card>
                 </div>
             </div>
         </div>
@@ -89,91 +89,105 @@
     <!------------------------------------ Projects section --------------------------------->
 
     <div id="projects">
-        <h1 class="section-title">Coding Projects</h1>
+        <h1 class="section-title" style="margin-bottom: 1em;">Coding Projects</h1>
 
-        <div class="table-responsive-sm">
-            <table class="table table-borderless">
-                <tr>
-                    <td>
-                        <img id="qt" class="img-fluid table-img" src="images/Quickness_Test_screenshot.jpg">
-                    </td>
-                    <td>
-                        <img id="pb" class="img-fluid table-img" src="images/Phonebook_screenshot.jpg">
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <b>Quickness/reactions test</b>
-                        <br>
-                        A web program created using basic html, css and javascript
-                        which tests a user's reactions and speed, displaying results at the bottom of the screen.
-                        <br>
-                        <button class="btn btn-outline-dark"
-                            onclick="window.open('https://github.com/Roseak-lin/Quickness-Activity')">Source
-                            Code</button>
-                        <button class="btn btn-outline-dark"
-                            onclick="window.open('https://quickness-test.glitch.me')">Live demo</button>
-                    </td>
-                    <td>
-                        <b>Javafx phonebook</b>
-                        <br>
-                        A GUI made in java using the javafx library, which can read existing
-                        entires in a .txt file, and can write into a .txt file to update it.
-                        <br>
-                        <button class="btn btn-outline-dark"
-                            onclick="window.open('https://github.com/Roseak-lin/Javafx-Phonebook')">Source
-                            Code</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <img id="shopify_img" class="img-fluid table-img" src="images/Shopify_screenshot.jpg">
-                    </td>
-                    <td>
-                        <img id="DSA_img" class="img-fluid table-img" src="images/DSA_screenshot.jpg">
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <b>Shopify Front-End Challenge Application</b>
-                        <br>
-                        A web application built with ReactJS which allows a user to nominate 5 movies for an award show
-                        called "The Shoppies".
-                        Nominations are stored in the browser's local storage which saves the users nominations after
-                        they close the tab.
-                        <br>
-                        <button class="btn btn-outline-dark"
-                            onclick="window.open('https://github.com/Roseak-lin/Shopify-Front-End-Challenge')">Source
-                            Code</button>
-                        <button class="btn btn-outline-dark"
-                            onclick="window.open('https://roseak-lin.github.io/Shopify-Front-End-Challenge')">Live
-                            demo</button>
-                    </td>
-                    <td>
-                        <b>Data Structure and Algorithm Visualizer</b>
-                        <br>
-                        A front-end application built using ReactJS that gives visualizations for data structures such
-                        as stacks
-                        and algorithms such as BFS and DFS
-                        <br>
-                        <button class="btn btn-outline-dark"
-                            onclick="window.open('https://github.com/Roseak-lin/DS-and-Algorithm-Visualizer')">Source
-                            Code</button>
-                        <button class="btn btn-outline-dark"
-                            onclick="window.open('https://roseak-lin.github.io/DS-and-Algorithm-Visualizer/')">Live
-                            demo</button>
-                    </td>
-                </tr>
-            </table>
+        <div class="container">
+            <div class="row">
+                <div class="card-deck">
+                    <div class="card">
+                        <img class="card-img-top img-fluid table-img" src="images/Quickness_Test_screenshot.jpg"
+                            alt="Card image">
+                        <div class="card-body">
+                            <h4 class="card-title">Quickness/reactions test</h4>
+                            <p class="card-text">A web program created using basic html, css and javascript
+                                which tests a user's reactions and speed, displaying results at the bottom of the
+                                screen..</p>
+                            <button class="btn btn-outline-dark"
+                                onclick="window.open('https://github.com/Roseak-lin/Quickness-Activity')">Source
+                                Code</button>
+                            <button class="btn btn-outline-dark"
+                                onclick="window.open('https://quickness-test.glitch.me')">Live demo</button>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img class="card-img-top img-fluid table-img" src="images/Phonebook_screenshot.jpg"
+                            alt="Card image">
+                        <div class="card-body">
+                            <h4 class="card-title">Javafx phonebook</h4>
+                            <p class="card-text">A GUI made in java using the javafx library, which can read
+                                existing
+                                entires in a .txt file, and can write into a .txt file to update it.</p>
+                            <button class="btn btn-outline-dark"
+                                onclick="window.open('https://github.com/Roseak-lin/Javafx-Phonebook')">Source
+                                Code</button>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img class="card-img-top img-fluid table-img" src="images/Shopify_screenshot.jpg"
+                            alt="Card image">
+                        <div class="card-body">
+                            <h4 class="card-title">Shopify Front-End Challenge Application</h4>
+                            <p class="card-text">A web application built with ReactJS which allows a user to
+                                nominate 5 movies for an award show
+                                called "The Shoppies".
+                                Nominations are stored in the browser's local storage which saves the users
+                                nominations after
+                                they close the tab.</p>
+                            <button class="btn btn-outline-dark"
+                                onclick="window.open('https://github.com/Roseak-lin/Shopify-Front-End-Challenge')">Source
+                                Code</button>
+                            <button class="btn btn-outline-dark"
+                                onclick="window.open('https://roseak-lin.github.io/Shopify-Front-End-Challenge')">Live
+                                demo</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="card-deck">
+                    <div class="card">
+                        <img class="card-img-top img-fluid table-img" src="images/DSA_screenshot.jpg" alt="Card image">
+                        <div class="card-body">
+                            <h4 class="card-title">Data Structure and Algorithm Visualizer</h4>
+                            <p class="card-text">A front-end application built using ReactJS that gives
+                                visualizations for data structures such
+                                as stacks
+                                and algorithms such as BFS and DFS</p>
+                            <button class="btn btn-outline-dark"
+                                onclick="window.open('https://github.com/Roseak-lin/DS-and-Algorithm-Visualizer')">Source
+                                Code</button>
+                            <button class="btn btn-outline-dark"
+                                onclick="window.open('https://roseak-lin.github.io/DS-and-Algorithm-Visualizer/')">Live
+                                demo</button>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img class="card-img-top img-fluid table-img" src="images/cp_image.jpg" alt="Card image">
+                        <div class="card-body">
+                            <h4 class="card-title">Competitive programming contest questions</h4>
+                            <p class="card-text">Respositories of my solved problems from the University of Waterloo
+                                Canadian Computing
+                                Contest and questions from other
+                                international contests such as the COCI from dmoj.ca.</p>
+                            <button class="btn btn-outline-dark"
+                                onclick="window.open('https://github.com/Roseak-lin/CCC-CCO-Solutions')">CCC
+                                Repository</button>
+                            <button class="btn btn-outline-dark"
+                                onclick="window.open('https://github.com/Roseak-lin/DMOJ-solutions')">DMOJ
+                                Repository</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
 
-    <div id="enlargedImageContainer">
-        <span class="close-override">&times</span>
-        <img class="enlarged" id="img">
+        <div id="enlargedImageContainer">
+            <span class="close-override">&times</span>
+            <img class="enlarged" id="img">
 
-    </div>
-    
+        </div>
+
 </body>
 
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
