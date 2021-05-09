@@ -36,11 +36,11 @@ var navbar = document.getElementById("nav-bar");
 var modal = document.getElementById("enlargedImageContainer");
 var modalImg = document.getElementById("img");
 
-for (let i = 0; i < document.getElementsByClassName("table-img").length; i++) {
-    document.getElementsByClassName("table-img")[i].onclick = function () {
+for (let i = 0; i < document.getElementsByClassName("card-img").length; i++) {
+    document.getElementsByClassName("card-img")[i].onclick = function () {
         navbar.style.display = "none";
         modal.style.display = "flex";
-        modalImg.src = document.getElementsByClassName("table-img")[i].src;
+        modalImg.src = document.getElementsByClassName("card-img")[i].src;
         scrollBtn.style.display = "none";
     }
 }
