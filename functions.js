@@ -30,8 +30,8 @@ function scrollToProjects() {
     document.getElementById("projects").scrollIntoView();
 }
 
+//////////// image models ////////////
 
-//////////// image models /////////////////////////////////
 var navbar = document.getElementById("nav-bar");
 var modal = document.getElementById("enlargedImageContainer");
 var modalImg = document.getElementById("img");
@@ -59,10 +59,10 @@ window.onclick = function (event) {
     }
 }
 
-////////////// name animation ///////////////////////////
+////////////// name animation //////////////
+
 var text = document.getElementById("name");
 var newDom = "";
-var animationDelay = 25;
 
 for (let i = 0; i < text.innerText.length; i++) {
     newDom +=
@@ -75,10 +75,11 @@ text.innerHTML = newDom;
 var length = text.children.length;
 
 for (let i = 0; i < length; i++) {
-    text.children[i].style["animation-delay"] = animationDelay * i + "ms";
+    text.children[i].style["animation-delay"] = 20 * i + "ms";
 }
 
-//////////// particle background ////////////////////////////////////////
+//////////// particle background ////////////
+
 particlesJS("particles-js", {
     particles: {
         number: { value: 60, density: { enable: true, value_area: 800 } },
