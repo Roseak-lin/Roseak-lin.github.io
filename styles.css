@@ -219,6 +219,8 @@ exp-card:hover {
 
 .enlarged {
     margin: auto;
+    max-width: 80vw;
+    max-height: 80vh;
     -webkit-animation-name: zoom;
     -webkit-animation-duration: 0.3s;
     animation-name: zoom;
