@@ -3,18 +3,16 @@ window.onscroll = function () {
     // determine if scroll to top button should show
     const scrollDistance = window.pageYOffset;
     if (scrollDistance > 40) {
-        scrollBtn.style.display = "block";
+        $("#to-top").fadeIn();
     } else {
-        scrollBtn.style.display = "none";
+        $("#to-top").fadeOut(100);
     }
 
     // determine colors of scroll to top button
     if (scrollDistance > document.getElementById("experience").scrollHeight + 40) {
-        scrollBtn.classList.remove("light");
-        scrollBtn.classList.add("dark");
-    } else if (scrollDistance <= document.getElementById("experience").scrollHeight + 40 && scrollBtn.classList.contains("dark")) {
-        scrollBtn.classList.remove("dark");
-        scrollBtn.classList.add("light");
+        $("#to-top").addClass("dark").removeClass("light")
+    } else if (scrollDistance <= document.getElementById("experience").scrollHeight + 40 && $("#to-top").attr("class").includes("dark")) {
+        $("#to-top").addClass("light").removeClass("dark")
     }
 };
 
@@ -41,7 +39,7 @@ for (let i = 0; i < document.getElementsByClassName("card-img").length; i++) {
         navbar.style.display = "none";
         modal.style.display = "flex";
         modalImg.src = document.getElementsByClassName("card-img")[i].src;
-        scrollBtn.style.display = "none";
+        $("#to-top").fadeOut(100);
     }
 }
 
@@ -55,7 +53,7 @@ window.onclick = function (event) {
     if (event.target == modal) {
         navbar.style.display = "block";
         modal.style.display = "none";
-        scrollBtn.style.display = "block";
+        $("#to-top").fadeIn();
     }
 }
 
