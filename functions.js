@@ -44,7 +44,7 @@ for (let i = 0; i < document.getElementsByClassName("card-img").length; i++) {
 }
 
 document.getElementsByClassName("close-override")[0].onclick = function () {
-    modal.style.display = "none";
+    $("#enlargedImageContainer").fadeOut(100);
 }
 
 
@@ -52,7 +52,7 @@ document.getElementsByClassName("close-override")[0].onclick = function () {
 window.onclick = function (event) {
     if (event.target == modal) {
         navbar.style.display = "block";
-        modal.style.display = "none";
+        $("#enlargedImageContainer").fadeOut(100);
         $("#to-top").fadeIn();
     }
 }

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600&display=swap');
 html, body, div, span, object, iframe, h1, a, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, rem, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, caption, tbody, tfoot, thead, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
     margin: 0;
     font-family: 'Quicksand', sans-serif;
@@ -11,6 +11,7 @@ html, body, div, span, object, iframe, h1, a, h2, h3, h4, h5, h6, p, blockquote,
 }
 
 .section-title {
+    font-weight: 700;
     padding-top: 2vh;
     font-size: 48px;
     text-align: center;
@@ -67,7 +68,7 @@ canvas {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50% 50%;
-    background-attachment: fixed;
+    position: fixed;
 }
 
 /* Name animation*/
@@ -110,6 +111,10 @@ canvas {
 
 /****************************Home*********************************/
 
+#home {
+    height: 100vh;
+}
+
 #name {
     text-align: center;
     padding: 34vh 0 34vh 0;
@@ -142,17 +147,19 @@ canvas {
 
 #experience {
     background-color: black;
-    background-position: fixed;
-    height: 100%;
+    background-attachment: fixed;
+    min-height: 100vh;
 }
 
 .row.no-margin {
     margin: 0;
+    height: 100vh;
 }
 
 #exp-left {
     background-image: url("images/experience_background.jpg");
-    background-size: 100% 100%;
+    background-attachment: fixed;
+    background-size: cover;
     background-repeat: no-repeat;
 }
 
@@ -180,7 +187,7 @@ exp-card:hover {
 /*************************Projects****************************/
 
 #projects {
-    padding-top: 53px;
+    padding-top: 5%;
     text-align: center;
 }
 
@@ -200,6 +207,13 @@ exp-card:hover {
 
 .card.proj-card {
     margin: 1em 0;
+    transition: 0.25s;
+}
+
+.card.proj-card:hover {
+    z-index: 1;
+    border: 1px solid #000;
+    transform: scale(1.1);
 }
 
 /* popup images */
