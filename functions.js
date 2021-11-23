@@ -1,4 +1,3 @@
-var scrollBtn = document.getElementById("to-top");
 window.onscroll = function () {
     // determine if scroll to top button should show
     const scrollDistance = window.pageYOffset;
@@ -30,29 +29,31 @@ function scrollToProjects() {
 
 //////////// image models ////////////
 
-var navbar = document.getElementById("nav-bar");
-var modal = document.getElementById("enlargedImageContainer");
-var modalImg = document.getElementById("img");
+var navbar = $("#nav-bar")
+var modal = $("#enlargedImageContainer");
+var modalImg = $("#img");
 
 for (let i = 0; i < document.getElementsByClassName("card-img").length; i++) {
     document.getElementsByClassName("card-img")[i].onclick = function () {
-        navbar.style.display = "none";
-        modal.style.display = "flex";
-        modalImg.src = document.getElementsByClassName("card-img")[i].src;
+        navbar.css("display", "none")
+        modal.css("display", "flex")
+        modalImg.attr("src", $(".card-img").eq(i).attr("src"))
         $("#to-top").fadeOut(100);
     }
 }
 
+// close enlarged image
+
 document.getElementsByClassName("close-override")[0].onclick = function () {
-    $("#enlargedImageContainer").fadeOut(100);
+    modal.fadeOut(100);
+    navbar.css("display", "block");
 }
 
 
-// close enlarged image
 window.onclick = function (event) {
-    if (event.target == modal) {
-        navbar.style.display = "block";
-        $("#enlargedImageContainer").fadeOut(100);
+    if (event.target == document.getElementById("enlargedImageContainer")) {
+        navbar.css("display", "block");
+        modal.fadeOut(100);
         $("#to-top").fadeIn();
     }
 }
@@ -70,10 +71,9 @@ for (let i = 0; i < text.innerText.length; i++) {
 }
 
 text.innerHTML = newDom;
-var length = text.children.length;
 
-for (let i = 0; i < length; i++) {
-    text.children[i].style["animation-delay"] = 20 * i + "ms";
+for (let i = 0; i < text.children.length; i++) {
+    $("#name>span").eq(i).css("animation-delay", `20*${i}ms`)
 }
 
 //////////// particle background ////////////
@@ -152,4 +152,3 @@ update = function () {
     requestAnimationFrame(update);
 };
 requestAnimationFrame(update);
-

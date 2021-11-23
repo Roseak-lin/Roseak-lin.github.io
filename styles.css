@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600&display=swap');
-html, body, div, span, object, iframe, h1, a, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, rem, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, caption, tbody, tfoot, thead, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+* {
     margin: 0;
     font-family: 'Quicksand', sans-serif;
     padding: 0;
@@ -10,11 +10,35 @@ html, body, div, span, object, iframe, h1, a, h2, h3, h4, h5, h6, p, blockquote,
     max-height: 100%;
 }
 
+/* Scrollbar */
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    width: 12px;
+    border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(155, 155, 155);
+}
+
 .section-title {
     font-weight: 700;
     padding-top: 2vh;
     font-size: 48px;
     text-align: center;
+}
+
+.section-title:hover {
+    cursor: default;
 }
 
 .to-top {
@@ -26,10 +50,9 @@ html, body, div, span, object, iframe, h1, a, h2, h3, h4, h5, h6, p, blockquote,
     height: 1.75em;
     bottom: 0.5em;
     right: 0.75em;
-    z-index: 1;
+    z-index: 99;
     border: none;
     outline: none;
-    opacity: 0.5;
     border-radius: 50%;
     transition: 0.25s;
 }
@@ -43,15 +66,18 @@ html, body, div, span, object, iframe, h1, a, h2, h3, h4, h5, h6, p, blockquote,
     transition: 0.25s;
 }
 
+.to-top.light:hover {
+    background-color: rgb(88, 88, 88);
+}
+
 .to-top.dark {
-    background-color: #000;
+    background-color: rgb(88, 88, 88);
     color: rgb(255, 255, 255);
     transition: 0.25s;
 }
 
-.to-top:hover {
-    transition: 0.25s;
-    opacity: 100%;
+.to-top.dark:hover {
+    background-color: #000;
 }
 
 /* Particle background */
@@ -76,11 +102,11 @@ canvas {
 .char {
     font-size: 4em;
     height: 40px;
-    animation: an 1.5s ease-out 1 both;
+    animation: anim 1.5s ease-out 1 both;
     display: inline-block;
 }
 
-@keyframes an {
+@keyframes anim {
     from {
         opacity: 0;
         transform: perspective(500px) translate3d(-35px, -40px, -150px) rotate3d(1, -1, 0, 35deg);
@@ -117,30 +143,38 @@ canvas {
 
 #name {
     text-align: center;
+    font-weight: 700;
     padding: 34vh 0 34vh 0;
 }
 
+#name:hover {
+    cursor: default;
+}
+
 #links {
-    padding: 30px;
+    position: absolute;
+    bottom: 0.5em;
     font-size: 3em;
+    margin-left: 0.5em;
 }
 
 #links img {
     border-radius: 50%;
-    max-width: 70px;
-    max-height: 70px;
+    max-width: 50px;
+    max-height: 50px;
 }
 
 #links button {
     border-radius: 50%;
-    width: 70px;
-    height: 70px;
+    width: 65px;
+    height: 65px;
     border: none;
     padding: 0px;
+    transition: 0.3s;
 }
 
 #links button:hover {
-    opacity: 0.7;
+    transform: scale(1.25);
 }
 
 /************************Experience******************************/
@@ -187,7 +221,7 @@ exp-card:hover {
 /*************************Projects****************************/
 
 #projects {
-    padding-top: 5%;
+    padding: 5% 0;
     text-align: center;
 }
 
@@ -212,7 +246,7 @@ exp-card:hover {
 
 .card.proj-card:hover {
     z-index: 1;
-    border: 1px solid #000;
+    border: 1px solid rgb(34, 34, 34);
     transform: scale(1.1);
 }
 
@@ -226,7 +260,7 @@ exp-card:hover {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.75);
     align-items: center;
 }
 
