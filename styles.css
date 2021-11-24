@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600&display=swap');
+
 * {
     margin: 0;
     font-family: 'Quicksand', sans-serif;
@@ -97,10 +98,10 @@ canvas {
     position: fixed;
 }
 
-/* Name animation*/
+/* Name animation */
 
 .char {
-    font-size: 4em;
+    font-size: 5em;
     height: 40px;
     animation: anim 1.5s ease-out 1 both;
     display: inline-block;
@@ -111,6 +112,7 @@ canvas {
         opacity: 0;
         transform: perspective(500px) translate3d(-35px, -40px, -150px) rotate3d(1, -1, 0, 35deg);
     }
+
     to {
         opacity: 1;
         transform: perspective(500px) translate3d(0, 0, 0);
@@ -218,6 +220,13 @@ exp-card:hover {
     width: 45vw;
 }
 
+exp-card a:hover {
+    text-decoration: none;
+    transition: 0.1s;
+    filter: drop-shadow(0 0 16px rgb(0, 247, 255));
+    color: rgb(0, 195, 255);
+}
+
 /*************************Projects****************************/
 
 #projects {
@@ -246,8 +255,28 @@ exp-card:hover {
 
 .card.proj-card:hover {
     z-index: 1;
-    border: 1px solid rgb(34, 34, 34);
+    border: 1px solid rgb(114, 114, 114);
     transform: scale(1.1);
+}
+
+#proj_1:hover, #proj_2:hover {
+    filter: drop-shadow(0 0 2em rgb(59, 59, 59));
+}
+
+#proj_3:hover {
+    filter: drop-shadow(0 0 2em #28b0ff);
+}
+
+#proj_4:hover {
+    filter: drop-shadow(0 0 2em gold);
+}
+
+#proj_5:hover {
+    filter: drop-shadow(0 0 2em #28b0ff);
+}
+
+#proj_6:hover {
+    filter: drop-shadow(0 0 2em #D22999);
 }
 
 /* popup images */
@@ -282,6 +311,7 @@ exp-card:hover {
     from {
         -webkit-transform: scale(0)
     }
+
     to {
         -webkit-transform: scale(1)
     }
@@ -291,20 +321,18 @@ exp-card:hover {
     from {
         transform: scale(0)
     }
+
     to {
         transform: scale(1)
     }
 }
 
 .close-override {
-    width: 1.5em;
-    height: 1.5em;
-    border-radius: 50%;
+    color: #fff;
     position: absolute;
-    background-color: #fff;
-    top: 1em;
-    right: 2em;
-    font-size: 1.5em;
+    top: -0.25em;
+    right: 0.5em;
+    font-size: 5em;
     transition: 0.3s;
 }
 
