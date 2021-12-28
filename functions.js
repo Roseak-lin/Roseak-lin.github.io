@@ -65,16 +65,14 @@ var newDom = "";
 
 for (let i = 0; i < text.innerText.length; i++) {
     newDom +=
-        '<span class="char">' +
+        `<span class="char" style="animation-delay: ${50 * i}ms">` +
         (text.innerText[i] == " " ? "&nbsp;" : text.innerText[i]) +
         "</span>";
 }
 
+
 text.innerHTML = newDom;
 
-for (let i = 0; i < text.children.length; i++) {
-    $("#name>span").eq(i).css("animation-delay", `20*${i}ms`)
-}
 
 //////////// particle background ////////////
 
