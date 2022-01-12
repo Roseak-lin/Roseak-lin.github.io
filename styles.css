@@ -125,38 +125,17 @@ canvas {
 }
 
 /****************************Home*********************************/
-
-/* Name animation */
-
-.char {
-    font-size: 5em;
-    height: 40px;
-    animation: anim 1s ease-out 1 both;
-    display: inline-block;
-    user-select: none;
-}
-
-@keyframes anim {
-    from {
-        opacity: 0;
-        transform: perspective(500px) translate3d(-35px, -40px, -150px) rotate3d(1, -1, 0, 35deg);
-    }
-
-    to {
-        opacity: 1;
-        transform: perspective(500px) translate3d(0, 0, 0);
-    }
-}
-
-
 #home {
     height: 100vh;
 }
 
 #name {
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 5em;
     text-align: center;
-    font-weight: 700;
-    padding: 34vh 0 34vh 0;
 }
 
 #name:hover {
@@ -190,7 +169,7 @@ canvas {
 }
 
 @media screen and (max-width: 767px) {
-    .char {
+    #name {
         font-size: 3.25em;
     }
 
@@ -296,17 +275,20 @@ exp-card a:hover {
     margin: 1em 0;
 }
 
+.card-title {
+    font-weight: bold;
+}
+
 @media screen and (max-width: 767px) {
     .card.proj-card {
         width: 90%;
         height: fit-content;
-        margin: 0.8em auto;
+        margin: 1em auto;
         font-size: 0.9em;
     }
 
     .card-title {
         font-size: 1.1em;
-        font-weight: bold;
     }
 }
 

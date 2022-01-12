@@ -58,22 +58,6 @@ window.onclick = function (event) {
     }
 }
 
-////////////// name animation //////////////
-
-var text = document.getElementById("name");
-var newDom = "";
-
-for (let i = 0; i < text.innerText.length; i++) {
-    newDom +=
-        `<span class="char" style="animation-delay: ${50 * i}ms">` +
-        (text.innerText[i] == " " ? "&nbsp;" : text.innerText[i]) +
-        "</span>";
-}
-
-
-text.innerHTML = newDom;
-
-
 //////////// particle background ////////////
 
 particlesJS("particles-js", {
