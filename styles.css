@@ -209,9 +209,13 @@ exp-card {
     background-color: #fff;
     margin: auto;
     margin-bottom: 1.5em;
-    padding: 0.5em;
+    padding: 1em;
     transition: 0.25s;
     width: 90%;
+}
+
+exp-card p {
+    margin: 0;
 }
 
 exp-card:hover {
@@ -222,7 +226,7 @@ exp-card:hover {
 exp-card a:hover {
     text-decoration: none;
     transition: 0.1s;
-    filter: drop-shadow(0 0 16px rgb(0, 247, 255));
+    filter: drop-shadow(0 0 4px rgb(105, 250, 255));
     color: rgb(0, 195, 255);
 }
 
