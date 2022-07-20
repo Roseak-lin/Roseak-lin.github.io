@@ -4,7 +4,7 @@
     margin: 0;
     font-family: 'Quicksand', sans-serif;
     padding: 0;
-    scroll-behavior: smooth;
+    scroll-behavior: smooth !important;
     border: 0;
     outline: 0;
     max-width: 100%;
