@@ -1,398 +1,383 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600&display=swap");
 
 * {
-    margin: 0;
-    font-family: 'Quicksand', sans-serif;
-    padding: 0;
-    scroll-behavior: smooth !important;
-    border: 0;
-    outline: 0;
-    max-width: 100%;
-    max-height: 100%;
+  margin: 0;
+  font-family: "Quicksand", sans-serif;
+  padding: 0;
+  scroll-behavior: smooth !important;
+  border: 0;
+  outline: 0;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 /* Scrollbar */
 
 ::-webkit-scrollbar {
-    width: 12px;
+  width: 12px;
 }
 
 ::-webkit-scrollbar-track {
-    width: 12px;
+  width: 12px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #ccc;
+  background: #ccc;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: rgb(155, 155, 155);
+  background: rgb(155, 155, 155);
 }
 
 .section-title {
-    margin-bottom: 1em;
-    font-weight: 700;
-    padding-top: 1em;
-    font-size: 3em;
-    text-align: center;
-    user-select: none;
+  margin-bottom: 1em;
+  font-weight: 700;
+  padding-top: 1em;
+  font-size: 3em;
+  text-align: center;
+  user-select: none;
 }
 
 .to-top {
-    display: none;
-    position: fixed;
-    font-size: 2em;
-    padding: 0.1em 0.5em 0.1em 0.5em;
-    width: 1.75em;
-    height: 1.75em;
-    bottom: 0.75em;
-    right: 0.75em;
-    z-index: 5;
-    border: none;
-    outline: none;
-    border-radius: 50%;
-    transition: 0.25s;
+  display: none;
+  position: fixed;
+  font-size: 2em;
+  padding: 0.1em 0.5em 0.1em 0.5em;
+  width: 1.75em;
+  height: 1.75em;
+  bottom: 0.75em;
+  right: 0.75em;
+  z-index: 5;
+  border: none;
+  outline: none;
+  border-radius: 50%;
+  transition: 0.25s;
 }
 
 .to-top:focus {
-    outline: none;
+  outline: none;
 }
 
 .to-top.light {
-    background-color: #fff;
-    transition: 0.25s;
+  background-color: #fff;
+  transition: 0.25s;
 }
 
 .to-top.light:hover {
-    background-color: rgb(88, 88, 88);
-    color: #fff;
+  background-color: rgb(88, 88, 88);
+  color: #fff;
 }
 
 .to-top.dark {
-    background-color: rgb(88, 88, 88);
-    color: rgb(255, 255, 255);
-    transition: 0.25s;
+  background-color: rgb(88, 88, 88);
+  color: rgb(255, 255, 255);
+  transition: 0.25s;
 }
 
 .to-top.dark:hover {
-    background-color: rgb(180, 180, 180);
-    color: #000;
+  background-color: rgb(180, 180, 180);
+  color: #000;
 }
 
 @media screen and (max-width: 767px) {
-    .section-title {
-        font-size: 2.5em;
-    }
+  .section-title {
+    font-size: 2.5em;
+  }
 
-    .to-top {
-        display: none !important;
-    }
+  .to-top {
+    display: none !important;
+  }
 }
 
 /* Particle background */
 
 canvas {
-    display: block;
+  display: block;
 }
 
 #particles-js {
-    z-index: -1;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 50% 50%;
-    position: fixed;
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  position: fixed;
 }
 
 /*****************************Nav********************************/
 
 .nav-btn {
-    color: rgb(172, 172, 172);
-    padding: 8px;
-    border: none;
-    background-color: transparent;
+  color: rgb(172, 172, 172);
+  padding: 8px;
+  border: none;
+  background-color: transparent;
 }
 
 .nav-btn:hover {
-    color: white;
-    transition: 0.3s;
+  color: white;
+  transition: 0.3s;
 }
 
 .nav-btn:focus {
-    outline: none;
+  outline: none;
 }
 
 /****************************Home*********************************/
 #home {
-    height: 100vh;
+  height: 100vh;
 }
 
 #name {
-    height: 90%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 5em;
-    text-align: center;
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 5em;
+  text-align: center;
 }
 
 #name:hover {
-    cursor: default;
+  cursor: default;
 }
 
 #links {
-    position: absolute;
-    bottom: 0.5em;
-    font-size: 3em;
-    margin-left: 0.5em;
+  position: absolute;
+  bottom: 0.5em;
+  font-size: 3em;
+  margin-left: 0.5em;
 }
 
 #links img {
-    border-radius: 50%;
-    max-width: 50px;
-    max-height: 50px;
+  border-radius: 50%;
+  max-width: 50px;
+  max-height: 50px;
 }
 
 #links button {
-    border-radius: 50%;
-    width: 65px;
-    height: 65px;
-    border: none;
-    padding: 0px;
-    transition: 0.3s;
+  border-radius: 50%;
+  width: 65px;
+  height: 65px;
+  border: none;
+  padding: 0px;
+  transition: 0.3s;
 }
 
 #links button:hover {
-    transform: scale(1.25);
+  transform: scale(1.25);
 }
 
 @media screen and (max-width: 767px) {
-    #name {
-        font-size: 3.25em;
-    }
+  #name {
+    font-size: 3.25em;
+  }
 
-    #links {
-        font-size: 2.5em;
-    }
+  #links {
+    font-size: 2.5em;
+  }
 }
 
 /************************Experience******************************/
 
 #experience {
-    background-color: black;
-    background-attachment: fixed;
-    min-height: 100vh;
-}
-
-.row.no-margin {
-    margin: 0;
-    height: fit-content;
-}
-
-#exp-left {
-    background-image: url("images/experience_background.jpg");
-    background-attachment: fixed;
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100vh;
-}
-
-#exp-right {
-    padding: 5% 0;
-    height: fit-content;
+  background-color: rgba(190, 190, 190, 0.75);
+  min-height: 100vh;
+  padding: 5% 0;
 }
 
 exp-card {
-    border-radius: 0.25em;
-    background-color: #fff;
-    margin: auto;
-    margin-bottom: 1.5em;
-    padding: 1em;
-    transition: 0.25s;
-    width: 90%;
+  border-radius: 0.25em;
+  background-color: #eee;
+  margin: auto auto 1.5em auto;
+  padding: 1em 1.5em;
+  transition: 0.25s;
+  width: 100%;
 }
 
 exp-card p {
-    margin: 0;
+  margin: 0;
+}
+
+exp-card li {
+  list-style-position: inside;
 }
 
 exp-card:hover {
-    cursor: default;
-    box-shadow: 0 0.5em 2.5em 0 rgb(255, 255, 255);
+  cursor: default;
+  box-shadow: 0 0.5em 2.5em 0 rgba(153, 153, 153);
 }
 
 exp-card a:hover {
-    text-decoration: none;
-    transition: 0.1s;
-    filter: drop-shadow(0 0 4px rgb(105, 250, 255));
-    color: rgb(0, 195, 255);
+  text-decoration: none;
+  transition: 0.1s;
+  filter: drop-shadow(0 0 4px rgb(105, 250, 255));
+  color: rgb(0, 195, 255);
 }
 
 @media screen and (max-width: 767px) {
-    #exp-right {
-        width: 100%;
-    }
+  #exp-right {
+    width: 100%;
+  }
 
-    #exp-left {
-        width: 0;
-        height: 0;
-    }
+  #exp-left {
+    width: 0;
+    height: 0;
+  }
 
-    exp-card {
-        font-size: 0.85em;
-    }
+  exp-card {
+    font-size: 0.85em;
+  }
 
-    #experience {
-        min-height: 75vh;
-    }
+  #experience {
+    min-height: 75vh;
+  }
 }
 
 /*************************Projects****************************/
 
 #projects {
-    padding: 5% 0;
-    text-align: center;
+  padding: 5% 0;
+  text-align: center;
 }
 
 #projects td {
-    padding: 0 24px 24px 24px;
-    vertical-align: middle;
+  padding: 0 24px 24px 24px;
+  vertical-align: middle;
 }
 
 .btn {
-    margin: 0.25em auto;
+  margin: 0.25em auto;
 }
 
 .card-img {
-    max-width: 50%;
-    max-height: 50%;
+  max-width: 50%;
+  max-height: 50%;
 }
 
 .card-img:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .card.proj-card {
-    transition: 0.25s;
-    margin: 1em 0;
+  transition: 0.25s;
+  margin: 1em 0;
 }
 
 .card-title {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 @media screen and (max-width: 767px) {
-    .card.proj-card {
-        width: 90%;
-        height: fit-content;
-        margin: 1em auto;
-        font-size: 0.9em;
-    }
+  .card.proj-card {
+    width: 90%;
+    height: fit-content;
+    margin: 1em auto;
+    font-size: 0.9em;
+  }
 
-    .card-title {
-        font-size: 1.1em;
-    }
+  .card-title {
+    font-size: 1.1em;
+  }
 }
 
-
 .card.proj-card:hover {
-    z-index: 1;
-    border: 1px solid rgb(114, 114, 114);
-    transform: scale(1.025);
+  z-index: 1;
+  border: 1px solid rgb(114, 114, 114);
+  transform: scale(1.025);
 }
 
 #proj_1:hover {
-    filter: drop-shadow(0 0 2em rgb(0, 221, 74));
+  filter: drop-shadow(0 0 2em rgb(0, 221, 74));
 }
 
 #proj_2:hover {
-    filter: drop-shadow(0 0 2em rgb(59, 59, 59));
+  filter: drop-shadow(0 0 2em rgb(59, 59, 59));
 }
 
 #proj_3:hover {
-    filter: drop-shadow(0 0 2em #28b0ff);
+  filter: drop-shadow(0 0 2em #28b0ff);
 }
 
 #proj_4:hover {
-    filter: drop-shadow(0 0 2em gold);
+  filter: drop-shadow(0 0 2em gold);
 }
 
 #proj_5:hover {
-    filter: drop-shadow(0 0 2em #28b0ff);
+  filter: drop-shadow(0 0 2em #28b0ff);
 }
 
 #proj_6:hover {
-    filter: drop-shadow(0 0 2em #D22999);
+  filter: drop-shadow(0 0 2em #d22999);
 }
 
 /* popup images */
 
 #enlargedImageContainer {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.75);
-    align-items: center;
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  align-items: center;
 }
 
 .enlarged {
-    margin: auto;
-    max-width: 80vw;
-    max-height: 80vh;
-    -webkit-animation-name: zoom;
-    -webkit-animation-duration: 0.3s;
-    animation-name: zoom;
-    animation-duration: 0.3s;
+  margin: auto;
+  max-width: 80vw;
+  max-height: 80vh;
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.3s;
+  animation-name: zoom;
+  animation-duration: 0.3s;
 }
 
 .enlarged :hover {
-    cursor: none;
+  cursor: none;
 }
 
 @-webkit-keyframes zoom {
-    from {
-        -webkit-transform: scale(0)
-    }
+  from {
+    -webkit-transform: scale(0);
+  }
 
-    to {
-        -webkit-transform: scale(1)
-    }
+  to {
+    -webkit-transform: scale(1);
+  }
 }
 
 @keyframes zoom {
-    from {
-        transform: scale(0);
-        opacity: 0;
-    }
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
 
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .close-override {
-    color: #fff;
-    position: absolute;
-    top: -0.25em;
-    right: 0.5em;
-    font-size: 5em;
-    transition: 0.3s;
+  color: #fff;
+  position: absolute;
+  top: -0.25em;
+  right: 0.5em;
+  font-size: 5em;
+  transition: 0.3s;
 }
 
-.close-override:hover, .close-override:focus {
-    color: #bbb;
-    cursor: pointer;
+.close-override:hover,
+.close-override:focus {
+  color: #bbb;
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 700px) {
-    .enlarged {
-        width: 100%;
-    }
+  .enlarged {
+    width: 100%;
+  }
 }
