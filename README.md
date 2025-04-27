@@ -1,12 +1,12 @@
 # Personal Website
 
-Welcome to my personal website! This contains everything about me and my work experience, as well as my personal GitHub and LinkedIn.
+Welcome to my personal website! Here, you’ll find information about my background, work experience, and links to my GitHub and LinkedIn profiles.
 
 ### Contact Information
-If you'd like to get in touch with me for inquiries, collaborations, or any other reason, you can use the following contact information:
+If you would like to get in touch regarding inquiries, collaborations, or any other opportunities, feel free to reach out:
 
-- [**Email**](roseak.lin@gmail.com)
-- [**LinkedIn**](https://www.linkedin.com/in/roseak-lin)
-- [**GitHub**](https://github.com/Roseak-lin)
+- [**Email**](mailto:roseak.lin@gmail.com){:target="_blank"}
+- [**LinkedIn**](https://www.linkedin.com/in/roseak-lin){:target="_blank"}
+- [**GitHub**](https://github.com/Roseak-lin){:target="_blank"}
 
-Thank you for visiting my personal website! I look forward to connecting with you and discussing potential opportunities.
+Thank you for visiting! I look forward to connecting with you.
