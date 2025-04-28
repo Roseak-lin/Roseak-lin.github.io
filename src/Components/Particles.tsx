@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadFull } from "tsparticles";
 import { Container, Engine } from "@tsparticles/engine";
+import React from "react";
 
 const ParticlesBackground = () => {
   const [init, setInit] = useState(false);

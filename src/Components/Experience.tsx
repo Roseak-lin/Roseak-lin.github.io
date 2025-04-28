@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import ExpCard from "./ExpCard";
+import ExpCard from "./ExpCard.tsx";
 
 const Experience: React.FC = () => {
   return (
