@@ -1,5 +1,6 @@
 {
-  "name": "roseak-lin.github.io_2",
+  "homepage": "https://roseak-lin.github.io",
+  "name": "roseak-lin.github.io",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
