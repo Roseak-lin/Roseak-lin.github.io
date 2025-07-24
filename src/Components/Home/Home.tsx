@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Button } from 'react-bootstrap';
+import './Home.css'
 
 const Home: React.FC = () => {
   return (

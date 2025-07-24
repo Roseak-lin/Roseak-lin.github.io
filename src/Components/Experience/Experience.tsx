@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import ExpCard from "./ExpCard.tsx";
+import ExpCard from "../ExpCard/ExpCard";
+import './Experience.css'
 
 const Experience: React.FC = () => {
   return (
@@ -15,9 +16,12 @@ const Experience: React.FC = () => {
             title="Software Developer Intern"
             subtitle="JD Power | May 2024 - Aug 2025"
             items={[
-              "Resolved over 100 unique security vulnerabilities across more than 30 services, libraries, and ETLs. In total, over 1200 security vulnerabilities were resolved",
-              "Engineered a custom Java test suite for an internal code generation tool used in 20+ projects, and integrated it into GitLab CI/CD to streamline testing and speed up deployments",
-              "Migrated multiple projects from Cassandra 3 to Cassandra 4, boosting efficiency by up to 100% and creating clear migration documentation for other developers",
+              "Resolved over 100 unique CVEs across more than 30 services, libraries, and ETLs",
+              "Engineered a custom Java test suite for an internal code generation tool used in 20+ projects to catch any issues before reaching the QA stage, " +
+              "and integrated it with GitLab CI/CD to streamline testing and accelerate deployments",
+              "Spearheaded the migration of 10+ services and libraries from Cassandra 3 to Cassandra 4, resulting in a 2x throughput increase and delivering comprehensive migration playbooks for the team",
+              "Developed and maintained many services and shared utility libraries using a variety of frameworks such as Spring Boot, Swagger OpenAPI, and MyBatis",
+              "Leveraged Jenkins and Rancher for Kubernetes management to deploy services, debug issues, and monitor resource usage and performance"
             ]}
           />
           <ExpCard
@@ -61,7 +65,7 @@ const Experience: React.FC = () => {
           </ExpCard>
           <ExpCard>
             <h5>
-              2020/2021 CCC Junior Certificate of Distinction (63/75). Competed
+              2020/2021 CCC Junior and Senior Certificate of Distinction. Competed
               using Java and C++.
             </h5>
           </ExpCard>

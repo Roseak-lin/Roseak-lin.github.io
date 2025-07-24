@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadFull } from "tsparticles";
 import { Container, Engine } from "@tsparticles/engine";
@@ -29,7 +29,7 @@ const ParticlesBackground = () => {
       particlesLoaded={particlesLoaded}
       options={{
         fullScreen: {
-          enable: false, // Important: you're manually positioning it with CSS
+          enable: false,
         },
         particles: {
           number: {

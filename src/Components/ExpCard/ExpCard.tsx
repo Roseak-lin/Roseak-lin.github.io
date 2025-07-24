@@ -1,4 +1,5 @@
 import React from 'react';
+import './ExpCard.css'
 
 interface ExpCardProps {
   title?: string;

@@ -1,17 +1,17 @@
 import React from 'react';
-import Navbar from './Components/Navbar.tsx';
-import Home from './Components/Home.tsx';
-import ScrollToTopButton from './Components/ScrollToTop.tsx';
-import Experience from './Components/Experience.tsx';
-import Projects from "./Components/Projects.tsx"
-import Particles from "./Components/Particles.tsx"
 import './App.css'
+import NavBar from './Components/NavBar/Navbar'
+import ScrollToTopButton from './Components/ScrollToTop/ScrollToTop'
+import Particles from './Components/Particles/Particles'
+import Home from './Components/Home/Home'
+import Experience from './Components/Experience/Experience'
+import Projects from './Components/Projects/Projects'
 
 const App: React.FC = () => {
   
   return (
     <div className="App">
-      <Navbar />
+      <NavBar />
       <ScrollToTopButton />
       <Particles />
       <Home />

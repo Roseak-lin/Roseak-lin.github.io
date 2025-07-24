@@ -1,5 +1,6 @@
 import React from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
+import './NavBar.css'
 
 const CustomNavbar: React.FC = () => {
   const scrollTo = (id: string) => {
