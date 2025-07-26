@@ -1,0 +1,31 @@
+.exp-card {
+    border-radius: 0.25em;
+    background-color: #eee;
+    margin: auto auto 1.5em auto;
+    padding: 1em 1.5em;
+    transition: 0.25s;
+    width: 100%;
+}
+
+.exp-card p {
+    margin: 0;
+}
+
+.exp-card:hover {
+    cursor: default;
+    box-shadow: 0 0.5em 2.5em 0 rgba(153, 153, 153);
+    transform: translateY(-5px);
+}
+
+.exp-card a:hover {
+    text-decoration: none;
+    transition: 0.1s;
+    filter: drop-shadow(0 0 4px #69faff);
+    color: #00c3ff;
+}
+
+@media screen and (max-width: 767px) {
+    .exp-card {
+        font-size: 0.85em;
+    }
+}

@@ -1,0 +1,10 @@
+#experience {
+    background-color: rgba(190, 190, 190, 0.75);
+    min-height: 100vh;
+}
+
+@media screen and (max-width: 767px) {
+    #experience {
+        min-height: 75vh;
+    }
+}

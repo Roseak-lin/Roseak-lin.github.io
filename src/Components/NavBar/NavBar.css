@@ -1,0 +1,15 @@
+.nav-btn {
+    color: rgb(172, 172, 172);
+    padding: 8px;
+    border: none;
+    background-color: transparent;
+}
+
+.nav-btn:hover {
+    color: white;
+    transition: 0.3s;
+}
+
+.nav-btn:focus {
+    outline: none;
+}
