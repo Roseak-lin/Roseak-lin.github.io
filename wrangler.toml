@@ -1,0 +1,5 @@
+name = "roseak-lin-site"
+compatibility_date = "2025-08-23"
+
+[site]
+bucket = "./build"
