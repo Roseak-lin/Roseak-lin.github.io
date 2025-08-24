@@ -1,0 +1,7 @@
+name = "my-fullstack-app"
+compatibility_date = "2025-08-23"
+
+main = "src/worker/index.ts" # Worker entrypoint
+
+[site]
+bucket = "./dist"            # Vite build output
