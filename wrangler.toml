@@ -1,5 +1,5 @@
 name = "my-fullstack-app"
-main = "src/worker/index.ts"
+main = "worker/index.ts"
 compatibility_date = "2025-08-23"
 
 [site]
