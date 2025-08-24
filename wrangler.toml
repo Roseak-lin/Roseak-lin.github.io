@@ -1,7 +1,9 @@
-name = "roseak-lin"
+name = "my-fullstack-app"
+main = "src/worker/index.ts"
 compatibility_date = "2025-08-23"
 
-main = "worker/index.ts" # Worker entrypoint
-
 [site]
-bucket = "./dist"            # Vite build output
+bucket = "./dist"
+
+[build]
+command = "npm run build"
