@@ -1,0 +1,23 @@
+.canvas-image-wrapper {
+    position: relative;
+    overflow: hidden;
+    padding: 1em;
+}
+
+.canvas-image {
+    margin: 0;
+    display: block;
+    break-inside: avoid;
+    object-fit: cover;
+    transition: 0.3s;
+    background-color: grey;
+}
+
+.canvas-image:hover {
+    transform: scale(1.03);
+    z-index: 10;
+}
+
+.loaded {
+    opacity: 1;
+}

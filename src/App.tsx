@@ -1,23 +1,16 @@
 import React from 'react';
 import './App.css'
-import NavBar from './Components/NavBar/Navbar'
-import ScrollToTopButton from './Components/ScrollToTop/ScrollToTop'
-import Particles from './Components/Particles/Particles'
-import Home from './Components/Home/Home'
-import Experience from './Components/Experience/Experience'
-import Projects from './Components/Projects/Projects'
+import { Route, Routes } from 'react-router-dom';
+import HomePage from './Pages/HomePage/HomePage';
+import PhotographyPage from './Pages/Photography/PhotographyPage';
 
 const App: React.FC = () => {
   
   return (
-    <div className="App">
-      <NavBar />
-      <ScrollToTopButton />
-      <Particles />
-      <Home />
-      <Experience />
-      <Projects />
-    </div>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/photography" element={<PhotographyPage />} />
+    </Routes>
   );
 }
 

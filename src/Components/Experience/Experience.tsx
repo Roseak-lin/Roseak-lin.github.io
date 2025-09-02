@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import ExpCard from "../ExpCard/ExpCard";
-import './Experience.css'
+import "./Experience.css";
 
 const Experience: React.FC = () => {
   return (
@@ -16,22 +16,21 @@ const Experience: React.FC = () => {
             title="Software Developer Intern"
             subtitle="JD Power | May 2024 - Aug 2025"
             items={[
-              "Resolved over 100 unique CVEs across more than 30 services, libraries, and ETLs",
-              "Engineered a custom Java test suite for an internal code generation tool used in 20+ projects to catch any issues before reaching the QA stage, " +
-              "and integrated it with GitLab CI/CD to streamline testing and accelerate deployments",
-              "Spearheaded the migration of 10+ services and libraries from Cassandra 3 to Cassandra 4, resulting in a 2x throughput increase and delivering comprehensive migration playbooks for the team",
-              "Developed and maintained many services and shared utility libraries using a variety of frameworks such as Spring Boot, Swagger OpenAPI, and MyBatis",
-              "Leveraged Jenkins and Rancher for Kubernetes management to deploy services, debug issues, and monitor resource usage and performance"
+              "Resolved over 100 unique CVEs across more than 30 services, libraries, and ETLs, resulting in an over 90% drop in vulnerabilities in projects the team managed",
+              "Engineered a custom Java test suite for an internal code generation tool used in 20+ projects, and integrated it with GitLab CI/CD to streamline testing and accelerate deployments",
+              "Contributed to a team-led R&D project focused on integrating AI-driven tooling into developer workflows, developing IntelliJ Gradle plugins, experimenting with Ollama models, and delivering findings to support a potential company-wide rollout",
+              "Researched and refactored Java code in Spring Boot microservices and libraries to support functional and library changes from Cassandra 3 to 4; authored migration documentation adopted team-wide, enabling up to a 2x throughput increase during the production rollout",
+              "Leveraged Jenkins and Rancher for Kubernetes management to deploy services, debug issues, and monitor resource usage and performance",
             ]}
           />
           <ExpCard
             title="Web Designer and Developer"
             subtitle="Sinai Foundation Canada | May 2022 - Jul 2022"
             items={[
-              "Led, strategized, and executed multiple projects aimed at enhancing the user interface (UI) and accessibility of the website utilizing ReactJS",
-              "Revamped the entire website by introducing a fresh theme and implementing a responsive design using Bootstrap and SCSS",
-              "Refactored the codebase by incorporating modular sub-components and implementing a content parsing function to replace inline text content with JSON files",
-              "Improved SEO for the website with React Snap by improving what metadata was visible to webcrawlers",
+              "Led, strategized, and executed projects aimed at enhancing the user interface (UI) and accessibility of the website utilizing ReactJS",
+              "Revamped the site with a fresh theme, implementing a responsive design on over 20 components using Bootstrap and SCSS",
+              "Refactored the codebase by implementing modular sub-components and integrating a content parsing function, transitioning from inline text to JSON files and generating more than 10 new JSON files for streamlined data organization",
+              "Improved and optimized SEO using React Snap by refining metadata visibility for web crawlers, with a special emphasis on optimizing for Facebook crawlers, given the company’s significant activity on the platform",
             ]}
           />
           <ExpCard
@@ -65,8 +64,8 @@ const Experience: React.FC = () => {
           </ExpCard>
           <ExpCard>
             <h5>
-              2020/2021 CCC Junior and Senior Certificate of Distinction. Competed
-              using Java and C++.
+              2020/2021 CCC Junior and Senior Certificate of Distinction.
+              Competed using Java and C++.
             </h5>
           </ExpCard>
         </Col>

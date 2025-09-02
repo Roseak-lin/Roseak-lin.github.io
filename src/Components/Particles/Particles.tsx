@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadFull } from "tsparticles";
-import { Container, Engine } from "@tsparticles/engine";
-import React from "react";
+import { Engine } from "@tsparticles/engine";
+
+import "./Particles.css";
 
 const ParticlesBackground = () => {
   const [init, setInit] = useState(false);
@@ -15,10 +16,6 @@ const ParticlesBackground = () => {
     });
   }, []);
 
-  const particlesLoaded = async (container?: Container): Promise<void> => {
-    console.log(container);
-  };
-
   if (!init) {
     return null; // nothing until particles are ready
   }
@@ -26,7 +23,6 @@ const ParticlesBackground = () => {
   return (
     <Particles
       id="tsparticles"
-      particlesLoaded={particlesLoaded}
       options={{
         fullScreen: {
           enable: false,
