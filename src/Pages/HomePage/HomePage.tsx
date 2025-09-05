@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 import CustomNavbar from "../../Components/NavBar/Navbar";
 import ScrollToTop from "../../Components/ScrollToTop/ScrollToTop";
 import Particles from "../../Components/Particles/Particles";
-import Home from "../../Components/Home/Home";
-import Experience from "../../Components/Experience/Experience";
-import Projects from "../../Components/Projects/Projects";
+import Home from "../Home/Home";
+import Experience from "../Home/Experience/Experience";
+import Projects from "../Home/Projects/Projects";
 import { useLocation } from "react-router-dom";
 
 const HomePage: React.FC = () => {

@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import ExpCard from "../ExpCard/ExpCard";
+import ExpCard from "../../../Components/ExpCard/ExpCard";
 import "./Experience.css";
 
 const Experience: React.FC = () => {
