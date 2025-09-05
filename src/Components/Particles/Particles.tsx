@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadFull } from "tsparticles";
-import { Engine } from "@tsparticles/engine";
+import { type Engine }  from "@tsparticles/engine";
 
 import "./Particles.css";
 
