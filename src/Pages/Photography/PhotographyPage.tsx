@@ -8,8 +8,7 @@ import ScrollToTop from "../../Components/ScrollToTop/ScrollToTop";
 const PhotographyPage = () => {
   const [images, setImages] = useState<string[]>([]);
 
-  // const WORKER = "https://personal-website-worker.roseak-lin.workers.dev";
-  const WORKER = "http://127.0.0.1:8787";
+  const WORKER = process.env.REACT_APP_CLOUDFLARE_WORKER_URL;
   useEffect(() => {
     const fetchImages = async () => {
       try {

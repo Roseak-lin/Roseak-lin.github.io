@@ -25,6 +25,5 @@ yarn-error.log*
 
 # env
 .env
-.env.production
 .dev.vars
 
