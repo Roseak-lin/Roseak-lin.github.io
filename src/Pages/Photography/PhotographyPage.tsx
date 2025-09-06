@@ -1,6 +1,12 @@
 import { useCallback, useEffect, useState } from "react";
 import CustomNavbar from "../../Components/NavBar/Navbar";
-import { Button, Container, Row } from "react-bootstrap";
+import {
+  Button,
+  Container,
+  Row,
+  Modal,
+  Spinner
+} from "react-bootstrap";
 import "./PhotographyPage.css";
 import CanvasImage from "../../Components/CanvasImage/Image";
 import ScrollToTop from "../../Components/ScrollToTop/ScrollToTop";
@@ -9,6 +15,13 @@ const PhotographyPage = () => {
   const [images, setImages] = useState<string[]>([]);
   const [cursor, setCursor] = useState<string | null | undefined>();
   const [loading, setLoading] = useState(false);
+
+  // New state for modal
+  const [selectedImage, setSelectedImage] = useState<{
+    url: string;
+    alt: string;
+  } | null>(null);
+  const [modalLoading, setModalLoading] = useState(true);
 
   const WORKER =
     window.location.hostname === "localhost" ||
@@ -56,7 +69,21 @@ const PhotographyPage = () => {
 
   useEffect(() => {
     fetchImages(undefined);
-  }, []);
+  }, [fetchImages]);
+
+  const handleImageClick = (image: any) => {
+    const json = JSON.parse(JSON.stringify(image));
+    setModalLoading(true);
+    setSelectedImage({
+      url: `${WORKER}${json.url}`,
+      alt: json.key ?? "Image",
+    });
+  };
+
+  const handleModalClose = () => {
+    setModalLoading(true);
+    setSelectedImage(null);
+  };
 
   const imageGrid = () => {
     return images.map((image, index) => {
@@ -68,6 +95,7 @@ const PhotographyPage = () => {
           alt={json.key}
           width={json.width}
           height={json.height}
+          onClick={() => handleImageClick(image)}
         />
       );
     });
@@ -101,6 +129,37 @@ const PhotographyPage = () => {
           )}
         </Row>
       </Container>
+
+      <Modal
+        show={!!selectedImage}
+        onHide={handleModalClose}
+        centered
+        size="xl"
+      >
+        <Modal.Header closeButton>
+        </Modal.Header>
+        <Modal.Body className="d-flex justify-content-center align-items-center">
+          {selectedImage ? (
+            <>
+              {modalLoading && (
+                <Spinner animation="border" role="status" className="me-3" />
+              )}
+              <img
+                src={selectedImage.url}
+                alt={selectedImage.alt}
+                onLoad={() => setModalLoading(false)}
+                style={{
+                  maxWidth: "100%",
+                  maxHeight: "85vh",
+                  display: modalLoading ? "none" : "block",
+                }}
+              />
+            </>
+          ) : (
+            <p>No image selected.</p>
+          )}
+        </Modal.Body>
+      </Modal>
     </div>
   );
 };
