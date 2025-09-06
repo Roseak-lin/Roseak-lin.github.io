@@ -87,7 +87,7 @@ const PhotographyPage = () => {
           A little collection of my photography :)
         </h1>
         <div className="canvas">{imageGrid()}</div>
-          {/* {cursor && <Button onClick={loadNextImagePage}>Load More</Button>} */}
+          {cursor && <Button onClick={loadNextImagePage}>Load More</Button>}
         <Row className="m-0 justify-content-center">
           <Button variant="outline-dark" className="w-75 m-2" onClick={loadNextImagePage} disabled={loading}>{loading ? "Loading..." : "Load More"}</Button>
         </Row>
