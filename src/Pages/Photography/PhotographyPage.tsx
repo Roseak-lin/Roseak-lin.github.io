@@ -20,9 +20,12 @@ const PhotographyPage = () => {
     async (cursor: string | null | undefined) => {
       try {
         setLoading(true);
-        const response = await fetch(`${WORKER}/getItems${cursor ? `?cursor=${cursor}` : ""}`, {
-          method: "GET",
-        });
+        const response = await fetch(
+          `${WORKER}/getItems${cursor ? `?cursor=${cursor}` : ""}`,
+          {
+            method: "GET",
+          }
+        );
 
         if (!response.ok) {
           console.error(
@@ -44,9 +47,7 @@ const PhotographyPage = () => {
       } catch (err) {
         console.error("Network or server error:", err);
         setImages([]);
-      }
-      finally {
-        console.log("Finished loading");
+      } finally {
         setLoading(false);
       }
     },
@@ -87,9 +88,17 @@ const PhotographyPage = () => {
           A little collection of my photography :)
         </h1>
         <div className="canvas">{imageGrid()}</div>
-          {cursor && <Button onClick={loadNextImagePage}>Load More</Button>}
         <Row className="m-0 justify-content-center">
-          <Button variant="outline-dark" className="w-75 m-2" onClick={loadNextImagePage} disabled={loading}>{loading ? "Loading..." : "Load More"}</Button>
+          {cursor && (
+            <Button
+              variant="outline-dark"
+              className="w-75 m-2"
+              onClick={loadNextImagePage}
+              disabled={loading}
+            >
+              {loading ? "Loading..." : "Load More"}
+            </Button>
+          )}
         </Row>
       </Container>
     </div>
