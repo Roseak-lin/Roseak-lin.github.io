@@ -29,7 +29,7 @@ const projects: Project[] = [
     hoverColor: "#28b0ff"
   },
   {
-    title: 'Programming Solutions',
+    title: 'Competitive Programming Solutions',
     description: 'Respositories of my solved problems from the University of Waterloo computing contests (CCC and CCO) and other programming questions from dmoj.ca. All solutions written in Java and C++.',
     img: 'images/cp_image.jpg',
     repo: 'https://github.com/Roseak-lin/CCC-CCO-Solutions',

@@ -1,15 +1,10 @@
 import { useCallback, useEffect, useState } from "react";
 import CustomNavbar from "../../Components/NavBar/Navbar";
-import {
-  Button,
-  Container,
-  Row,
-  Modal,
-  Spinner
-} from "react-bootstrap";
+import { Button, Container, Row, Spinner } from "react-bootstrap";
 import "./PhotographyPage.css";
 import CanvasImage from "../../Components/CanvasImage/Image";
 import ScrollToTop from "../../Components/ScrollToTop/ScrollToTop";
+import Modal from "../../Components/Modal/Modal";
 
 const PhotographyPage = () => {
   const [images, setImages] = useState<string[]>([]);
@@ -22,6 +17,7 @@ const PhotographyPage = () => {
     alt: string;
   } | null>(null);
   const [modalLoading, setModalLoading] = useState(true);
+  const [showModal, setShowModal] = useState(false);
 
   const WORKER =
     window.location.hostname === "localhost" ||
@@ -74,15 +70,11 @@ const PhotographyPage = () => {
   const handleImageClick = (image: any) => {
     const json = JSON.parse(JSON.stringify(image));
     setModalLoading(true);
+    setShowModal(true);
     setSelectedImage({
       url: `${WORKER}${json.url}`,
       alt: json.key ?? "Image",
     });
-  };
-
-  const handleModalClose = () => {
-    setModalLoading(true);
-    setSelectedImage(null);
   };
 
   const imageGrid = () => {
@@ -129,17 +121,10 @@ const PhotographyPage = () => {
           )}
         </Row>
       </Container>
-
-      <Modal
-        show={!!selectedImage}
-        onHide={handleModalClose}
-        centered
-        size="xl"
-      >
-        <Modal.Header closeButton>
-        </Modal.Header>
-        <Modal.Body className="d-flex justify-content-center align-items-center">
-          {selectedImage ? (
+      <Modal show={showModal} setShowModal={setShowModal}>
+        <Modal.Box>
+          <Modal.Header>{selectedImage?.alt}</Modal.Header>
+          {selectedImage && (
             <>
               {modalLoading && (
                 <Spinner animation="border" role="status" className="me-3" />
@@ -149,16 +134,12 @@ const PhotographyPage = () => {
                 alt={selectedImage.alt}
                 onLoad={() => setModalLoading(false)}
                 style={{
-                  maxWidth: "100%",
-                  maxHeight: "85vh",
                   display: modalLoading ? "none" : "block",
                 }}
               />
             </>
-          ) : (
-            <p>No image selected.</p>
           )}
-        </Modal.Body>
+        </Modal.Box>
       </Modal>
     </div>
   );

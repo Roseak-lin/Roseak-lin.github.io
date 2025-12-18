@@ -18,7 +18,7 @@ const Experience: React.FC = () => {
             items={[
               "Resolved over 100 unique CVEs across more than 30 services, libraries, and ETLs, resulting in an over 90% drop in vulnerabilities in projects the team managed",
               "Engineered a custom Java test suite for an internal code generation tool used in 20+ projects, and integrated it with GitLab CI/CD to streamline testing and accelerate deployments",
-              "Contributed to a team-led R&D project focused on integrating AI-driven tooling into developer workflows, developing IntelliJ Gradle plugins, experimenting with Ollama models, and delivering findings to support a potential company-wide rollout",
+              "Contributed to a team-led R&D project focused on integrating AI-driven tooling into developer workflows, developing IntelliJ Gradle plugins, experimenting with Ollama models, and delivering findings to support a company-wide rollout",
               "Researched and refactored Java code in Spring Boot microservices and libraries to support functional and library changes from Cassandra 3 to 4; authored migration documentation adopted team-wide, enabling up to a 2x throughput increase during the production rollout",
               "Leveraged Jenkins and Rancher for Kubernetes management to deploy services, debug issues, and monitor resource usage and performance",
             ]}
