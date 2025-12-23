@@ -1,6 +1,4 @@
 import React, { useEffect } from "react";
-import CustomNavbar from "../../Components/NavBar/Navbar";
-import ScrollToTop from "../../Components/ScrollToTop/ScrollToTop";
 import Particles from "../../Components/Particles/Particles";
 import Home from "../Home/Home";
 import Experience from "../Home/Experience/Experience";
@@ -22,8 +20,6 @@ const HomePage: React.FC = () => {
 
   return (
     <div className="App">
-      <CustomNavbar />
-      <ScrollToTop />
       <Particles />
       <Home />
       <Experience />

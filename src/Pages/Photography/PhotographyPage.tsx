@@ -1,9 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
-import CustomNavbar from "../../Components/NavBar/Navbar";
 import { Button, Container, Row, Spinner } from "react-bootstrap";
 import "./PhotographyPage.css";
 import CanvasImage from "../../Components/CanvasImage/Image";
-import ScrollToTop from "../../Components/ScrollToTop/ScrollToTop";
 import Modal from "../../Components/Modal/Modal";
 
 const PhotographyPage = () => {
@@ -101,8 +99,6 @@ const PhotographyPage = () => {
 
   return (
     <div>
-      <CustomNavbar />
-      <ScrollToTop />
       <Container fluid>
         <h1 className="section-title">
           A little collection of my photography :)
