@@ -14,6 +14,7 @@ const Experience: React.FC = () => {
         <Col>
           <ExpCard
             title="Software Developer Intern"
+            icon={<img src="images/JD_Power_Logo.webp" alt="JD Power Logo" height={40} />}
             subtitle="JD Power | May 2024 - Aug 2025"
             items={[
               "Resolved over 100 unique CVEs across more than 30 services, libraries, and ETLs, resulting in an over 90% drop in vulnerabilities in projects the team managed",
@@ -25,6 +26,7 @@ const Experience: React.FC = () => {
           />
           <ExpCard
             title="Web Designer and Developer"
+            icon={<img src="images/sinai_logo.svg" height={50}/>}
             subtitle="Sinai Foundation Canada | May 2022 - Jul 2022"
             items={[
               "Led, strategized, and executed projects aimed at enhancing the user interface (UI) and accessibility of the website utilizing ReactJS",

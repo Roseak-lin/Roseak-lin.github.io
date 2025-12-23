@@ -11,9 +11,9 @@ interface ModalProps {
 
 function Modal({ children, show, setShowModal }: ModalProps) {
   return (
-    <ModalContext.Provider value={{ onClose: () => setShowModal(false) }}>
+    <ModalContext.Provider value={{ onClose: () => setShowModal(false)}}>
       <AnimatePresence>
-        {show && <motion.div className={`image-modal-backdrop`} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0}}>{children}</motion.div>}
+        {show && <motion.div  className={`image-modal-backdrop`} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0}}>{children}</motion.div>}
       </AnimatePresence>
     </ModalContext.Provider>
   );
@@ -24,7 +24,6 @@ function ModalBox({ children }: { children: React.ReactNode }) {
   const modalContext = useModal();
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      console.log("Clicked outside modal");
       if (
         modalRef.current &&
         !(modalRef.current as any).contains(event.target)
