@@ -32,6 +32,7 @@
 }
 
 .image-modal-box {
+    position: relative;
     display: flex;
     border-radius: 1em;
     flex-direction: column;
@@ -53,4 +54,16 @@
 .image-modal-close-btn:hover {
     cursor: pointer;
     transform: scale(1.2);
+}
+
+.image-modal-next {
+    position: absolute;
+    right: min(-3vw, -2.5em);
+    top: 50%;
+}
+
+.image-modal-prev {
+    position: absolute;
+    left: min(-3vw, -2.5em);
+    top: 50%;
 }

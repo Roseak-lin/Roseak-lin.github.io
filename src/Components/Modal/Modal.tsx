@@ -9,11 +9,20 @@ interface ModalProps {
   setShowModal: (show: boolean) => void;
 }
 
-function Modal({ children, show, setShowModal }: ModalProps) {
+function Modal({ children, show, setShowModal}: ModalProps) {
   return (
-    <ModalContext.Provider value={{ onClose: () => setShowModal(false)}}>
+    <ModalContext.Provider value={{ onClose: () => setShowModal(false) }}>
       <AnimatePresence>
-        {show && <motion.div  className={`image-modal-backdrop`} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0}}>{children}</motion.div>}
+        {show && (
+          <motion.div
+            className={`image-modal-backdrop`}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            {children}
+          </motion.div>
+        )}
       </AnimatePresence>
     </ModalContext.Provider>
   );

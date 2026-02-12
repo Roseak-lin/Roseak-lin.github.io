@@ -4,8 +4,15 @@ import "./PhotographyPage.css";
 import CanvasImage from "../../Components/CanvasImage/Image";
 import Modal from "../../Components/Modal/Modal";
 
+type ImageData = {
+  key: string;
+  url: string;
+  width: number;
+  height: number;
+};
+
 const PhotographyPage = () => {
-  const [images, setImages] = useState<string[]>([]);
+  const [images, setImages] = useState<ImageData[]>([]);
   const [cursor, setCursor] = useState<string | null | undefined>();
   const [loading, setLoading] = useState(false);
 
@@ -13,6 +20,7 @@ const PhotographyPage = () => {
   const [selectedImage, setSelectedImage] = useState<{
     url: string;
     alt: string;
+    index: number;
   } | null>(null);
   const [modalLoading, setModalLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
@@ -31,12 +39,12 @@ const PhotographyPage = () => {
           `${WORKER}/getItems${cursor ? `?cursor=${cursor}` : ""}`,
           {
             method: "GET",
-          }
+          },
         );
 
         if (!response.ok) {
           console.error(
-            `Fetch failed: ${response.status} ${response.statusText}`
+            `Fetch failed: ${response.status} ${response.statusText}`,
           );
           setImages([]);
           return;
@@ -58,34 +66,62 @@ const PhotographyPage = () => {
         setLoading(false);
       }
     },
-    [WORKER]
+    [WORKER],
   );
+
+  const selectNextImage = () => {
+    if (selectedImage) {
+      const newIndex = (selectedImage.index + 1) % images.length;
+      const newImageData: ImageData = images[newIndex];
+      setSelectedImage({
+        url: newImageData.url,
+        alt: newImageData.key,
+        index: newIndex,
+      });
+    }
+  };
+
+  const selectPrevImage = () => {
+    if (selectedImage) {
+      const newIndex =
+        selectedImage.index - 1 == -1
+          ? images.length - 1
+          : selectedImage.index - 1;
+      const newImageData: ImageData = images[newIndex];
+      setSelectedImage({
+        url: newImageData.url,
+        alt: newImageData.key,
+        index: newIndex,
+      });
+    }
+  };
 
   useEffect(() => {
     fetchImages(undefined);
   }, [fetchImages]);
 
-  const handleImageClick = (image: any) => {
-    const json = JSON.parse(JSON.stringify(image));
+  const handleImageClick = (image: ImageData, index: number) => {
+    const imageData = image;
     setModalLoading(true);
     setShowModal(true);
     setSelectedImage({
-      url: `${WORKER}${json.url}`,
-      alt: json.key ?? "Image",
+      url: `${imageData.url}`,
+      alt: imageData.key ?? "Image",
+      index: index,
     });
   };
 
   const imageGrid = () => {
-    return images.map((image, index) => {
-      const json = JSON.parse(JSON.stringify(image));
+    return images.map((image: ImageData, index) => {
+      const imageData = image;
       return (
         <CanvasImage
-          key={json.key ?? index}
-          src={`${WORKER}${json.url}`}
-          alt={json.key}
-          width={json.width}
-          height={json.height}
-          onClick={() => handleImageClick(image)}
+          key={imageData.key ?? index}
+          src={`${WORKER}${imageData.url}`}
+          alt={imageData.key}
+          width={imageData.width}
+          height={imageData.height}
+          onClick={() => handleImageClick(image, index)}
         />
       );
     });
@@ -105,6 +141,11 @@ const PhotographyPage = () => {
         </h1>
         <div className="canvas">{imageGrid()}</div>
         <Row className="m-0 justify-content-center">
+          {loading && (
+            <Spinner className="my-2" animation="grow" role="status" />
+          )}
+        </Row>
+        <Row className="m-0 justify-content-center">
           {cursor && (
             <Button
               variant="outline-dark"
@@ -117,7 +158,10 @@ const PhotographyPage = () => {
           )}
         </Row>
       </Container>
-      <Modal show={showModal} setShowModal={setShowModal}>
+      <Modal
+        show={showModal}
+        setShowModal={setShowModal}
+      >
         <Modal.Box>
           <Modal.Header>{selectedImage?.alt}</Modal.Header>
           {selectedImage && (
@@ -126,7 +170,7 @@ const PhotographyPage = () => {
                 <Spinner animation="border" role="status" className="me-3" />
               )}
               <img
-                src={selectedImage.url}
+                src={`${WORKER}${selectedImage.url}`}
                 alt={selectedImage.alt}
                 onLoad={() => setModalLoading(false)}
                 style={{
@@ -135,6 +179,12 @@ const PhotographyPage = () => {
               />
             </>
           )}
+          <Button variant="dark" className="image-modal-prev" onClick={selectPrevImage}>
+            &lt;
+          </Button>
+          <Button variant="dark" className="image-modal-next" onClick={selectNextImage}>
+            &gt;
+          </Button>
         </Modal.Box>
       </Modal>
     </div>
