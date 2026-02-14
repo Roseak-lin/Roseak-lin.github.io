@@ -1,6 +1,7 @@
 .exp-card {
     border-radius: 0.25em;
-    background-color: #eee;
+    background-color: var(--bs-body-bg);
+    color: var(--text-color);
     margin: auto auto 1.5em auto;
     padding: 1em 1.5em;
     transition: 0.25s;

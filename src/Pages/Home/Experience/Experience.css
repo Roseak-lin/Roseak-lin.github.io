@@ -1,5 +1,5 @@
 #experience {
-    background-color: rgba(190, 190, 190, 0.75);
+    background-color: rgba(var(--bs-secondary-bg-rgb), 0.75);
     min-height: 100vh;
 }
 

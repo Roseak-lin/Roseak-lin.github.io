@@ -1,6 +1,7 @@
 import React from 'react';
-import { Container, Row, Col, Card, Button } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import './Projects.css'
+import ProjCard from '../../../Components/ProjCard/ProjCard';
 
 interface Project {
   title: string;
@@ -60,38 +61,15 @@ const Projects: React.FC = () => {
       <Row className='g-4 m-0 justify-content-center'>
         {projects.map((project, key) => (
           <Col md={12} lg={6} xxl={4} key={key} className="d-flex align-items-stretch">
-            <Card className="mb-4 proj-card" style={{ '--hover-color': project.hoverColor } as React.CSSProperties}>
-              <Card.Img variant="top" src={project.img} alt={project.title} />
-              <Card.Body>
-                <Card.Title>{project.title}</Card.Title>
-                <Card.Text>{project.description}</Card.Text>
-                <Button
-                  variant="dark"
-                  className="m-1"
-                  onClick={() => window.open(project.repo)}
-                >
-                  Source Code
-                </Button>
-                {project.live && (
-                  <Button
-                    variant="dark"
-                    className="m-1"
-                    onClick={() => window.open(project.live)}
-                  >
-                    Live Demo
-                  </Button>
-                )}
-                {project.extra && (
-                  <Button
-                    variant="dark"
-                    className="m-1"
-                    onClick={() => window.open(project.extra)}
-                  >
-                    More
-                  </Button>
-                )}
-              </Card.Body>
-            </Card>
+            <ProjCard
+              title={project.title}
+              description={project.description}
+              img={project.img}
+              repo={project.repo}
+              live={project.live}
+              extra={project.extra}
+              hoverColor={project.hoverColor}
+            />
           </Col>
         ))}
       </Row>

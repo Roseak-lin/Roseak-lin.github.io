@@ -1,9 +1,11 @@
 import React from "react";
-import { Navbar, Nav } from "react-bootstrap";
-import "./NavBar.css";
+import { Navbar, Nav, Tooltip, OverlayTrigger } from "react-bootstrap";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useTheme } from "../Theme/ThemeContext";
+import { BrightnessHighFill, MoonFill } from "react-bootstrap-icons";
 
 const CustomNavbar: React.FC = () => {
+  const { theme, toggleTheme } = useTheme();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -23,9 +25,23 @@ const CustomNavbar: React.FC = () => {
     window.open("/Resume.pdf", "_blank");
   };
 
+  const themeTooltip = (props: any) => {
+    return (
+      <Tooltip id="theme-tooltip" {...props}>
+        Lights {theme === "light" ? "off" : "on"}!
+      </Tooltip>
+    );
+  };
+
   return (
-    <Navbar bg="dark" variant="dark" expand="lg" sticky="top" className="px-4">
+    <Navbar
+      data-bs-theme={theme}
+      expand="lg"
+      fixed="top"
+      className="px-4 bg-body-tertiary"
+    >
       <Navbar.Brand
+        className="justify-content-start"
         onClick={() => scrollTo("home")}
         style={{ cursor: "pointer" }}
       >
@@ -40,6 +56,17 @@ const CustomNavbar: React.FC = () => {
           <Nav.Link as={Link} to="/photography">
             Photography
           </Nav.Link>
+        </Nav>
+        <Nav className="ms-auto">
+          <OverlayTrigger placement="bottom" overlay={themeTooltip}>
+            <Nav.Link
+              onClick={() => {
+                toggleTheme();
+              }}
+            >
+              {theme === "light" ? <MoonFill /> : <BrightnessHighFill />}
+            </Nav.Link>
+          </OverlayTrigger>
         </Nav>
       </Navbar.Collapse>
     </Navbar>

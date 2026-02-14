@@ -1,6 +1,5 @@
 import { useState } from "react";
 import "./CanvasImage.css";
-import { Spinner } from "react-bootstrap";
 
 type ImageProps = {
   src: string;

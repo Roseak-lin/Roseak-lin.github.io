@@ -3,6 +3,7 @@ import { Button, Container, Row, Spinner } from "react-bootstrap";
 import "./PhotographyPage.css";
 import CanvasImage from "../../Components/CanvasImage/Image";
 import Modal from "../../Components/Modal/Modal";
+import { useTheme } from "../../Components/Theme/ThemeContext";
 
 type ImageData = {
   key: string;
@@ -12,6 +13,7 @@ type ImageData = {
 };
 
 const PhotographyPage = () => {
+  const {theme} = useTheme()
   const [images, setImages] = useState<ImageData[]>([]);
   const [cursor, setCursor] = useState<string | null | undefined>();
   const [loading, setLoading] = useState(false);
@@ -134,7 +136,7 @@ const PhotographyPage = () => {
   };
 
   return (
-    <div>
+    <div className="app">
       <Container fluid>
         <h1 className="section-title">
           A little collection of my photography :)
@@ -148,7 +150,7 @@ const PhotographyPage = () => {
         <Row className="m-0 justify-content-center">
           {cursor && (
             <Button
-              variant="outline-dark"
+              variant={`outline-${theme == "dark" ? "light" : "dark"}`}
               className="w-75 m-2"
               onClick={loadNextImagePage}
               disabled={loading}
@@ -179,10 +181,10 @@ const PhotographyPage = () => {
               />
             </>
           )}
-          <Button variant="dark" className="image-modal-prev" onClick={selectPrevImage}>
+          <Button variant={theme} className="image-modal-prev" onClick={selectPrevImage}>
             &lt;
           </Button>
-          <Button variant="dark" className="image-modal-next" onClick={selectNextImage}>
+          <Button variant={theme} className="image-modal-next" onClick={selectNextImage}>
             &gt;
           </Button>
         </Modal.Box>

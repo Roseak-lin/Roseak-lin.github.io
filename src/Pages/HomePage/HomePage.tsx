@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import Particles from "../../Components/Particles/Particles";
 import Home from "../Home/Home";
 import Experience from "../Home/Experience/Experience";
 import Projects from "../Home/Projects/Projects";
@@ -20,7 +19,6 @@ const HomePage: React.FC = () => {
 
   return (
     <div className="App">
-      <Particles />
       <Home />
       <Experience />
       <Projects />

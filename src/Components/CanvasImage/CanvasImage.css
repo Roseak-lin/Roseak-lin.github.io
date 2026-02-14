@@ -10,7 +10,6 @@
     break-inside: avoid;
     object-fit: cover;
     transition: 0.3s;
-    background-color: grey;
     opacity: 0;
 }
 

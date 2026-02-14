@@ -6,6 +6,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { HashRouter } from "react-router-dom";
 import CustomNavbar from "./Components/NavBar/Navbar";
 import ScrollToTop from "./Components/ScrollToTop/ScrollToTop";
+import { ThemeProvider } from "./Components/Theme/ThemeContext";
+import Particles from "./Components/Particles/Particles";
+
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -14,9 +17,12 @@ const root = ReactDOM.createRoot(
 root.render(
   <HashRouter>
     <React.StrictMode>
-      <CustomNavbar />
-      <ScrollToTop />
-      <App />
+      <ThemeProvider>
+        <Particles />
+        <CustomNavbar />
+        <ScrollToTop />
+        <App />
+      </ThemeProvider>
     </React.StrictMode>
   </HashRouter>
 );

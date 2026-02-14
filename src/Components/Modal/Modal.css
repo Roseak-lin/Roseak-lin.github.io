@@ -27,8 +27,8 @@
     padding: 1rem;
     border-radius: 1em 1em 0 0;
     box-sizing: border-box;
-    background-color: rgb(210, 234, 255);
-    border-bottom: 1px solid #ccc;
+    background-color: var(--bs-primary-bg-subtle);
+    color: var(--bs-body-color);
 }
 
 .image-modal-box {
@@ -60,10 +60,12 @@
     position: absolute;
     right: min(-3vw, -2.5em);
     top: 50%;
+    border-radius: 50% !important;
 }
 
 .image-modal-prev {
     position: absolute;
     left: min(-3vw, -2.5em);
     top: 50%;
+    border-radius: 50% !important;
 }
