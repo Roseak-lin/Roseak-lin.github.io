@@ -19,9 +19,9 @@ const Experience: React.FC = () => {
             items={[
               "Resolved over 100 unique CVEs across more than 30 services, libraries, and ETLs, resulting in an over 90% drop in vulnerabilities in projects the team managed",
               "Engineered a custom Java test suite for an internal code generation tool used in 20+ projects, and integrated it with GitLab CI/CD to streamline testing and accelerate deployments",
-              "Contributed to a team-led R&D project focused on integrating AI-driven tooling into developer workflows, developing IntelliJ Gradle plugins, experimenting with Ollama models, and delivering findings to support a company-wide rollout",
-              "Researched and refactored Java code in Spring Boot microservices and libraries to support functional and library changes from Cassandra 3 to 4; authored migration documentation adopted team-wide, enabling up to a 2x throughput increase during the production rollout",
-              "Leveraged Jenkins and Rancher for Kubernetes management to deploy services, debug issues, and monitor resource usage and performance",
+              "Contributed to a team-led R&D project focused on integrating AI-driven tooling into developer workflows, developing IntelliJ Gradle plugins, and delivering findings to support a company-wide rollout",
+              "Led the research and refactoring of Java Spring Boot microservices and libraries to facilitate a major NoSQL database migration from Cassandra 3 to 4; authored migration documentation adopted team-wide, enabling up to a 2x throughput increase during the production rollout",
+              "• Streamlined deployment of 10 microservices using Jenkins and Rancher to automate CI/CD and maintain Kubernetes consistency",
             ]}
           />
           <ExpCard
@@ -32,7 +32,7 @@ const Experience: React.FC = () => {
               "Led, strategized, and executed projects aimed at enhancing the user interface (UI) and accessibility of the website utilizing ReactJS",
               "Revamped the site with a fresh theme, implementing a responsive design on over 20 components using Bootstrap and SCSS",
               "Refactored the codebase by implementing modular sub-components and integrating a content parsing function, transitioning from inline text to JSON files and generating more than 10 new JSON files for streamlined data organization",
-              "Improved and optimized SEO using React Snap by refining metadata visibility for web crawlers, with a special emphasis on optimizing for Facebook crawlers, given the company’s significant activity on the platform",
+              "Leveraged react-snap to implement pre-rendering, optimizing search engine optimization (SEO) and metadata visibility to ensure 100% content indexability across major search engines and social platforms",
             ]}
           />
           <ExpCard

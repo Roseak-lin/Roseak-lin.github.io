@@ -58,15 +58,15 @@ const CustomNavbar: React.FC = () => {
           </Nav.Link>
         </Nav>
         <Nav className="ms-auto">
-          <OverlayTrigger placement="bottom" overlay={themeTooltip}>
-            <Nav.Link
-              onClick={() => {
-                toggleTheme();
-              }}
-            >
+          <Nav.Link
+            onClick={() => {
+              toggleTheme();
+            }}
+          >
+            <OverlayTrigger placement="bottom" overlay={themeTooltip}>
               {theme === "light" ? <MoonFill /> : <BrightnessHighFill />}
-            </Nav.Link>
-          </OverlayTrigger>
+            </OverlayTrigger>
+          </Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
