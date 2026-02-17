@@ -40,6 +40,7 @@
     background-color: white;
     max-width: 75%;
     max-height: 75%;
+    box-shadow: 2px 4px 16px rgba(51, 51, 51, 0.8);
 }
 
 .image-modal-box img {
@@ -58,14 +59,21 @@
 
 .image-modal-next {
     position: absolute;
-    right: min(-3vw, -2.5em);
+    right: min(-3vw, -3.5em);
     top: 50%;
     border-radius: 50% !important;
+    padding: 0.5em;
 }
 
 .image-modal-prev {
     position: absolute;
-    left: min(-3vw, -2.5em);
+    left: min(-3vw, -3.5em);
     top: 50%;
     border-radius: 50% !important;
+    fill: var(--bs-body-color);
+}
+
+.image-modal-prev svg, .image-modal-next svg {
+    fill: var(--bs-body-color);
+    stroke: var(--bs-body-color)
 }
