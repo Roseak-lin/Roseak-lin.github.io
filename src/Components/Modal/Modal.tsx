@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import "./Modal.css";
 import { ModalContext, useModal } from "./ModalContext";
+import type { ImageExifData } from "../../types/ImageExifData";
 
 interface ModalProps {
   children?: React.ReactNode;
@@ -9,7 +10,7 @@ interface ModalProps {
   setShowModal: (show: boolean) => void;
 }
 
-function Modal({ children, show, setShowModal}: ModalProps) {
+function Modal({ children, show, setShowModal }: ModalProps) {
   return (
     <ModalContext.Provider value={{ onClose: () => setShowModal(false) }}>
       <AnimatePresence>
@@ -48,30 +49,36 @@ function ModalBox({ children }: { children: React.ReactNode }) {
 
   return (
     <div ref={modalRef} className="image-modal-box">
+      <div className="image-modal-header">
+        <h3
+          className="image-modal-close-btn"
+          onClick={() => modalContext.onClose()}
+        >
+          &times;
+        </h3>
+      </div>
       {children}
     </div>
   );
 }
 
-function ModalHeader({ children }: { children: React.ReactNode }) {
-  const modalContext = useModal();
+function ModalFooter({ exifData }: { exifData: ImageExifData }) {
   return (
-    <div className="image-modal-header">
-      <h4 className="image-modal-title">{children}</h4>
-      <h3
-        className="image-modal-close-btn"
-        onClick={() => modalContext.onClose()}
-      >
-        &times;
-      </h3>
+    <div className="image-modal-footer">
+      
+      <div>{exifData.camera}</div>
+      <div>{exifData.focalLength}mm</div>
+      <div>ISO {exifData.iso}</div>
+      <div>f/{exifData.aperture}</div>
+      <div>{exifData.shutter}</div>
     </div>
   );
 }
 
-(Modal as any).Header = ModalHeader;
 (Modal as any).Box = ModalBox;
+(Modal as any).Footer = ModalFooter;
 
 export default Modal as typeof Modal & {
-  Header: typeof ModalHeader;
+  Footer: typeof ModalFooter;
   Box: typeof ModalBox;
 };

@@ -21,10 +21,10 @@
 
 .image-modal-header {
     display: flex;
-    justify-content: space-between;
+    justify-content: end;
     align-items: center;
     width: 100%;
-    padding: 1rem;
+    padding: 0.25em 1em;
     border-radius: 1em 1em 0 0;
     box-sizing: border-box;
     background-color: var(--bs-primary-bg-subtle);
@@ -43,9 +43,6 @@
     box-shadow: 2px 4px 16px rgba(51, 51, 51, 0.8);
 }
 
-.image-modal-box img {
-    border-radius: 0 0 1em 1em;
-}
 
 .image-modal-close-btn {
     user-select: none;
@@ -55,6 +52,22 @@
 .image-modal-close-btn:hover {
     cursor: pointer;
     transform: scale(1.2);
+}
+
+.image-modal-footer {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    border-radius: 0 0 1em 1em;
+    background-color: white;
+    color: black;
+}
+
+.image-modal-footer div {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.75em;
 }
 
 .image-modal-next {

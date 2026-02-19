@@ -4,12 +4,12 @@ import "./PhotographyPage.css";
 import CanvasImage from "../../Components/CanvasImage/Image";
 import Modal from "../../Components/Modal/Modal";
 import { useTheme } from "../../Components/Theme/ThemeContext";
+import type { ImageExifData } from "../../types/ImageExifData";
 
 type ImageData = {
   key: string;
   url: string;
-  width: number;
-  height: number;
+  exifData?: ImageExifData;
 };
 
 const PhotographyPage = () => {
@@ -22,6 +22,7 @@ const PhotographyPage = () => {
   const [selectedImage, setSelectedImage] = useState<{
     url: string;
     alt: string;
+    exifData?: ImageExifData;
     index: number;
   } | null>(null);
   const [modalLoading, setModalLoading] = useState(true);
@@ -53,6 +54,9 @@ const PhotographyPage = () => {
         }
 
         const data = await response.json();
+        data.images.map((image: any) => {
+          image.exifData = convertExifData(image.exifData);
+        });
 
         if (!data.images || !Array.isArray(data.images)) {
           console.error("Unexpected response format:", data);
@@ -71,6 +75,21 @@ const PhotographyPage = () => {
     [WORKER],
   );
 
+  const convertExifData = (
+    exifDataString: string | undefined,
+  ): ImageExifData => {
+    if (!exifDataString) {
+      return { width: 1, height: 1 };
+    } else {
+      try {
+        return JSON.parse(exifDataString);
+      } catch (err) {
+        console.error("Failed to parse EXIF data:", err);
+        return { width: 1, height: 1 };
+      }
+    }
+  };
+
   const selectNextImage = () => {
     if (selectedImage) {
       const newIndex = (selectedImage.index + 1) % images.length;
@@ -78,6 +97,7 @@ const PhotographyPage = () => {
       setSelectedImage({
         url: newImageData.url,
         alt: newImageData.key,
+        exifData: newImageData.exifData,
         index: newIndex,
       });
     }
@@ -93,6 +113,7 @@ const PhotographyPage = () => {
       setSelectedImage({
         url: newImageData.url,
         alt: newImageData.key,
+        exifData: newImageData.exifData,
         index: newIndex,
       });
     }
@@ -109,6 +130,7 @@ const PhotographyPage = () => {
     setSelectedImage({
       url: `${imageData.url}`,
       alt: imageData.key ?? "Image",
+      exifData: imageData.exifData,
       index: index,
     });
   };
@@ -121,8 +143,8 @@ const PhotographyPage = () => {
           key={imageData.key ?? index}
           src={`${WORKER}${imageData.url}`}
           alt={imageData.key}
-          width={imageData.width}
-          height={imageData.height}
+          width={imageData.exifData ? imageData.exifData?.width : 1}
+          height={imageData.exifData ? imageData.exifData?.height : 1}
           onClick={() => handleImageClick(image, index)}
         />
       );
@@ -162,7 +184,6 @@ const PhotographyPage = () => {
       </Container>
       <Modal show={showModal} setShowModal={setShowModal}>
         <Modal.Box>
-          <Modal.Header>{selectedImage?.alt}</Modal.Header>
           {selectedImage && (
             <>
               {modalLoading && (
@@ -197,10 +218,7 @@ const PhotographyPage = () => {
               ></g>
               <g id="SVGRepo_iconCarrier">
                 {" "}
-                <g
-                  id="Group_64"
-                  transform="translate(-624.082 -383.588)"
-                >
+                <g id="Group_64" transform="translate(-624.082 -383.588)">
                   {" "}
                   <path
                     id="Path_56"
@@ -230,10 +248,7 @@ const PhotographyPage = () => {
               ></g>
               <g id="SVGRepo_iconCarrier">
                 {" "}
-                <g
-                  id="Group_65"
-                  transform="translate(-831.568 -384.448)"
-                >
+                <g id="Group_65" transform="translate(-831.568 -384.448)">
                   {" "}
                   <path
                     id="Path_57"
@@ -244,6 +259,10 @@ const PhotographyPage = () => {
               </g>
             </svg>
           </Button>
+
+          <Modal.Footer
+            exifData={selectedImage?.exifData ?? { width: 1, height: 1 }}
+          />
         </Modal.Box>
       </Modal>
     </div>
