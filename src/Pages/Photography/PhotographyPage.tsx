@@ -41,7 +41,7 @@ const PhotographyPage = () => {
         const response = await fetch(
           `${WORKER}/images${cursor ? `?cursor=${cursor}` : ""}`,
           {
-            method: "GET",
+            method: "GET"
           },
         );
 
@@ -176,6 +176,7 @@ const PhotographyPage = () => {
               className="w-75 m-2"
               onClick={loadNextImagePage}
               disabled={loading}
+              aria-label="Load more Images"
             >
               {loading ? "Loading..." : "Load More"}
             </Button>
@@ -203,6 +204,7 @@ const PhotographyPage = () => {
             variant={theme}
             className="image-modal-prev"
             onClick={selectPrevImage}
+            aria-label="Previous Image"
           >
             <svg
               viewBox="-19.04 0 75.803 75.803"
@@ -233,6 +235,7 @@ const PhotographyPage = () => {
             variant={theme}
             className="image-modal-next"
             onClick={selectNextImage}
+            aria-label="Next Image"
           >
             <svg
               viewBox="-19.04 0 75.804 75.804"

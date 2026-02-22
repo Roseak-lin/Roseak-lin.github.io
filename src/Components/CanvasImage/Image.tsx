@@ -19,6 +19,8 @@ const CanvasImage = ({ src, alt, width, height, onClick }: ImageProps) => {
     >
       <img
         className={`canvas-image ${loaded ? "loaded" : ""}`}
+        width={width}
+        height={height}
         src={src}
         alt={alt}
         onLoad={() => {

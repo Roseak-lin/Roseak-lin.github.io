@@ -1,3 +1,15 @@
+:root {
+    --modal-bg: #ffffff;
+    --modal-text: #000000;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --modal-bg: #000000;
+        --modal-text: #ffc107;
+    }
+}
+
 .image-modal-backdrop {
     display: flex;
     align-items: center;
@@ -27,8 +39,7 @@
     padding: 0.25em 1em;
     border-radius: 1em 1em 0 0;
     box-sizing: border-box;
-    background-color: var(--bs-primary-bg-subtle);
-    color: var(--bs-body-color);
+    background-color: var(--modal-bg);
 }
 
 .image-modal-box {
@@ -37,16 +48,16 @@
     border-radius: 1em;
     flex-direction: column;
     z-index: 100;
-    background-color: white;
     max-width: 75%;
     max-height: 75%;
     box-shadow: 2px 4px 16px rgba(51, 51, 51, 0.8);
 }
 
-
 .image-modal-close-btn {
     user-select: none;
     transition: 0.3s;
+    margin: 0;
+    color: var(--modal-text);
 }
 
 .image-modal-close-btn:hover {
@@ -61,8 +72,8 @@
     align-items: center;
     padding: 0.5rem;
     border-radius: 0 0 1em 1em;
-    background-color: white;
-    color: black;
+    background-color: var(--modal-bg);
+    color: var(--modal-text);
 }
 
 .image-modal-footer div {
@@ -83,7 +94,7 @@
     left: min(-3vw, -3.5em);
     top: 50%;
     border-radius: 50% !important;
-    fill: var(--bs-body-color);
+    fill: var(--modal-text);
 }
 
 .image-modal-prev svg, .image-modal-next svg {

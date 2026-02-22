@@ -12,6 +12,7 @@ const Home: React.FC = () => {
           variant="outline-warning"
           className="m-2"
           onClick={() => window.open('https://dmoj.ca/user/chopstick')}
+          aria-label="DMOJ profile"
         >
           <img src="images/dmoj.png" alt="DMOJ" />
         </Button>
@@ -19,6 +20,7 @@ const Home: React.FC = () => {
           variant="outline-dark"
           className="m-2"
           onClick={() => window.open('https://github.com/Roseak-lin')}
+          aria-label="GitHub profile"
         >
           <img src="images/github.jpg" alt="GitHub" />
         </Button>
@@ -26,6 +28,7 @@ const Home: React.FC = () => {
           variant="outline-primary"
           className="m-2"
           onClick={() => window.open('https://linkedin.com/in/roseak-lin')}
+          aria-label="LinkedIn profile"
         >
           <img src="images/linkedin.png" alt="LinkedIn" />
         </Button>

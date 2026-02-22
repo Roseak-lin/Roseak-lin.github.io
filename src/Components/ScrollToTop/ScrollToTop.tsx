@@ -33,6 +33,7 @@ const ScrollToTop: React.FC = () => {
       <button
         className={`to-top ${isVisible ? "d-block" : "d-none"}`}
         onClick={scrollToTop}
+        aria-label="Scroll To Top"
       >
         &#8593;
       </button>

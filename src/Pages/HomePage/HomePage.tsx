@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import Home from "../Home/Home";
-import Experience from "../Home/Experience/Experience";
-import Projects from "../Home/Projects/Projects";
+import Home from "./Home/Home";
+import Experience from "./Experience/Experience";
+import Projects from "./Projects/Projects";
 import { useLocation } from "react-router-dom";
 
 const HomePage: React.FC = () => {
