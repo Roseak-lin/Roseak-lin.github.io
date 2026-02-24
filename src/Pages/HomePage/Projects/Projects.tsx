@@ -17,14 +17,14 @@ const projects: Project[] = [
   {
     title: 'SpotiShare',
     description: "A real-time listening party using Spotify's API and Spotify's Web Player SDK to create a web app that allows users to listen to their favorite songs together.",
-    img: 'images/Spotishare_screenshot.jpg',
+    img: 'images/Spotishare_screenshot.avif',
     repo: 'https://github.com/Roseak-lin/Spotishare',
     hoverColor: "#00dd4a"
   },
   {
     title: 'DSA Visualizer',
     description: 'A web application built using ReactJS that gives visualizations for data structures such as stacks and algorithms such as BFS and DFS.',
-    img: 'images/DSA_screenshot.jpg',
+    img: 'images/DSA_screenshot.avif',
     repo: 'https://github.com/Roseak-lin/DS-and-Algorithm-Visualizer',
     live: 'https://roseak-lin.github.io/DS-and-Algorithm-Visualizer/',
     hoverColor: "#28b0ff"
@@ -32,7 +32,7 @@ const projects: Project[] = [
   {
     title: 'Competitive Programming Solutions',
     description: 'Respositories of my solved problems from the University of Waterloo computing contests (CCC and CCO) and other programming questions from dmoj.ca. All solutions written in Java and C++.',
-    img: 'images/compprog_image.jpg',
+    img: 'images/compprog_image.avif',
     repo: 'https://github.com/Roseak-lin/CCC-CCO-Solutions',
     extra: 'https://github.com/Roseak-lin/DMOJ-solutions',
     hoverColor: "#ffd700"
@@ -40,7 +40,7 @@ const projects: Project[] = [
   {
     title: 'Smart Day',
     description: "This project was created for the 2021 Hack the 6ix hackathon. This project used the OpenWeatherMap API to retrieve data about a user's local weather and suggestions to the user regarding clothing and accessories (umbrellas, water bottles, heavy coats etc.)",
-    img: 'images/smartday_screenshot.jpg',
+    img: 'images/smartday_screenshot.avif',
     repo: 'https://github.com/p-han-tom/hack6-weather-app',
     live: 'https://p-han-tom.github.io/hack6-weather-app/',
     hoverColor: "#28b0ff"
@@ -48,7 +48,7 @@ const projects: Project[] = [
   {
     title: 'Sketchy Studios',
     description: 'This project was created for the 2021 Hack the North Hackathon. Sketchy Studios is a live, interactive party game where you can create a lobby for your friends to join! Built using ReactJS and NodeJS in just 36 hours and features multiple game phases and a full point system!',
-    img: 'images/sketchystudios_screenshot.jpg',
+    img: 'images/sketchystudios_screenshot.avif',
     repo: 'https://github.com/JerryLin1/sketchy-studio',
     hoverColor: "#d22999"
   }

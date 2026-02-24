@@ -14,7 +14,7 @@ const Home: React.FC = () => {
           onClick={() => window.open('https://dmoj.ca/user/chopstick')}
           aria-label="DMOJ profile"
         >
-          <img src="images/dmoj.png" alt="DMOJ" />
+          <img src="images/dmoj.avif" alt="DMOJ" />
         </Button>
         <Button
           variant="outline-dark"
@@ -22,7 +22,7 @@ const Home: React.FC = () => {
           onClick={() => window.open('https://github.com/Roseak-lin')}
           aria-label="GitHub profile"
         >
-          <img src="images/github.jpg" alt="GitHub" />
+          <img src="images/github.avif" alt="GitHub" />
         </Button>
         <Button
           variant="outline-primary"
@@ -30,7 +30,7 @@ const Home: React.FC = () => {
           onClick={() => window.open('https://linkedin.com/in/roseak-lin')}
           aria-label="LinkedIn profile"
         >
-          <img src="images/linkedin.png" alt="LinkedIn" />
+          <img src="images/linkedin.avif" alt="LinkedIn" />
         </Button>
       </div>
     </Container>
