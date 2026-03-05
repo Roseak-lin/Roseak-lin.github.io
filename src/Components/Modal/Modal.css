@@ -94,10 +94,10 @@
     left: min(-3vw, -3.5em);
     top: 50%;
     border-radius: 50% !important;
-    fill: var(--modal-text);
+    padding: 0.5em;
 }
 
 .image-modal-prev svg, .image-modal-next svg {
     fill: var(--bs-body-color);
-    stroke: var(--bs-body-color)
+    stroke: var(--bs-body-color);
 }

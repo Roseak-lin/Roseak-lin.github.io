@@ -28,7 +28,7 @@ export default function ProjCard({
       className="mb-4 proj-card"
       style={{ "--hover-color": hoverColor } as React.CSSProperties}
     >
-      <Card.Img variant="top" src={img} alt={title} />
+      <Card.Img loading="lazy" variant="top" src={img} alt={title} />
       <Card.Body>
         <Card.Title>{title}</Card.Title>
         <Card.Text>{description}</Card.Text>

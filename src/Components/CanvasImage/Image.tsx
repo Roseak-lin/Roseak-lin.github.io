@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { memo, useState } from "react";
 import "./CanvasImage.css";
 
 type ImageProps = {
@@ -9,7 +9,7 @@ type ImageProps = {
   onClick?: () => void;
 };
 
-const CanvasImage = ({ src, alt, width, height, onClick }: ImageProps) => {
+const CanvasImage = memo(({ src, alt, width, height, onClick }: ImageProps) => {
   const [loaded, setLoaded] = useState<boolean>(false);
   return (
     <div
@@ -19,8 +19,6 @@ const CanvasImage = ({ src, alt, width, height, onClick }: ImageProps) => {
     >
       <img
         className={`canvas-image ${loaded ? "loaded" : ""}`}
-        width={width}
-        height={height}
         src={src}
         alt={alt}
         onLoad={() => {
@@ -30,5 +28,5 @@ const CanvasImage = ({ src, alt, width, height, onClick }: ImageProps) => {
       />
     </div>
   );
-};
+});
 export default CanvasImage;
