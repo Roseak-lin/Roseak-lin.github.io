@@ -3,11 +3,9 @@
     --modal-text: #000000;
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        --modal-bg: #000000;
-        --modal-text: #ffc107;
-    }
+[data-bs-theme="light"] {
+    --modal-bg: #ffffff;
+    --modal-text: #000000;
 }
 
 .image-modal-backdrop {
@@ -100,4 +98,5 @@
 .image-modal-prev svg, .image-modal-next svg {
     fill: var(--bs-body-color);
     stroke: var(--bs-body-color);
+    display: block;
 }

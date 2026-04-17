@@ -2,6 +2,9 @@ import { createContext, useContext } from "react";
 
 type ModalContextType = {
     onClose: () => void;
+    visible: boolean;
+    selectNextImage: () => void;
+    selectPrevImage: () => void;
 }
 
 export const ModalContext = createContext<ModalContextType | undefined>(undefined);

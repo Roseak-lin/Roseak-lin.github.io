@@ -1,3 +1,13 @@
+:root {
+    --to-top-bg: rgb(88, 88, 88);
+    --to-top-hover-bg: rgb(180, 180, 180);
+}
+
+[data-bs-theme="dark"] {
+    --to-top-bg: #000000;
+    --to-top-hover-bg: rgb(180, 180, 180);
+}
+
 .to-top {
     display: none;
     position: fixed;
@@ -12,27 +22,13 @@
     cursor: pointer;
     box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.3);
   }
-  
-  .to-top.light {
-    background-color: #fff;
+
+  .to-top {
+    background-color: var(--to-top-bg);
   }
-  
-  .to-top.light:hover {
-    background-color: rgb(88, 88, 88);
-    color: #fff;
-  }
-  
-  .to-top.dark {
-    background-color: rgb(88, 88, 88);
-    color: rgb(255, 255, 255);
-  }
-  
-  .to-top.dark:hover {
-    background-color: rgb(180, 180, 180);
-    color: #000;
-  }
-  
+
   .to-top:hover {
+    background-color: var(--to-top-hover-bg);
     transform: translateY(-5px);
   }
   

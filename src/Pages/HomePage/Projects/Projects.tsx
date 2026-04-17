@@ -15,6 +15,13 @@ interface Project {
 
 const projects: Project[] = [
   {
+    title: 'OptionalEarnings (WIP!)',
+    description: "Analytics application to provide information and insight on companies with upcoming earnings reports to those looking to make short dated options investments.",
+    img: 'images/OptionalEarnings_screenshot.avif',
+    repo: 'https://github.com/Roseak-lin/OptionalEarnings',
+    hoverColor: "#636b7a"
+  },
+  {
     title: 'SpotiShare',
     description: "A real-time listening party using Spotify's API and Spotify's Web Player SDK to create a web app that allows users to listen to their favorite songs together.",
     img: 'images/Spotishare_screenshot.avif',
