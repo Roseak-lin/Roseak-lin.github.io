@@ -143,8 +143,6 @@ const PhotographyPage = () => {
           key={imageData.key ?? index}
           src={`${WORKER}${imageData.url}`}
           alt={imageData.key}
-          width={imageData.exifData ? imageData.exifData?.width : 1}
-          height={imageData.exifData ? imageData.exifData?.height : 1}
         onClick={() => handleImageClick(image, index)}
       />
       );

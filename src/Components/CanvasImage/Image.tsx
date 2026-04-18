@@ -4,17 +4,14 @@ import "./CanvasImage.css";
 type ImageProps = {
   src: string;
   alt: string;
-  width: number;
-  height: number;
   onClick?: () => void;
 };
 
-const CanvasImage = memo(({ src, alt, width, height, onClick }: ImageProps) => {
+const CanvasImage = memo(({ src, alt, onClick }: ImageProps) => {
   const [loaded, setLoaded] = useState<boolean>(false);
   return (
     <div
       className="canvas-image-wrapper"
-      // style={{ aspectRatio: `${width} / ${height}` }}
       onClick={onClick}
     >
       <img
