@@ -41,7 +41,7 @@ const PhotographyPage = () => {
         const response = await fetch(
           `${WORKER}/images${cursor ? `?cursor=${cursor}` : ""}`,
           {
-            method: "GET"
+            method: "GET",
           },
         );
 
@@ -139,14 +139,14 @@ const PhotographyPage = () => {
     return images.map((image: ImageData, index) => {
       const imageData = image;
       return (
-        <CanvasImage
+      <CanvasImage
           key={imageData.key ?? index}
           src={`${WORKER}${imageData.url}`}
           alt={imageData.key}
           width={imageData.exifData ? imageData.exifData?.width : 1}
           height={imageData.exifData ? imageData.exifData?.height : 1}
-          onClick={() => handleImageClick(image, index)}
-        />
+        onClick={() => handleImageClick(image, index)}
+      />
       );
     });
   };
@@ -183,7 +183,12 @@ const PhotographyPage = () => {
           )}
         </Row>
       </Container>
-      <Modal show={showModal} setShowModal={setShowModal} showNextImage={selectNextImage} showPrevImage={selectPrevImage}>
+      <Modal
+        show={showModal}
+        setShowModal={setShowModal}
+        showNextImage={selectNextImage}
+        showPrevImage={selectPrevImage}
+      >
         <Modal.Box>
           {selectedImage && (
             <>

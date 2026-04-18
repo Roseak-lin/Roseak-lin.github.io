@@ -14,7 +14,7 @@ const CanvasImage = memo(({ src, alt, width, height, onClick }: ImageProps) => {
   return (
     <div
       className="canvas-image-wrapper"
-      style={{ aspectRatio: `${width} / ${height}` }}
+      // style={{ aspectRatio: `${width} / ${height}` }}
       onClick={onClick}
     >
       <img

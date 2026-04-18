@@ -1,6 +1,6 @@
 :root {
-    --modal-bg: #ffffff;
-    --modal-text: #000000;
+    --modal-bg: #2b3035;
+    --modal-text: #ffffff;
 }
 
 [data-bs-theme="light"] {
@@ -37,7 +37,7 @@
     padding: 0.25em 1em;
     border-radius: 1em 1em 0 0;
     box-sizing: border-box;
-    background-color: var(--modal-bg);
+    background-color: var(--bs-tertiary-bg);
 }
 
 .image-modal-box {
@@ -70,8 +70,8 @@
     align-items: center;
     padding: 0.5rem;
     border-radius: 0 0 1em 1em;
-    background-color: var(--modal-bg);
-    color: var(--modal-text);
+    background-color: var(--bs-tertiary-bg);
+    color: var(--bs-emphasis-color);
 }
 
 .image-modal-footer div {

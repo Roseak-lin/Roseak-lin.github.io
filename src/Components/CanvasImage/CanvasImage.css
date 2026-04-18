@@ -1,7 +1,7 @@
 .canvas-image-wrapper {
     position: relative;
     overflow: hidden;
-    padding: 1em;
+    padding: 1em 0.5em;
 }
 
 .canvas-image {
