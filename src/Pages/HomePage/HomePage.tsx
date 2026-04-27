@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
+import React, { lazy, useEffect } from "react";
 import Home from "./Home/Home";
-import Experience from "./Experience/Experience";
-import Projects from "./Projects/Projects";
 import { useLocation } from "react-router-dom";
+
+const Experience = lazy(() => import("./Experience/Experience"));
+const Projects = lazy(() => import("./Projects/Projects"));
 
 const HomePage: React.FC = () => {
   const location = useLocation();
@@ -16,6 +17,7 @@ const HomePage: React.FC = () => {
       }
     }
   }, [location.state]); // This effect runs whenever the navigation state changes
+
 
   return (
     <div className="App">

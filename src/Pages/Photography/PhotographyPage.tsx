@@ -8,8 +8,32 @@ import type { ImageExifData } from "../../types/ImageExifData";
 
 type ImageData = {
   key: string;
-  url: string;
+  imageId: string;
   exifData?: ImageExifData;
+};
+
+const WORKER =
+  window.location.hostname === "localhost" ||
+  window.location.hostname === "127.0.0.1"
+    ? "http://127.0.0.1:8787"
+    : "https://personal-website-worker.roseak-lin.workers.dev";
+
+const initialFetchPromise = fetch(`${WORKER}/images`).then((res) => {
+  if (!res.ok) throw new Error("Fetch failed");
+  return res.json();
+});
+
+const convertExifData = (exifDataString: string | undefined): ImageExifData => {
+  if (!exifDataString) {
+    return { width: 1, height: 1 };
+  } else {
+    try {
+      return JSON.parse(exifDataString);
+    } catch (err) {
+      console.error("Failed to parse EXIF data:", err);
+      return { width: 1, height: 1 };
+    }
+  }
 };
 
 const PhotographyPage = () => {
@@ -20,7 +44,7 @@ const PhotographyPage = () => {
 
   // New state for modal
   const [selectedImage, setSelectedImage] = useState<{
-    url: string;
+    imageId: string;
     alt: string;
     exifData?: ImageExifData;
     index: number;
@@ -28,74 +52,32 @@ const PhotographyPage = () => {
   const [modalLoading, setModalLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
 
-  const WORKER =
-    window.location.hostname === "localhost" ||
-    window.location.hostname === "127.0.0.1"
-      ? "http://127.0.0.1:8787"
-      : "https://personal-website-worker.roseak-lin.workers.dev";
+  const fetchMoreImages = useCallback(async (nextCursor: string) => {
+    try {
+      setLoading(true);
+      const response = await fetch(`${WORKER}/images?cursor=${nextCursor}`);
+      const data = await response.json();
+      console.log(data)
+      const processedImages = data.images.map((image: any) => ({
+        ...image,
+        exifData: convertExifData(image.exifData),
+      }));
 
-  const fetchImages = useCallback(
-    async (cursor: string | null | undefined) => {
-      try {
-        setLoading(true);
-        const response = await fetch(
-          `${WORKER}/images${cursor ? `?cursor=${cursor}` : ""}`,
-          {
-            method: "GET",
-          },
-        );
-
-        if (!response.ok) {
-          console.error(
-            `Fetch failed: ${response.status} ${response.statusText}`,
-          );
-          setImages([]);
-          return;
-        }
-
-        const data = await response.json();
-        data.images.map((image: any) => {
-          image.exifData = convertExifData(image.exifData);
-        });
-
-        if (!data.images || !Array.isArray(data.images)) {
-          console.error("Unexpected response format:", data);
-          setImages([]);
-          return;
-        }
-        setCursor(data.cursor);
-        setImages((currImages) => [...currImages, ...data.images]);
-      } catch (err) {
-        console.error("Network or server error:", err);
-        setImages([]);
-      } finally {
-        setLoading(false);
-      }
-    },
-    [WORKER],
-  );
-
-  const convertExifData = (
-    exifDataString: string | undefined,
-  ): ImageExifData => {
-    if (!exifDataString) {
-      return { width: 1, height: 1 };
-    } else {
-      try {
-        return JSON.parse(exifDataString);
-      } catch (err) {
-        console.error("Failed to parse EXIF data:", err);
-        return { width: 1, height: 1 };
-      }
+      setCursor(data.cursor);
+      setImages((curr) => [...curr, ...processedImages]);
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setLoading(false);
     }
-  };
+  }, []);
 
   const selectNextImage = useCallback(() => {
     if (selectedImage) {
       const newIndex = (selectedImage.index + 1) % images.length;
       const newImageData: ImageData = images[newIndex];
       setSelectedImage({
-        url: newImageData.url,
+        imageId: newImageData.imageId,
         alt: newImageData.key,
         exifData: newImageData.exifData,
         index: newIndex,
@@ -111,7 +93,7 @@ const PhotographyPage = () => {
           : selectedImage.index - 1;
       const newImageData: ImageData = images[newIndex];
       setSelectedImage({
-        url: newImageData.url,
+        imageId: newImageData.imageId,
         alt: newImageData.key,
         exifData: newImageData.exifData,
         index: newIndex,
@@ -120,15 +102,25 @@ const PhotographyPage = () => {
   }, [images, selectedImage]);
 
   useEffect(() => {
-    fetchImages(undefined);
-  }, [fetchImages]);
+    initialFetchPromise
+      .then((data) => {
+        const processedImages = data.images.map((image: any) => ({
+          ...image,
+          exifData: convertExifData(image.exifData),
+        }));
+        setImages(processedImages);
+        setCursor(data.cursor);
+      })
+      .catch((err) => console.error(err))
+      .finally(() => setLoading(false));
+  }, []);
 
   const handleImageClick = (image: ImageData, index: number) => {
     const imageData = image;
     setModalLoading(true);
     setShowModal(true);
     setSelectedImage({
-      url: `${imageData.url}`,
+      imageId: `${imageData.imageId}`,
       alt: imageData.key ?? "Image",
       exifData: imageData.exifData,
       index: index,
@@ -139,20 +131,18 @@ const PhotographyPage = () => {
     return images.map((image: ImageData, index) => {
       const imageData = image;
       return (
-      <CanvasImage
+        <CanvasImage
           key={imageData.key ?? index}
-          src={`${WORKER}${imageData.url}`}
+          src={`${WORKER}/images/preview/${imageData.imageId}`}
           alt={imageData.key}
-        onClick={() => handleImageClick(image, index)}
-      />
+          onClick={() => handleImageClick(image, index)}
+        />
       );
     });
   };
 
-  const loadNextImagePage = async () => {
-    if (cursor) {
-      await fetchImages(cursor);
-    }
+  const loadNextImagePage = () => {
+    if (cursor) fetchMoreImages(cursor);
   };
 
   return (
@@ -194,7 +184,7 @@ const PhotographyPage = () => {
                 <Spinner animation="border" role="status" className="me-3" />
               )}
               <img
-                src={`${WORKER}${selectedImage.url}`}
+                src={`${WORKER}/images/${selectedImage.imageId}`}
                 alt={selectedImage.alt}
                 onLoad={() => setModalLoading(false)}
                 style={{
