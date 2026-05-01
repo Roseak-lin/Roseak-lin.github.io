@@ -57,7 +57,6 @@ const PhotographyPage = () => {
       setLoading(true);
       const response = await fetch(`${WORKER}/images?cursor=${nextCursor}`);
       const data = await response.json();
-      console.log(data)
       const processedImages = data.images.map((image: any) => ({
         ...image,
         exifData: convertExifData(image.exifData),
@@ -133,7 +132,7 @@ const PhotographyPage = () => {
       return (
         <CanvasImage
           key={imageData.key ?? index}
-          src={`${WORKER}/images/preview/${imageData.imageId}`}
+          src={`${WORKER}/images/${imageData.imageId}`}
           alt={imageData.key}
           onClick={() => handleImageClick(image, index)}
         />
