@@ -4,7 +4,6 @@ import { Route, Routes } from "react-router-dom";
 
 const Home = lazy(() => import("./Pages/HomePage/HomePage"));
 const Photography = lazy(() => import("./Pages/Photography/PhotographyPage"));
-const Admin = lazy(() => import("./cloudflare"));
 
 const App: React.FC = () => {
   return (
@@ -12,7 +11,6 @@ const App: React.FC = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/photography" element={<Photography />} />
-        <Route path="/admin" element={<Admin />} />
       </Routes>
     </Suspense>
   );

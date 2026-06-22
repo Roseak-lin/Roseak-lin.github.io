@@ -81,7 +81,7 @@
 
 .image-modal-next {
     position: absolute;
-    right: min(-3vw, -3.5em);
+    right: min(-5vw, -2.5em);
     top: 50%;
     border-radius: 50% !important;
     padding: 0.5em;
@@ -89,7 +89,7 @@
 
 .image-modal-prev {
     position: absolute;
-    left: min(-3vw, -3.5em);
+    left: min(-5vw, -2.5em);
     top: 50%;
     border-radius: 50% !important;
     padding: 0.5em;
