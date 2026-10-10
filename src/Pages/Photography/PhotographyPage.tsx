@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState, type ReactNode } from "react";
-import { Button, Container, Row, Spinner } from "react-bootstrap";
+import { Button, Container, Spinner } from "react-bootstrap";
 import "./PhotographyPage.css";
 import CanvasImage from "../../Components/CanvasImage/Image";
 import Modal from "../../Components/Modal/Modal";
@@ -18,10 +18,14 @@ const WORKER =
     ? "http://127.0.0.1:8787"
     : "https://personal-website-worker.roseak-lin.workers.dev";
 
-const initialFetchPromise = fetch(`${WORKER}/images`).then((res) => {
-  if (!res.ok) throw new Error("Fetch failed");
-  return res.json();
-});
+const fetchJson = (url: string) =>
+  fetch(url).then((res) => {
+    if (!res.ok) throw new Error("Fetch failed");
+    return res.json();
+  });
+
+// Kick off the first request as soon as the module loads
+const initialFetchPromise = fetchJson(`${WORKER}/images`);
 
 const convertExifData = (exifDataString: string | undefined): ImageExifData => {
   if (!exifDataString) {
@@ -35,6 +39,12 @@ const convertExifData = (exifDataString: string | undefined): ImageExifData => {
     }
   }
 };
+
+const processImages = (rawImages: any[]): ImageData[] =>
+  rawImages.map((image: any) => ({
+    ...image,
+    exifData: convertExifData(image.exifData),
+  }));
 
 // Keep these breakpoints in sync with the CSS
 const getColumnCount = () => {
@@ -55,12 +65,17 @@ const useColumnCount = () => {
   return count;
 };
 
+// width / height ratios so the skeleton tiles look like a real photo mix
+const SKELETON_RATIOS = [1.25, 0.8, 1, 1.5, 0.75, 1.1, 0.9, 1.3];
+
 const PhotographyPage = () => {
   const { theme } = useTheme();
   const columnCount = useColumnCount();
   const [images, setImages] = useState<ImageData[]>([]);
   const [cursor, setCursor] = useState<string | null | undefined>();
   const [loading, setLoading] = useState(false);
+  const [initialLoading, setInitialLoading] = useState(true);
+  const [error, setError] = useState(false);
 
   // New state for modal
   const [selectedImage, setSelectedImage] = useState<{
@@ -72,18 +87,27 @@ const PhotographyPage = () => {
   const [modalLoading, setModalLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
 
+  const loadFirstPage = useCallback((request: Promise<any>) => {
+    setInitialLoading(true);
+    setError(false);
+    request
+      .then((data) => {
+        setImages(processImages(data.images));
+        setCursor(data.cursor);
+      })
+      .catch((err) => {
+        console.error(err);
+        setError(true);
+      })
+      .finally(() => setInitialLoading(false));
+  }, []);
+
   const fetchMoreImages = useCallback(async (nextCursor: string) => {
     try {
       setLoading(true);
-      const response = await fetch(`${WORKER}/images?cursor=${nextCursor}`);
-      const data = await response.json();
-      const processedImages = data.images.map((image: any) => ({
-        ...image,
-        exifData: convertExifData(image.exifData),
-      }));
-
+      const data = await fetchJson(`${WORKER}/images?cursor=${nextCursor}`);
       setCursor(data.cursor);
-      setImages((curr) => [...curr, ...processedImages]);
+      setImages((curr) => [...curr, ...processImages(data.images)]);
     } catch (err) {
       console.error(err);
     } finally {
@@ -121,18 +145,10 @@ const PhotographyPage = () => {
   }, [images, selectedImage]);
 
   useEffect(() => {
-    initialFetchPromise
-      .then((data) => {
-        const processedImages = data.images.map((image: any) => ({
-          ...image,
-          exifData: convertExifData(image.exifData),
-        }));
-        setImages(processedImages);
-        setCursor(data.cursor);
-      })
-      .catch((err) => console.error(err))
-      .finally(() => setLoading(false));
-  }, []);
+    loadFirstPage(initialFetchPromise);
+  }, [loadFirstPage]);
+
+  const retryFirstPage = () => loadFirstPage(fetchJson(`${WORKER}/images`));
 
   const handleImageClick = (image: ImageData, index: number) => {
     const imageData = image;
@@ -148,22 +164,12 @@ const PhotographyPage = () => {
 
   // Deal images out round-robin so the order reads left to right and
   // new images only append to the bottom of each column.
-  const imageGrid = () => {
+  const buildColumns = (items: ReactNode[]) => {
     const columns: ReactNode[][] = Array.from(
       { length: columnCount },
       () => []
     );
-
-    images.forEach((image: ImageData, index) => {
-      columns[index % columnCount].push(
-        <CanvasImage
-          key={image.key ?? index}
-          src={`${WORKER}/images/${image.imageId}`}
-          alt={image.key}
-          onClick={() => handleImageClick(image, index)}
-        />
-      );
-    });
+    items.forEach((item, index) => columns[index % columnCount].push(item));
 
     return columns.map((column, i) => (
       <div className="canvas-column" key={i}>
@@ -172,36 +178,93 @@ const PhotographyPage = () => {
     ));
   };
 
+  const skeletonGrid = () =>
+    buildColumns(
+      Array.from({ length: columnCount * 3 }, (_, i) => (
+        <div
+          key={i}
+          className="canvas-skeleton"
+          style={{ aspectRatio: SKELETON_RATIOS[i % SKELETON_RATIOS.length] }}
+          aria-hidden="true"
+        />
+      ))
+    );
+
+  const imageGrid = () =>
+    buildColumns(
+      images.map((image: ImageData, index) => (
+        <CanvasImage
+          key={image.key ?? index}
+          src={`${WORKER}/images/${image.imageId}`}
+          alt={image.key}
+          onClick={() => handleImageClick(image, index)}
+        />
+      ))
+    );
+
   const loadNextImagePage = () => {
     if (cursor) fetchMoreImages(cursor);
   };
 
+  const reachedEnd = !cursor && images.length > 0 && !initialLoading;
+
   return (
-    <div className="app">
+    <div className="app photography-page">
       <Container fluid>
-        <h1 className="section-title">
-          A little collection of my photography :)
-        </h1>
-        <div className="canvas">{imageGrid()}</div>
-        <Row className="m-0 justify-content-center">
-          {loading && (
-            <Spinner className="my-2" animation="grow" role="status" />
-          )}
-        </Row>
-        <Row className="m-0 justify-content-center">
+        <header className="photography-page__header">
+          <h1 className="section-title">Photography</h1>
+          <span className="photography-page__eyebrow">
+            A little collection of my photography :)
+          </span>
+        </header>
+
+        {error ? (
+          <div className="photography-page__status" role="alert">
+            <p>Couldn't load the photos right now.</p>
+            <Button
+              variant={`outline-${theme == "dark" ? "light" : "dark"}`}
+              className="photography-page__load-more"
+              onClick={retryFirstPage}
+            >
+              Try again
+            </Button>
+          </div>
+        ) : (
+          <div className="canvas" aria-busy={initialLoading}>
+            {initialLoading ? skeletonGrid() : imageGrid()}
+          </div>
+        )}
+
+        <div className="photography-page__actions">
           {cursor && (
             <Button
               variant={`outline-${theme == "dark" ? "light" : "dark"}`}
-              className="w-75 m-2"
+              className="photography-page__load-more"
               onClick={loadNextImagePage}
               disabled={loading}
               aria-label="Load more Images"
             >
+              {loading && (
+                <Spinner
+                  as="span"
+                  animation="border"
+                  size="sm"
+                  role="status"
+                  aria-hidden="true"
+                  className="me-2"
+                />
+              )}
               {loading ? "Loading..." : "Load More"}
             </Button>
           )}
-        </Row>
+          {reachedEnd && (
+            <p className="photography-page__end">
+              That's everything for now
+            </p>
+          )}
+        </div>
       </Container>
+
       <Modal
         show={showModal}
         setShowModal={setShowModal}

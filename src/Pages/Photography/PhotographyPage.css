@@ -4,14 +4,9 @@
   padding: clamp(2rem, 5vw, 5rem) 0 5rem;
 }
 
-.photography-page__inner {
-  width: min(100% - 2rem, 1480px);
-  margin-inline: auto;
-}
-
 .photography-page__header {
   max-width: 760px;
-  margin: 0 auto clamp(2.5rem, 5vw, 4.5rem);
+  margin: 0 auto clamp(2rem, 4vw, 3.5rem);
   text-align: center;
 }
 
@@ -25,54 +20,106 @@
   opacity: 0.65;
 }
 
-.photography-page__title {
-  margin: 0;
-  font-size: clamp(2.5rem, 6vw, 5rem);
-  font-weight: 600;
-  letter-spacing: -0.055em;
-  line-height: 1.05;
-}
-
-.photography-page__description {
-  max-width: 520px;
-  margin: 1.2rem auto 0;
-  font-size: clamp(1rem, 1.5vw, 1.125rem);
-  line-height: 1.7;
-  opacity: 0.7;
-}
-
+/* Column count is controlled by useColumnCount() in PhotographyPage.tsx.
+   Keep the breakpoints (1068px, 480px) in sync. */
 .canvas {
-  column-count: 4;
-  column-gap: clamp(0.5rem, 1.5vw, 0.75rem);
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  margin: 0;
   display: flex;
   align-items: flex-start;
+  gap: clamp(0.5rem, 1.5vw, 0.75rem);
+  margin: 0;
 }
 
-/* Keep each existing CanvasImage tile together within its column. */
-.canvas > * {
+.canvas-column {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  gap: clamp(0.5rem, 1.5vw, 0.75rem);
+  min-width: 0;
+}
+
+.canvas-column > * {
   display: block;
   width: 100%;
-  margin: 0 0 clamp(0.75rem, 1.5vw, 1.25rem);
-  break-inside: avoid;
-  -webkit-column-break-inside: avoid;
 }
 
+/* Photo tiles */
+.canvas-column > *:not(.canvas-skeleton) {
+  border-radius: 0.25em;
+  overflow: hidden;
+  cursor: pointer;
+  animation: tile-in 450ms ease both;
+  transition: transform 250ms ease, box-shadow 250ms ease;
+}
+
+@media (hover: hover) {
+  .canvas-column > *:not(.canvas-skeleton):hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgb(0 0 0 / 22%);
+  }
+}
+
+/* Loading skeletons */
+.canvas-skeleton {
+  border-radius: 0.25em;
+  background: linear-gradient(
+    100deg,
+    var(--bs-secondary-bg) 30%,
+    var(--bs-tertiary-bg) 50%,
+    var(--bs-secondary-bg) 70%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.4s linear infinite;
+}
+
+@keyframes shimmer {
+  from {
+    background-position: 100% 0;
+  }
+  to {
+    background-position: -100% 0;
+  }
+}
+
+@keyframes tile-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Load more / status */
 .photography-page__actions {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   padding-top: clamp(2rem, 4vw, 3.5rem);
+}
+
+.photography-page__status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.photography-page__end {
+  margin: 0;
+  font-size: 0.875rem;
+  opacity: 0.6;
 }
 
 .photography-page__load-more {
   min-width: 180px;
   padding: 0.8rem 1.6rem;
-  border-radius: 999px;
+  border-radius: 0.25em;
   font-weight: 600;
-  transition:
-    transform 180ms ease,
-    box-shadow 180ms ease;
+  transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
 .photography-page__load-more:hover:not(:disabled) {
@@ -85,24 +132,14 @@
   outline-offset: 4px;
 }
 
-@media (max-width: 1068px) {
-  .canvas {
-    column-count: 2;
-  }
-}
-
-@media (max-width: 480px) {
-  .photography-page__inner {
-    width: min(100% - 1.5rem, 1480px);
-  }
-
-  .canvas {
-    column-count: 1;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .photography-page__load-more {
+  .photography-page__load-more,
+  .canvas-column > *:not(.canvas-skeleton) {
     transition: none;
+    animation: none;
+  }
+
+  .canvas-skeleton {
+    animation: none;
   }
 }

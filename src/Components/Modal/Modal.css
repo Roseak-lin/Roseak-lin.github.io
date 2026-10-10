@@ -22,7 +22,7 @@
   width: fit-content;
   max-width: 75%;
   max-height: 75%;
-  border-radius: 20px;
+  border-radius: 0.25em;
   background: var(--bs-tertiary-bg);
   box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
 }
@@ -41,7 +41,7 @@
   min-height: 44px;
   padding: 0.25rem 0.75rem;
   background: var(--bs-tertiary-bg);
-  border-radius: 20px 20px 0 0;
+  border-radius: 0.25em 0.25em 0 0;
 }
 
 .image-modal-close-btn {
@@ -77,7 +77,7 @@
   width: 42px;
   height: 42px;
   transform: translateY(-50%);
-  border-radius: 25%;
+  border-radius: 0.25em;
 }
 
 .image-modal-prev {
@@ -105,7 +105,7 @@
   text-align: center;
   background: var(--bs-tertiary-bg);
   color: var(--bs-emphasis-color);
-  border-radius: 0 0 20px 20px;
+  border-radius: 0 0 0.25em 0.25em;
 }
 
 .image-modal-footer div {
