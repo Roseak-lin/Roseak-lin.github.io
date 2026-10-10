@@ -86,12 +86,14 @@ function ModalBox({ children }: { children: React.ReactNode }) {
   return (
     <div ref={modalRef} className="image-modal-box">
       <div className="image-modal-header">
-        <h3
+        <button
+          type="button"
           className="image-modal-close-btn"
-          onClick={() => modalContext.onClose()}
+          onClick={modalContext.onClose}
+          aria-label="Close photo viewer"
         >
-          &times;
-        </h3>
+          <span aria-hidden="true">&times;</span>
+        </button>
         <Button
           variant={theme}
           className="image-modal-prev"
@@ -163,11 +165,11 @@ function ModalBox({ children }: { children: React.ReactNode }) {
 function ModalFooter({ exifData }: { exifData: ImageExifData }) {
   return (
     <div className="image-modal-footer">
-      <div>{exifData.camera}</div>
-      <div>{exifData.focalLength}mm</div>
-      <div>ISO {exifData.iso}</div>
-      <div>f/{exifData.aperture}</div>
-      <div>{exifData.shutter}</div>
+      <div id="camera-make">{exifData.camera}</div>
+      <div id="focal-length">{exifData.focalLength}mm</div>
+      <div id="iso">ISO {exifData.iso}</div>
+      <div id="aperture">f/{exifData.aperture}</div>
+      <div id="shutter">{exifData.shutter}</div>
     </div>
   );
 }

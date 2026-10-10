@@ -1,17 +1,108 @@
+/* PhotographyPage.css */
+.photography-page {
+  min-height: 100vh;
+  padding: clamp(2rem, 5vw, 5rem) 0 5rem;
+}
+
+.photography-page__inner {
+  width: min(100% - 2rem, 1480px);
+  margin-inline: auto;
+}
+
+.photography-page__header {
+  max-width: 760px;
+  margin: 0 auto clamp(2.5rem, 5vw, 4.5rem);
+  text-align: center;
+}
+
+.photography-page__eyebrow {
+  display: block;
+  margin-bottom: 0.8rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  opacity: 0.65;
+}
+
+.photography-page__title {
+  margin: 0;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 600;
+  letter-spacing: -0.055em;
+  line-height: 1.05;
+}
+
+.photography-page__description {
+  max-width: 520px;
+  margin: 1.2rem auto 0;
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  line-height: 1.7;
+  opacity: 0.7;
+}
+
 .canvas {
-    column-count: 4;
-    column-gap: 0;
-    margin: 0;
+  column-count: 4;
+  column-gap: clamp(0.5rem, 1.5vw, 0.75rem);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 0;
+  display: flex;
+  align-items: flex-start;
 }
 
-@media screen and (max-width: 1068px) {
-    .canvas {
-        column-count: 2;
-    }
+/* Keep each existing CanvasImage tile together within its column. */
+.canvas > * {
+  display: block;
+  width: 100%;
+  margin: 0 0 clamp(0.75rem, 1.5vw, 1.25rem);
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
 }
 
-@media screen and (max-width: 480px) {
-    .canvas {
-        column-count: 1;
-    }   
+.photography-page__actions {
+  display: flex;
+  justify-content: center;
+  padding-top: clamp(2rem, 4vw, 3.5rem);
+}
+
+.photography-page__load-more {
+  min-width: 180px;
+  padding: 0.8rem 1.6rem;
+  border-radius: 999px;
+  font-weight: 600;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.photography-page__load-more:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgb(0 0 0 / 12%);
+}
+
+.photography-page__load-more:focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 4px;
+}
+
+@media (max-width: 1068px) {
+  .canvas {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 480px) {
+  .photography-page__inner {
+    width: min(100% - 1.5rem, 1480px);
+  }
+
+  .canvas {
+    column-count: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .photography-page__load-more {
+    transition: none;
+  }
 }

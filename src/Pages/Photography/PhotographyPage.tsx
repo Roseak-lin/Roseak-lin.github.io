@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState, type ReactNode } from "react";
 import { Button, Container, Row, Spinner } from "react-bootstrap";
 import "./PhotographyPage.css";
 import CanvasImage from "../../Components/CanvasImage/Image";
@@ -36,8 +36,28 @@ const convertExifData = (exifDataString: string | undefined): ImageExifData => {
   }
 };
 
+// Keep these breakpoints in sync with the CSS
+const getColumnCount = () => {
+  if (window.matchMedia("(max-width: 480px)").matches) return 1;
+  if (window.matchMedia("(max-width: 1068px)").matches) return 2;
+  return 4;
+};
+
+const useColumnCount = () => {
+  const [count, setCount] = useState(getColumnCount);
+
+  useEffect(() => {
+    const onResize = () => setCount(getColumnCount());
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
+  return count;
+};
+
 const PhotographyPage = () => {
   const { theme } = useTheme();
+  const columnCount = useColumnCount();
   const [images, setImages] = useState<ImageData[]>([]);
   const [cursor, setCursor] = useState<string | null | undefined>();
   const [loading, setLoading] = useState(false);
@@ -126,18 +146,30 @@ const PhotographyPage = () => {
     });
   };
 
+  // Deal images out round-robin so the order reads left to right and
+  // new images only append to the bottom of each column.
   const imageGrid = () => {
-    return images.map((image: ImageData, index) => {
-      const imageData = image;
-      return (
+    const columns: ReactNode[][] = Array.from(
+      { length: columnCount },
+      () => []
+    );
+
+    images.forEach((image: ImageData, index) => {
+      columns[index % columnCount].push(
         <CanvasImage
-          key={imageData.key ?? index}
-          src={`${WORKER}/images/${imageData.imageId}`}
-          alt={imageData.key}
+          key={image.key ?? index}
+          src={`${WORKER}/images/${image.imageId}`}
+          alt={image.key}
           onClick={() => handleImageClick(image, index)}
         />
       );
     });
+
+    return columns.map((column, i) => (
+      <div className="canvas-column" key={i}>
+        {column}
+      </div>
+    ));
   };
 
   const loadNextImagePage = () => {

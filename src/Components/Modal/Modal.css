@@ -1,13 +1,3 @@
-:root {
-    --modal-bg: #2b3035;
-    --modal-text: #ffffff;
-}
-
-[data-bs-theme="light"] {
-    --modal-bg: #ffffff;
-    --modal-text: #000000;
-}
-
 .image-modal-backdrop {
     display: flex;
     align-items: center;
@@ -25,78 +15,127 @@
     height: 100vh;
 }
 
-.image-modal-backdrop.show {
-    display: flex;
+.image-modal-box {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  max-width: 75%;
+  max-height: 75%;
+  border-radius: 20px;
+  background: var(--bs-tertiary-bg);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+}
+
+.image-modal-box > img {
+  display: block;
+  width: auto;
+  height: auto;
+  object-fit: contain;
 }
 
 .image-modal-header {
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    width: 100%;
-    padding: 0.25em 1em;
-    border-radius: 1em 1em 0 0;
-    box-sizing: border-box;
-    background-color: var(--bs-tertiary-bg);
-}
-
-.image-modal-box {
-    position: relative;
-    display: flex;
-    border-radius: 1em;
-    flex-direction: column;
-    z-index: 100;
-    max-width: 75%;
-    max-height: 75%;
-    box-shadow: 2px 4px 16px rgba(51, 51, 51, 0.8);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  min-height: 44px;
+  padding: 0.25rem 0.75rem;
+  background: var(--bs-tertiary-bg);
+  border-radius: 20px 20px 0 0;
 }
 
 .image-modal-close-btn {
-    user-select: none;
-    transition: 0.3s;
-    margin: 0;
-    color: var(--modal-text);
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--bs-body-color);
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
 }
 
 .image-modal-close-btn:hover {
-    cursor: pointer;
-    transform: scale(1.2);
+  background: rgba(128, 128, 128, 0.18);
 }
 
-.image-modal-footer {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem;
-    border-radius: 0 0 1em 1em;
-    background-color: var(--bs-tertiary-bg);
-    color: var(--bs-emphasis-color);
+.image-modal-close-btn:focus-visible,
+.image-modal-prev:focus-visible,
+.image-modal-next:focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 2px;
 }
 
-.image-modal-footer div {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 0.75em;
-}
-
+.image-modal-prev,
 .image-modal-next {
-    position: absolute;
-    right: min(-5vw, -2.5em);
-    top: 50%;
-    border-radius: 50% !important;
-    padding: 0.5em;
+  position: absolute;
+  top: 50%;
+  width: 42px;
+  height: 42px;
+  transform: translateY(-50%);
+  border-radius: 25%;
 }
 
 .image-modal-prev {
-    position: absolute;
-    left: min(-5vw, -2.5em);
-    top: 50%;
-    border-radius: 50% !important;
-    padding: 0.5em;
+  left: calc(-1 * (42px + 0.75rem));
 }
 
-.image-modal-prev svg, .image-modal-next svg {
-    fill: var(--bs-body-color);
-    stroke: var(--bs-body-color);
-    display: block;
+.image-modal-next {
+  right: calc(-1 * (42px + 0.75rem));
+}
+
+.image-modal-prev svg,
+.image-modal-next svg {
+  display: block;
+  fill: currentColor;
+  stroke: currentColor;
+}
+
+.image-modal-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.35rem 1.25rem;
+  padding: 0.75rem 1rem;
+  text-align: center;
+  background: var(--bs-tertiary-bg);
+  color: var(--bs-emphasis-color);
+  border-radius: 0 0 20px 20px;
+}
+
+.image-modal-footer div {
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 0.75rem;
+}
+
+.image-modal-footer #camera-make {
+    font-weight: bold;
+    font-size: 1em;
+}
+
+@media (max-width: 600px) {
+  .image-modal-box {
+    max-width: 100%;
+  }
+
+  .image-modal-box > img {
+    max-height: calc(92dvh - 125px);
+  }
+
+  .image-modal-prev,
+  .image-modal-next {
+    width: 38px;
+    height: 38px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .image-modal-close-btn {
+    transition: none;
+  }
 }
