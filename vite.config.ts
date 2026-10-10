@@ -8,12 +8,26 @@ export default defineConfig({
     port: 3000
   },
   build: {
-    rollupOptions: {
+    rolldownOptions: {
       output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom', 'react-router-dom'],
-          animations: ['motion'],
-          particles: ['@tsparticles/engine', '@tsparticles/react', 'tsparticles']
+        codeSplitting: {
+          groups: [
+            {
+              name: 'particles',
+              test: /node_modules[\\/](@tsparticles|tsparticles)[\\/]/,
+              priority: 3
+            },
+            {
+              name: 'animations',
+              test: /node_modules[\\/]motion[\\/]/,
+              priority: 2
+            },
+            {
+              name: 'vendor',
+              test: /node_modules[\\/](react|react-dom|react-router-dom|scheduler)[\\/]/,
+              priority: 1
+            }
+          ]
         }
       }
     }
