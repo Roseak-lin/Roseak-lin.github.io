@@ -1,68 +1,68 @@
-import { useEffect, useState, memo, useMemo } from "react";
-import Particles, { initParticlesEngine } from "@tsparticles/react";
+import { memo, useMemo } from "react";
+import Particles, { ParticlesProvider } from "@tsparticles/react";
 import { loadFull } from "tsparticles";
-import { type Engine } from "@tsparticles/engine";
+import { type Engine, type ISourceOptions } from "@tsparticles/engine";
 
 import "./Particles.css";
 import { useTheme } from "../Theme/ThemeContext";
 
-export default memo(function ParticlesComponent() {
-  const [init, setInit] = useState(false);
-  const { theme } = useTheme();
+// Must be a stable reference: ParticlesProvider throws if init changes
+const initEngine = async (engine: Engine) => {
+  await loadFull(engine);
+};
 
-  useEffect(() => {
-    initParticlesEngine(async (engine: Engine) => {
-      await loadFull(engine);
-    }).then(() => {
-      setInit(true);
-    });
-  }, []);
+export default memo(function ParticlesComponent() {
+  const { theme } = useTheme();
 
   const particleColor = theme === "dark" ? "#ffffff" : "#000000";
 
   // memoize the options so tsparticles doesn't re-draw on every theme toggle
-  const options = useMemo(() => ({
-    fullScreen: { enable: false },
-    particles: {
-      number: {
-        value: 60,
-        density: { enable: true },
+  const options = useMemo<ISourceOptions>(
+    () => ({
+      fullScreen: { enable: false },
+      particles: {
+        number: {
+          value: 60,
+          density: { enable: true },
+        },
+        // v4: color moved from particles.color to particles.paint
+        paint: {
+          fill: {
+            enable: true,
+            color: { value: particleColor },
+          },
+        },
+        shape: { type: "circle" },
+        opacity: {
+          value: 0.75,
+        },
+        size: {
+          value: 3,
+        },
+        links: {
+          enable: true,
+          distance: 200,
+          color: particleColor,
+          opacity: 0.5,
+          width: 0.5,
+        },
+        move: {
+          enable: true,
+          speed: 8,
+          direction: "none",
+          random: true,
+          straight: false,
+          outModes: { default: "out" },
+        },
       },
-      color: {
-        value: particleColor,
-      },
-      shape: { type: "circle" },
-      opacity: {
-        value: 0.75,
-      },
-      size: {
-        value: 3,
-      },
-      links: {
-        enable: true,
-        distance: 200,
-        color: particleColor,
-        opacity: 0.5,
-        width: 0.5,
-      },
-      move: {
-        enable: true,
-        speed: 8,
-        direction: "none",
-        random: true,
-        straight: false,
-        outModes: { default: "out" },
-      },
-    },
-    detectRetina: false,
-  }), [particleColor]); 
-
-  if (!init) return null;
+      detectRetina: false,
+    }),
+    [particleColor],
+  );
 
   return (
-    <Particles
-      id="tsparticles"
-      options={options as any}
-    />
+    <ParticlesProvider init={initEngine}>
+      <Particles id="tsparticles" options={options} />
+    </ParticlesProvider>
   );
 });
