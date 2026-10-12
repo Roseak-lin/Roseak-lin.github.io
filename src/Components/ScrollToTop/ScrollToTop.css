@@ -1,11 +1,11 @@
 :root {
-    --to-top-bg: rgb(88, 88, 88);
-    --to-top-hover-bg: rgb(180, 180, 180);
+    --to-top-bg: rgb(180, 180, 180);
+    --to-top-hover-bg: rgb(200, 200, 200);
 }
 
 [data-bs-theme="dark"] {
     --to-top-bg: #000000;
-    --to-top-hover-bg: rgb(180, 180, 180);
+    --to-top-hover-bg: rgb(130, 130, 130);
 }
 
 .to-top {

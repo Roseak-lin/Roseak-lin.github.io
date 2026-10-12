@@ -1,52 +1,134 @@
-#home {
-    height: 100vh;
+:root {
+    --home-accent-1: #38bdf8;
+    --home-accent-2: #a78bfa;
 }
 
-#name {
-    height: 90%;
+#home {
+    min-height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 5em;
+    gap: 2.5rem;
+    padding: 2rem 1rem;
     text-align: center;
 }
 
-#name:hover {
+#hero {
+    animation: fade-up 0.8s ease-out both;
+}
+
+#name {
+    margin: 0;
+    font-size: clamp(3rem, 10vw, 6rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    background: linear-gradient(90deg, var(--home-accent-1), var(--home-accent-2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
     cursor: default;
 }
 
-#links {
-    position: absolute;
-    bottom: 0.5em;
-    font-size: 3em;
-    margin-left: 0.5em;
+#tagline {
+    margin: 0.75rem 0 0;
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.7;
 }
 
-#links img {
+#links {
+    display: flex;
+    gap: 1.25rem;
+    animation: fade-up 0.8s ease-out 0.25s both;
+}
+
+/* Colors come from the Bootstrap variant on each Button */
+#links .profile-link {
+    --glow: rgba(255, 255, 255, 0.4);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 65px;
+    height: 65px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    box-shadow: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Per-link glow colors matching each accent */
+#links .profile-link.btn-outline-warning {
+    --glow: rgba(255, 193, 7, 0.65);
+}
+
+#links .profile-link.btn-outline-dark {
+    --glow: rgba(33, 37, 41, 0.7);
+}
+
+#links .profile-link.btn-outline-primary {
+    --glow: rgba(13, 110, 253, 0.65);
+}
+
+#links .profile-link img {
     border-radius: 50%;
     max-width: 50px;
     max-height: 50px;
 }
 
-#links button {
-    border-radius: 50%;
-    width: 65px;
-    height: 65px;
-    border: none;
-    padding: 0px;
-    transition: 0.3s;
+/* Glow appears only on hover / keyboard focus */
+#links .profile-link:hover,
+#links .profile-link:focus-visible {
+    transform: translateY(-4px) scale(1.2);
+    box-shadow: 0 0 22px 6px var(--glow);
 }
 
-#links button:hover {
-    transform: scale(1.25);
+/* Label on hover / keyboard focus */
+#links .profile-link::after {
+    content: attr(data-label);
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.2rem 0.6rem;
+    border-radius: 6px;
+    background: rgba(15, 23, 42, 0.9);
+    color: #f8fafc;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
 }
 
-@media screen and (max-width: 767px) {
-    #name {
-        font-size: 3.25em;
+#links .profile-link:hover::after,
+#links .profile-link:focus-visible::after {
+    opacity: 1;
+}
+
+@keyframes fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #hero,
+    #links {
+        animation: none;
     }
 
-    #links {
-        font-size: 2.5em;
+    #name,
+    #links .profile-link {
+        transition: none;
     }
 }
