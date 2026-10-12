@@ -1,6 +1,6 @@
 import React from "react";
 import { Container } from "react-bootstrap";
-import ExpCard from "../../../Components/ExpCard/ExpCard";
+import ExpCard from "./ExpCard/ExpCard";
 import "./Experience.css";
 
 interface Job {

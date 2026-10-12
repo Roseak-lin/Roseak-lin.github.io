@@ -1,6 +1,6 @@
 import { Button, Card } from "react-bootstrap";
 import "./ProjCard.css";
-import { useTheme } from "../Theme/ThemeContext";
+import { useTheme } from "../../../../context/ThemeContext";
 
 type ProjCardProps = {
   title: string;

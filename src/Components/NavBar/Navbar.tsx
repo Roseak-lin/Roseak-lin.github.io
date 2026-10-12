@@ -1,7 +1,7 @@
 import React from "react";
 import { Navbar, Nav, Tooltip, OverlayTrigger } from "react-bootstrap";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useTheme } from "../Theme/ThemeContext";
+import { useTheme } from "../../context/ThemeContext";
 import { BrightnessHighFill, MoonFill } from "react-bootstrap-icons";
 
 const CustomNavbar: React.FC = () => {

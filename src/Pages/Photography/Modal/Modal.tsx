@@ -2,10 +2,10 @@ import { useEffect, useRef } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import "./Modal.css";
 import { ModalContext, useModal } from "./ModalContext";
-import type { ImageExifData } from "../../types/ImageExifData";
+import type { ImageExifData } from "../../../types/ImageExifData";
 
 import { Button } from "react-bootstrap";
-import { useTheme } from "../Theme/ThemeContext";
+import { useTheme } from "../../../context/ThemeContext";
 
 interface ModalProps {
   children?: React.ReactNode;

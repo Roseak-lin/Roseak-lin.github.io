@@ -1,18 +1,41 @@
 /* PhotographyPage.css */
 .photography-page {
   min-height: 100vh;
-  padding: clamp(2rem, 5vw, 5rem) 0 5rem;
+  /* Extra top padding to clear the fixed-top navbar */
+  padding: clamp(5rem, 8vw, 7rem) 0 5rem;
+}
+
+.trip-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: inherit;
+  text-decoration: none;
+  opacity: 0.7;
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.trip-back:hover {
+  opacity: 1;
+  transform: translateX(-3px);
 }
 
 .photography-page__header {
   max-width: 760px;
-  margin: 0 auto clamp(2rem, 4vw, 3.5rem);
+  margin: 0 auto clamp(2rem, 4vw, 3rem);
   text-align: center;
 }
 
 .photography-page__eyebrow {
-  display: block;
-  margin-bottom: 0.8rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.75rem;
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.22em;
@@ -20,30 +43,93 @@
   opacity: 0.65;
 }
 
-/* Column count is controlled by useColumnCount() in PhotographyPage.tsx.
-   Keep the breakpoints (1068px, 480px) in sync. */
-.canvas {
-  display: flex;
-  align-items: flex-start;
-  gap: clamp(0.5rem, 1.5vw, 0.75rem);
-  margin: 0;
+.photography-page__title {
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.2;
 }
 
-.canvas-column {
-  display: flex;
-  flex: 1 1 0;
-  flex-direction: column;
-  gap: clamp(0.5rem, 1.5vw, 0.75rem);
-  min-width: 0;
+.trip-date {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+  opacity: 0.7;
 }
 
-.canvas-column > * {
-  display: block;
+.photography-page__description {
+  margin: 0 auto;
+  max-width: 600px;
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+/* Trip index grid */
+.trip-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Highlights / Favorites strip */
+.highlights {
+  margin-bottom: 2.5rem;
+}
+
+.trip-section-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.highlights__track {
+  display: flex;
+  gap: 0.75rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+
+.highlights__item {
+  height: 200px;
+  flex: 0 0 auto;
+  border-radius: 0.35rem;
+  overflow: hidden;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.highlights__item img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-/* Photo tiles */
-.canvas-column > *:not(.canvas-skeleton) {
+/* Filter toolbar */
+.trip-toolbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.75rem;
+}
+
+.trip-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+/* Masonry photo tiles */
+.photo-tile {
+  position: relative;
   border-radius: 0.25em;
   overflow: hidden;
   cursor: pointer;
@@ -52,32 +138,25 @@
 }
 
 @media (hover: hover) {
-  .canvas-column > *:not(.canvas-skeleton):hover {
+  .photo-tile:hover {
     transform: translateY(-3px);
     box-shadow: 0 12px 32px rgb(0 0 0 / 22%);
   }
 }
 
-/* Loading skeletons */
-.canvas-skeleton {
-  border-radius: 0.25em;
-  background: linear-gradient(
-    100deg,
-    var(--bs-secondary-bg) 30%,
-    var(--bs-tertiary-bg) 50%,
-    var(--bs-secondary-bg) 70%
-  );
-  background-size: 200% 100%;
-  animation: shimmer 1.4s linear infinite;
-}
-
-@keyframes shimmer {
-  from {
-    background-position: 100% 0;
-  }
-  to {
-    background-position: -100% 0;
-  }
+.photo-tile__star {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem;
+  border-radius: 50%;
+  background: rgb(0 0 0 / 55%);
+  color: #ffd700;
+  font-size: 0.75rem;
+  pointer-events: none;
 }
 
 @keyframes tile-in {
@@ -132,14 +211,54 @@
   outline-offset: 4px;
 }
 
+/* Previous / Next trip pager */
+.trip-pager {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 3.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgb(128 128 128 / 20%);
+}
+
+.trip-pager__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: inherit;
+  text-decoration: none;
+  font-weight: 600;
+  opacity: 0.8;
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.trip-pager__link:hover {
+  opacity: 1;
+}
+
+.trip-pager__link span {
+  display: flex;
+  flex-direction: column;
+}
+
+.trip-pager__link small {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.65;
+}
+
+.trip-pager__link--next {
+  text-align: right;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .photography-page__load-more,
-  .canvas-column > *:not(.canvas-skeleton) {
+  .photo-tile,
+  .trip-back,
+  .trip-pager__link {
     transition: none;
-    animation: none;
-  }
-
-  .canvas-skeleton {
     animation: none;
   }
 }

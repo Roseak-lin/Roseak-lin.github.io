@@ -1,0 +1,129 @@
+.trip-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  aspect-ratio: 16 / 10;
+  min-height: 240px;
+  border: 1px solid var(--bs-border-color);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  background-color: #111418;
+  color: #ffffff;
+  text-decoration: none;
+  isolation: isolate;
+  transition: transform 250ms ease, box-shadow 250ms ease, border-color 250ms ease;
+}
+
+@media (hover: hover) {
+  .trip-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 255, 255, 0.35);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.28);
+  }
+}
+
+/* Semi-transparent cover photo background layer */
+.trip-card__image {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.5;
+  transition: transform 400ms ease, opacity 300ms ease;
+}
+
+@media (hover: hover) {
+  .trip-card:hover .trip-card__image {
+    transform: scale(1.04);
+    opacity: 0.68;
+  }
+}
+
+/* Subtle gradient scrim to keep top-layer text legible */
+.trip-card__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.65) 0%,
+    rgba(0, 0, 0, 0.4) 45%,
+    rgba(0, 0, 0, 0.75) 100%
+  );
+}
+
+.trip-card__header {
+  position: relative;
+  z-index: 2;
+  padding: 1.5rem 1.5rem 0;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.trip-card__body {
+  position: relative;
+  z-index: 2;
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  padding: 0 1.5rem 1.5rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.trip-card__title {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #ffffff;
+}
+
+.trip-card__details {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.trip-card__location,
+.trip-card__date {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.trip-card--skeleton {
+  background: linear-gradient(
+    100deg,
+    var(--bs-secondary-bg) 30%,
+    var(--bs-tertiary-bg) 50%,
+    var(--bs-secondary-bg) 70%
+  );
+  background-size: 200% 100%;
+  animation: trip-card-shimmer 1.4s linear infinite;
+}
+
+@keyframes trip-card-shimmer {
+  from {
+    background-position: 100% 0;
+  }
+  to {
+    background-position: -100% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trip-card,
+  .trip-card__image {
+    transition: none;
+  }
+
+  .trip-card--skeleton {
+    animation: none;
+  }
+}

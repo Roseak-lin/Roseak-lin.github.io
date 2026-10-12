@@ -6,7 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { HashRouter } from "react-router-dom";
 import CustomNavbar from "./Components/NavBar/Navbar";
 import ScrollToTop from "./Components/ScrollToTop/ScrollToTop";
-import { ThemeProvider } from "./Components/Theme/ThemeContext";
+import { ThemeProvider } from "./context/ThemeContext";
 import Particles from "./Components/Particles/Particles";
 
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import "./Projects.css";
-import ProjCard from "../../../Components/ProjCard/ProjCard";
+import ProjCard from "./ProjCard/ProjCard";
 
 interface Project {
   title: string;

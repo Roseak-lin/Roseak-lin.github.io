@@ -4,7 +4,7 @@ import { loadFull } from "tsparticles";
 import { type Engine, type ISourceOptions } from "@tsparticles/engine";
 
 import "./Particles.css";
-import { useTheme } from "../Theme/ThemeContext";
+import { useTheme } from "../../context/ThemeContext";
 
 // Must be a stable reference: ParticlesProvider throws if init changes
 const initEngine = async (engine: Engine) => {

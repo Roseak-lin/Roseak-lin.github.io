@@ -1,0 +1,46 @@
+.masonry {
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(0.5rem, 1.5vw, 0.75rem);
+  margin: 0;
+}
+
+.masonry-column {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  gap: clamp(0.5rem, 1.5vw, 0.75rem);
+  min-width: 0;
+}
+
+.masonry-column > * {
+  display: block;
+  width: 100%;
+}
+
+.masonry-skeleton {
+  border-radius: 0.25em;
+  background: linear-gradient(
+    100deg,
+    var(--bs-secondary-bg) 30%,
+    var(--bs-tertiary-bg) 50%,
+    var(--bs-secondary-bg) 70%
+  );
+  background-size: 200% 100%;
+  animation: masonry-shimmer 1.4s linear infinite;
+}
+
+@keyframes masonry-shimmer {
+  from {
+    background-position: 100% 0;
+  }
+  to {
+    background-position: -100% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .masonry-skeleton {
+    animation: none;
+  }
+}
